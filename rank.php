@@ -46,7 +46,6 @@
   <small>" . $xr[3] . "</small>
 </div>
 <p class='mb-1'>SCORE: " . $xr[1] . "</p>
-<small>" . $xr[4] . "</small>
 </a>";
         endforeach
         ?>
