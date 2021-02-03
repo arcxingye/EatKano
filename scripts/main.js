@@ -135,6 +135,7 @@ function gameRestart() {
 }
 
 function gameStart() {
+    _date1 = new Date();
     _gameStart = true;
     _gameTime = setInterval(gameTime, 10);
 }
@@ -150,12 +151,18 @@ function gameOver() {
 }
 
 function SubmitResults() {
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.open('POST', './SubmitResults.php', true);
-    httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    let name = document.getElementById("name").value;
-    let token = Math.ceil(Math.random() * 10);
-    httpRequest.send('score=' + _gameScore + '&name=' + name);
+    let date2 = new Date();
+    if ((_date1.getTime() - date2.getTime()) > -21000) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', './SubmitResults.php', true);
+        httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        let name = document.getElementById("name").value;
+        let token = Math.ceil(Math.random() * 10);
+        httpRequest.send('score=' + _gameScore + '&name=' + name);
+    } else {
+        alert("由于您的设备运行过慢，倒计时无法正常运行")
+    }
+
 }
 
 
