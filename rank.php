@@ -23,60 +23,61 @@
 <body>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+      <li class="breadcrumb-item"><a href="./index.php">继续肝</a></li>
       <li class="breadcrumb-item active" aria-current="page">Rank</li>
     </ol>
   </nav>
   <div class="page-header text-center">
     <h1>排行榜</h1>
-    提示：必须完成20s才能上榜。不要总是想着作弊哦。<a href="https://space.bilibili.com/3853579">作者：星夜(混个脸熟)</a>
+    提示：必须完成20s才能上榜。不要总是想着作弊哦。<a href="https://space.bilibili.com/3853579">作者：星夜(联系/混个脸熟)</a>
   </div>
-      <div class="list-group">
+  <div class="list-group">
+    <?php
+    include('conn.php');
+    $num = 30;
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    if ($page <= 0) {
+      $page = $page + 1;
+    }
+    $offset = ($page - 1) * $num;
+    //数据
+    $result1 = mysqli_query($link, "SELECT * FROM kano1_rank ORDER BY score DESC limit {$offset},{$num}");
+    $data = mysqli_fetch_all($result1);
+    //长度
+    $result2 = mysqli_query($link, "SELECT count(*) FROM kano1_rank");
+    $count = mysqli_fetch_row($result2);
+    if ($count[0] > $num * 9) {
+      $count = $num * 9;
+    } else {
+      $count = $count[0];
+    }
+    $total = ceil($count / $num);
+    if ($page >= $total) {
+      $page = $page - 1;
+    }
+    $rank = $offset;
+    foreach ($data as $row) :
+      $rank += 1;
+      echo "<a href='#' class='list-group-item list-group-item-action active'><div class='d-flex w-100 justify-content-between'>
+            <h5 class='mb-1'>" . $rank . "位   " . $row[2] . "</h5><small>" . $row[3] . "</small></div><p class='mb-1'>SCORE: " . $row[1] . " -" . $row[4] . " -" . $row[5] . "</p>
+            <small>".$row[6]."</small></a>";
+    endforeach
+    ?>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
         <?php
-        include('conn.php');
-        $num = 30;
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-        if ($page <= 0) {
-          $page = $page + 1;
-        }
-        $offset = ($page - 1) * $num;
-        //数据
-        $result1 = mysqli_query($link, "SELECT * FROM kano1_rank ORDER BY score DESC limit {$offset},{$num}");
-        $data = mysqli_fetch_all($result1);
-        //长度
-        $result2 = mysqli_query($link, "SELECT count(*) FROM kano1_rank");
-        $count = mysqli_fetch_row($result2);
-        if ($count[0] > $num * 9) {
-          $count = $num * 9;
-        } else {
-          $count = $count[0];
-        }
         $total = ceil($count / $num);
         if ($page >= $total) {
           $page = $page - 1;
         }
-        $rank = $offset;
-        foreach ($data as $row) :
-          $rank += 1;
-          echo "<a href='#' class='list-group-item list-group-item-action active'><div class='d-flex w-100 justify-content-between'>
-                <h5 class='mb-1'>" . $rank . "位   " . $row[2] . "</h5><small>" . $row[3] . "</small></div><p class='mb-1'>SCORE: " . $row[1] . "</p></a>";
-        endforeach
+        echo "<li class='page-item'>";
+        echo "<a class='page-link' href='?page=" . ($page - 1) . "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+        for ($p = 1; $p <= $total; $p++) {
+          echo "<li class='page-item'><a class='page-link' href='?page=" . $p . "'>" . $p . "</a></li>";
+        }
+        echo "<li class='page-item'><a class='page-link' href='?page=" . ($page + 1) . "' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
         ?>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination">
-            <?php
-            $total = ceil($count / $num);
-            if ($page >= $total) {
-              $page = $page - 1;
-            }
-            echo "<li class='page-item'>";
-            echo "<a class='page-link' href='?page=" . ($page - 1) . "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
-            for ($p = 1; $p <= $total; $p++) {
-              echo "<li class='page-item'><a class='page-link' href='?page=" . $p . "'>" . $p . "</a></li>";
-            }
-            echo "<li class='page-item'><a class='page-link' href='?page=" . ($page + 1) . "' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
-            ?>
-          </ul>
-        </nav>
+      </ul>
+    </nav>
   </div>
 </body>

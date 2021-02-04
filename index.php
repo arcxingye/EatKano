@@ -4,10 +4,18 @@
 <head>
     <title>吃掉小鹿乃</title>
     <meta item="description" content="你无聊吗？" />
+    <meta name="Keywords" content="吃掉小鹿乃" />
     <meta itemprop="image" content="https://www.thac.cc/kano/res/logo.jpg" />
     <meta charset="utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <?php
+    session_start();
+    $str = str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890');
+    $_SESSION['token'] = $str;
+    echo '<script>var __token="' . $str . '"</script>'
+    ?>
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -92,7 +100,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">名字</span>
                     </div>
-                    <input type="text" id="name" class="form-control" placeholder="用于纪录排行(文字以外字符会被过滤)" aria-label="username" aria-describedby="basic-addon1">
+                    <input type="text" id="name" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)" aria-label="username" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">留言</span>
+                    </div>
+                    <input type="text" id="message" class="form-control" maxlength=50 placeholder="可不填(特殊字符会被过滤)" aria-label="username" aria-describedby="basic-addon1">
                 </div>
                 <br />
                 <div id="ready-btn" class="btn loading" style="display:inline-block; margin:0 auto; width:8em; height:1.7em; line-height:1.7em; font-size:2.2em; color:#fff;">

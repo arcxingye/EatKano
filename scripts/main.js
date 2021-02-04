@@ -151,31 +151,43 @@ function gameOver() {
 }
 
 function SubmitResults() {
-    let date2 = new Date();
-    if ((_date1.getTime() - date2.getTime()) > -21000) {
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open('POST', './SubmitResults.php', true);
-        httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        let name = document.getElementById("name").value;
-        let token = Math.ceil(Math.random() * 10);
-        httpRequest.send('score=' + _gameScore + '&name=' + name);
-    } else {
-        alert("由于您的设备运行过慢，倒计时无法正常运行")
+    var date2 = new Date();
+    var systeminfo = "其他操作系统";
+    var area = "异世界";
+    var message = "这个人很懒，什么也没有留下"
+    if (document.getElementById("name").value) {
+        if (navigator.appVersion.indexOf("Win") != -1) systeminfo = "Windows";
+        if (navigator.appVersion.indexOf("Mac") != -1) systeminfo = "Macintosh";
+        if (navigator.appVersion.indexOf("Linux") != -1) systeminfo = "Linux";
+        if (navigator.appVersion.indexOf("Android") != -1) systeminfo = "Android";
+        if (navigator.appVersion.indexOf("like Mac") != -1) systeminfo = "iOS";
+        if (returnCitySN['cname']) { area = returnCitySN['cname'] };
+        if ((date2.getTime() - _date1.getTime()) <= 22500) {
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open('POST', './SubmitResults.php', true);
+            httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var name = document.getElementById("name").value;
+            if (document.getElementById("message").value) {
+                message = document.getElementById("message").value;
+            }
+            httpRequest.send('score=' + _gameScore + '&name=' + name + '&token=' + __token + '&systeminfo=' + systeminfo + '&area=' + area + '&message=' + message);
+        } else {
+            alert("由于您的设备运行过慢，倒计时无法正常运行,请尝试更换更好的设备或者关掉多余的后台。时间偏差" + ((((date2.getTime() - _date1.getTime())) - 20000) / 1000) + "秒")
+        }
     }
-
 }
 
 
 function gameTime() {
     _gameTimeNum--;
     if (_gameTimeNum <= 0) {
-        if (_gameScore < 300) {
-            SubmitResults()
-        }
         GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
         gameOver();
         GameLayerBG.className += ' flash';
         createjs.Sound.play("end");
+        if (_gameScore < 300) {
+            SubmitResults()
+        }
     } else {
         GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     }
