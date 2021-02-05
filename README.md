@@ -5,4 +5,6 @@
 
 排行榜为一小时写的弃疗产物，安全性低，不推荐直接使用
 
-数据库字段id score name time systeminfo area
+数据库字段id score name time systeminfo area message
+
+带哥们点个star吧
