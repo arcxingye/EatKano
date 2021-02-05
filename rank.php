@@ -29,7 +29,7 @@
   </nav>
   <div class="page-header text-center">
     <h1>排行榜</h1>
-    提示：必须完成20s才能上榜。不要总是想着作弊哦。<a href="https://space.bilibili.com/3853579">作者：星夜(联系/混个脸熟)</a>
+    粉丝向游戏请手下留情不要乱搞，榜仅供小鹿包交流。<a href="https://space.bilibili.com/3853579">作者：星夜(联系/混个脸熟)</a>
   </div>
   <div class="list-group">
     <?php

@@ -162,7 +162,7 @@ function SubmitResults() {
         if (navigator.appVersion.indexOf("Android") != -1) systeminfo = "Android";
         if (navigator.appVersion.indexOf("like Mac") != -1) systeminfo = "iOS";
         if (returnCitySN['cname']) { area = returnCitySN['cname'] };
-        if ((date2.getTime() - _date1.getTime()) <= 22500) {
+        if ((date2.getTime() - _date1.getTime()) <= 21500) {
             var httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -170,7 +170,7 @@ function SubmitResults() {
             if (document.getElementById("message").value) {
                 message = document.getElementById("message").value;
             }
-            httpRequest.send('score=' + _gameScore + '&name=' + name + '&token=' + __token + '&systeminfo=' + systeminfo + '&area=' + area + '&message=' + message);
+            httpRequest.send('score=' + _gameScore + '&name=' + name + '&t=' + __tj + '&systeminfo=' + systeminfo + '&area=' + area + '&message=' + message);
         } else {
             alert("由于您的设备运行过慢，倒计时无法正常运行,请尝试更换更好的设备或者关掉多余的后台。时间偏差" + ((((date2.getTime() - _date1.getTime())) - 20000) / 1000) + "秒")
         }

@@ -9,24 +9,22 @@
     <meta charset="utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <?php
     session_start();
-    $str = str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890');
-    $_SESSION['token'] = $str;
-    echo '<script>var __token="' . $str . '"</script>'
+    $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'),0,8);
+    $_SESSION['t'] = $str;
+    echo "
+    <script>var _hmt = _hmt || [];var __tj='".$str."';
+    (function() {
+        var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?d41fa227018de3772f58108c76d3dfd5';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();</script>"
     ?>
     <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?d41fa227018de3772f58108c76d3dfd5";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-    <script>
-        console.log("修改的人我劝你好自为之，这种小游戏都需要修改？")
+        console.log("修改的人我劝你好自为之，这种粉丝向小游戏都需要修改？图个啥？别搞了")
         document.onkeydown = function(e) {
             if (e.ctrlKey &&
                 (e.keyCode === 65 ||
@@ -107,7 +105,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">留言</span>
                     </div>
-                    <input type="text" id="message" class="form-control" maxlength=50 placeholder="可不填(特殊字符会被过滤)" aria-label="username" aria-describedby="basic-addon1">
+                    <input type="text" id="message" class="form-control" maxlength=50 placeholder="禁广告/脏话(本项可不填)" aria-label="username" aria-describedby="basic-addon1">
                 </div>
                 <br />
                 <div id="ready-btn" class="btn loading" style="display:inline-block; margin:0 auto; width:8em; height:1.7em; line-height:1.7em; font-size:2.2em; color:#fff;">
