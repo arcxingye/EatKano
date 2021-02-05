@@ -1,5 +1,5 @@
 <?php
-$link = new mysqli('localhost', 'xingye', 'kano520xingye112', 'kano');
+$link = new mysqli();
 mysqli_set_charset($link, 'utf8');
 if ($link->connect_error) {
     die("连接失败: " . $conn->connect_error);
