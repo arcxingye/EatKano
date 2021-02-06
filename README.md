@@ -7,4 +7,4 @@
 
 数据库字段id score name time systeminfo area message
 
-带哥们点个star吧
+欢迎帮写和修改
