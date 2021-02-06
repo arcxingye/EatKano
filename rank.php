@@ -9,6 +9,7 @@
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script data-ad-client="ca-pub-6239573602007020" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
     var _hmt = _hmt || [];
     (function() {
@@ -29,7 +30,12 @@
   </nav>
   <div class="page-header text-center">
     <h1>排行榜</h1>
-    粉丝向游戏请手下留情不要乱搞，榜仅供小鹿包交流。<a href="https://space.bilibili.com/3853579">作者：星夜(联系/混个脸熟)</a>
+    鹿乃千舰企划Q群1049504065
+    <!--作者的游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a>-->
+    <br/>
+    粉丝向游戏请手下留情勿乱搞榜仅供鹿友交流。
+    <br/>
+    <a href="https://space.bilibili.com/3853579">作者：星夜(点击联系/混个脸熟)</a>
   </div>
   <div class="list-group">
     <?php

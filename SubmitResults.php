@@ -6,7 +6,7 @@ $name = $_POST['name'];
 $area = $_POST['area'];
 $systeminfo = $_POST['systeminfo'];
 $message = $_POST['message'];
-if ((strlen($name) <= 30) && ($score < 244)&& ($message <= 150)&&($_POST['t']==$_SESSION['t'])) {
+if ((strlen($name) <= 30) && ($score < 300)&& ($message <= 150)&&($_POST['t']==$_SESSION['t'])) {
     $str1 = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
     $str2 = "/\ |\/|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\[|\]|\/|\;|\'|\`|\-|\=|\\\|\|/";
     preg_replace($str1, "", $name);
