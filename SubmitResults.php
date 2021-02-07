@@ -1,12 +1,15 @@
 <?php
 session_start();
+require 'Decipher.php';
 include('conn.php');
-$score = $_POST['score'];
+$ciphertext = $_POST['ciphertext'];
+$decipherList = decipher($ciphertext);
+$score = $decipherList[0];
 $name = $_POST['name'];
 $area = $_POST['area'];
-$systeminfo = $_POST['systeminfo'];
+$systeminfo = $decipherList[1];
 $message = $_POST['message'];
-if ((strlen($name) <= 30) && ($score < 300)&& ($message <= 150)&&($_POST['t']==$_SESSION['t'])) {
+if ((strlen($name) <= 30) && ($score < 300) && ($message <= 150) && ($_POST['t'] == $_SESSION['t'])) {
     $str1 = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
     $str2 = "/\ |\/|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\[|\]|\/|\;|\'|\`|\-|\=|\\\|\|/";
     preg_replace($str1, "", $name);
@@ -17,12 +20,12 @@ if ((strlen($name) <= 30) && ($score < 300)&& ($message <= 150)&&($_POST['t']==$
     $data = mysqli_fetch_all($result);
     if ($data) {
         if ($score > $data[0][1]) {
-            $sql="UPDATE kano1_rank SET score=?,time=NOW(),systeminfo=?,area=?,message=? WHERE name=?";
+            $sql = "UPDATE kano1_rank SET score=?,time=NOW(),systeminfo=?,area=?,message=? WHERE name=?";
         }
     } else {
-        $sql="INSERT INTO kano1_rank (score,time,systeminfo,area,message,name) VALUES (?,NOW(),?,?,?,?)";
+        $sql = "INSERT INTO kano1_rank (score,time,systeminfo,area,message,name) VALUES (?,NOW(),?,?,?,?)";
     }
-    if($sql){
+    if ($sql) {
         $stmt = $link->prepare($sql);
         $stmt->bind_param('issss', $score, $systeminfo, $area, $message, $name);
         $stmt->execute();

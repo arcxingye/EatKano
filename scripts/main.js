@@ -1,6 +1,6 @@
 var xtltle = '';
 window.shareData = {
-    "imgUrl": "https://www.thac.cc/kano/x/02.png",
+    "imgUrl": "https://www.thac.cc/kano/x/img/02.png",
     "timeLineLink": "https://www.thac.cc/kano/x/",
     "tTitle": "小鹿乃",
     "tContent": "小鹿乃"
@@ -150,6 +150,15 @@ function gameOver() {
     }, 1500);
 }
 
+function cipher(plaintext) {
+    var temp = plaintext.split('');
+    var result = "";
+    for (var i = 0; i < temp.length; i++) {
+        result += '' + Math.pow(temp[i].charCodeAt(), 5) % 3431 + '-';
+    }
+    return result;
+}
+
 function SubmitResults() {
     var date2 = new Date();
     var systeminfo = "其他操作系统";
@@ -162,7 +171,7 @@ function SubmitResults() {
         if (navigator.appVersion.indexOf("Android") != -1) systeminfo = "Android";
         if (navigator.appVersion.indexOf("like Mac") != -1) systeminfo = "iOS";
         if (returnCitySN['cname']) { area = returnCitySN['cname'] };
-        if ((date2.getTime() - _date1.getTime()) <= 21500) {
+        if ((date2.getTime() - _date1.getTime()) <= 22000) {
             var httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -170,7 +179,8 @@ function SubmitResults() {
             if (document.getElementById("message").value) {
                 message = document.getElementById("message").value;
             }
-            httpRequest.send('score=' + _gameScore + '&name=' + name + '&t=' + __tj + '&systeminfo=' + systeminfo + '&area=' + area + '&message=' + message);
+            var ciphertext = cipher('' + _gameScore + ' ' + systeminfo);
+            httpRequest.send('ciphertext=' + ciphertext + '&name=' + name + '&t=' + __tj + '&area=' + area + '&message=' + message);
         } else {
             alert("由于您的设备运行过慢，倒计时无法正常运行,请尝试更换更好的设备或者关掉多余的后台。时间偏差" + ((((date2.getTime() - _date1.getTime())) - 20000) / 1000) + "秒")
         }
@@ -354,8 +364,8 @@ function shareText(score) {
     if (score <= 99) return 'TCL';
     if (score <= 149) return 'TQL';
     if (score <= 199) return '您';
-    if (score > 199&&score< 330) return '人？';
-    if (score > 330) return '建议检查下时间';
+    if (score > 199 && score < 300) return '人？';
+    if (score > 300) return '疑似使用作弊，成绩作废';
 }
 
 function shareText1(score) {
