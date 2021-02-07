@@ -354,8 +354,8 @@ function shareText(score) {
     if (score <= 99) return 'TCL';
     if (score <= 149) return 'TQL';
     if (score <= 199) return '您';
-    if (score > 199&&score< 300) return '人？';
-    if (score > 300) return '疑似使用作弊，成绩作废';
+    if (score > 199&&score< 330) return '人？';
+    if (score > 330) return '建议检查下时间';
 }
 
 function shareText1(score) {
