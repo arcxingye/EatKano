@@ -8,8 +8,8 @@
     <meta itemprop="image" content="https://www.thac.cc/kano/res/logo.jpg" />
     <meta charset="utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script data-ad-client="ca-pub-6239573602007020" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <?php
     session_start();
     $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'),0,8);
@@ -62,12 +62,6 @@
             '</style>');
     </script>
     <link href="./index.css" rel="stylesheet" type="text/css">
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-0536909684105118",
-            enable_page_level_ads: true
-        });
-    </script>
 </head>
 
 <body onLoad="init()">
@@ -111,10 +105,7 @@
                 <div id="ready-btn" class="btn loading" style="display:inline-block; margin:0 auto; width:8em; height:1.7em; line-height:1.7em; font-size:2.2em; color:#fff;">
                 </div>
                 <div id="dd1" style="margin: 10px 0 0 0;">
-                    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-6t+ed+2i-1n-4w" data-ad-client="ca-pub-0536909684105118" data-ad-slot="7781906075"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <!--广告占位-->
                 </div>
             </div>
         </div>
@@ -123,22 +114,6 @@
         <div class="welcome-bg FILL"></div>
         <div id="landscape-text" style="color:#fff;font-size:3em;">请竖屏玩耍</div>
     </div>
-    <script type="text/javascript">
-        if (isDesktop)
-            document.write('</div>');
-    </script>
-    <script>
-        (function() {
-            var s = "_" + Math.random().toString(36).slice(2);
-            document.write('<div id="' + s + '"></div>');
-            (window.slotbydup = window.slotbydup || []).push({
-                id: '2414325',
-                container: s,
-                size: '0,0',
-                display: 'inlay-fix'
-            });
-        })();
-    </script>
 </body>
 
 </html>
