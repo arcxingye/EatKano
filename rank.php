@@ -61,12 +61,10 @@
   <div class="page-header text-center">
     <h1>排行榜(<?php echo $title; ?>)</h1>
     <!-- 顶部广告区 -->
-    <!--鹿乃大家族Q群316381099-->
-    <!-- 鹿乃千舰企划Q群1049504065 -->
-    <!--作者的游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a>-->
+    THAC游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a><br/>
     粉丝向游戏请手下留情勿乱搞榜仅供鹿友交流。
     <br />
-    广告位招租。<a href="https://space.bilibili.com/3853579">作者：星夜(点击联系)</a>
+    广告位招租。<a href="https://space.bilibili.com/3853579">作者：星夜(点击联系/混脸熟)</a>
   </div>
   <div class="list-group">
     <?php
