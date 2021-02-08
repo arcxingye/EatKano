@@ -31,20 +31,20 @@
   }
   $offset = ($page - 1) * $num;
   if ($lbtype == 'day') {
-    $title = "日榜";
-    $sql1 = "SELECT * FROM kano1_rank where to_days(time) = to_days(now()) ORDER BY score DESC limit {$offset},{$num};";
-    $sql2 = "SELECT count(*) FROM kano1_rank where to_days(time) = to_days(now());";
+    $title = "日";
+    $cond = "to_days(time) = to_days(now())";
   }
   if ($lbtype == 'week') {
-    $title = "周榜";
-    $sql1 = "SELECT * FROM kano1_rank where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time) ORDER BY score DESC limit {$offset},{$num};";
-    $sql2 = "SELECT count(*) FROM kano1_rank where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time);";
+    $title = "周";
+    $cond = "DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
   }
   if ($lbtype == 'month') {
-    $title = "月榜";
-    $sql1 = "SELECT * FROM kano1_rank where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time) ORDER BY score DESC limit {$offset},{$num};";
-    $sql2 = "SELECT count(*) FROM kano1_rank where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
+    $title = "月";
+    $cond = "DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
   }
+  $filtercond = " ORDER BY score DESC limit {$offset},{$num}";
+  $sql1="SELECT * FROM kano1_rank where ".$cond.$filtercond;
+  $sql2="SELECT count(*) FROM kano1_rank where ".$cond;
   ?>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -56,7 +56,7 @@
     </ol>
   </nav>
   <div class="page-header text-center">
-    <h1>排行榜(<?php echo $title; ?>)</h1>
+    <h1>排行榜(<?php echo $title; ?>榜)</h1>
     <!-- 顶部广告区 -->
     THAC游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a><br/>
     粉丝向游戏请手下留情勿乱搞榜仅供鹿友交流。
