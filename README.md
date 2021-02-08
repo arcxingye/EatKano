@@ -5,8 +5,6 @@
 
 数据库字段id score name time systeminfo area message
 
-依赖：vendor/brick
-
 欢迎帮写和修改
 
 ## 关于依赖
