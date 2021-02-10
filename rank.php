@@ -42,7 +42,7 @@
     $title = "月";
     $cond = "DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
   }
-  $filtercond = " ORDER BY score DESC limit {$offset},{$num}";
+  $filtercond = " ORDER BY score DESC limit {$offset},{$num};";
   $sql1="SELECT * FROM kano1_rank where ".$cond.$filtercond;
   $sql2="SELECT count(*) FROM kano1_rank where ".$cond;
   ?>
@@ -52,16 +52,15 @@
       <li class="breadcrumb-item"><a href="?lbtype=day">日榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=week">周榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=month">月榜</a></li>
-      <li class="breadcrumb-item"><a href="http://amemei.me/DNZ/index.html">电new子</a></li>
+      <li class="breadcrumb-item"><a href="https://github.com/arcxingye/EatKano">Github</a></li>
     </ol>
   </nav>
   <div class="page-header text-center">
     <h1>排行榜(<?php echo $title; ?>榜)</h1>
     <!-- 顶部广告区 -->
-    THAC游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a><br/>
-    粉丝向游戏请手下留情勿乱搞榜仅供鹿友交流。
+    粉丝向游戏请手下留情勿乱搞榜仅供交流。
     <br />
-    广告位招租。<a href="https://space.bilibili.com/3853579">作者：星夜(点击联系/混脸熟)</a>
+    <a href="https://space.bilibili.com/3853579">作者：星夜(点击联系/混个脸熟)</a>
   </div>
   <div class="list-group">
     <?php
