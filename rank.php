@@ -52,13 +52,14 @@
       <li class="breadcrumb-item"><a href="?lbtype=day">日榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=week">周榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=month">月榜</a></li>
-      <li class="breadcrumb-item"><a href="https://github.com/arcxingye/EatKano">Github</a></li>
+      <li class="breadcrumb-item"><a href="https://www.thac.cc/kano/index.html">合成鹿乃</a></li>
     </ol>
   </nav>
   <div class="page-header text-center">
     <h1>排行榜(<?php echo $title; ?>榜)</h1>
     <!-- 顶部广告区 -->
-    粉丝向游戏请手下留情勿乱搞榜仅供交流。
+    <!--THAC游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a><br/>-->
+    <a href="./description.html">上榜说明书-<<<</a>
     <br />
     <a href="https://space.bilibili.com/3853579">作者：星夜(点击联系/混个脸熟)</a>
   </div>
