@@ -13,7 +13,7 @@ preg_replace($str, "", $name);
 preg_replace($str, "", $systeminfo);
 preg_replace($str, "", $area);
 preg_replace($str, "", $message);
-if ((strlen($name) <= 30)&&($score < 300)&&($message <= 150)&&(is_numeric($score))&&(is_string($systeminfo))&&(!preg_match("/Windows/",$systeminfo))) {
+if ((strlen($name) <= 30)&&($score < 300)&&($message <= 150)&&(is_numeric($score))&&(is_string($systeminfo))) {
     $result = mysqli_query($link, "SELECT * FROM ".$ranking." WHERE name='$name' limit 1");
     $data = mysqli_fetch_all($result);
     if ($data) {
