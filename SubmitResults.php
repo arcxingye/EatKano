@@ -9,10 +9,10 @@ $name = $_POST['name'];
 $area = $_POST['area'];
 $message = $_POST['message'];
 $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
-preg_replace($str, "", $name);
-preg_replace($str, "", $systeminfo);
-preg_replace($str, "", $area);
-preg_replace($str, "", $message);
+$name = preg_replace($str, "", $name);
+$systeminfo = preg_replace($str, "", $systeminfo);
+$area = preg_replace($str, "", $area);
+$message = preg_replace($str, "", $message);
 if ((strlen($name) <= 30)&&($score < 300)&&($message <= 150)&&(is_numeric($score))&&(is_string($systeminfo))) {
     $result = mysqli_query($link, "SELECT * FROM ".$ranking." WHERE name='$name' limit 1");
     $data = mysqli_fetch_all($result);
