@@ -180,7 +180,7 @@ function SubmitResults() {
                 message = document.getElementById("message").value;
             }
             var ciphertext = cipher('' + _gameScore + ' ' + systeminfo);
-            httpRequest.send('ciphertext=' + ciphertext + '&name=' + name + '&t=' + __tj + '&area=' + area + '&message=' + message);
+            httpRequest.send('ciphertext=' + ciphertext + '&name=' + name + '&area=' + area + '&message=' + message);
         } else {
             alert("由于您的设备运行过慢，倒计时无法正常运行,请尝试更换更好的设备或者关掉多余的后台。时间偏差" + ((((date2.getTime() - _date1.getTime())) - 20000) / 1000) + "秒")
         }

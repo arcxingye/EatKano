@@ -8,16 +8,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script data-ad-client="ca-pub-6239573602007020" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?d41fa227018de3772f58108c76d3dfd5";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 </head>
 
 <body>
@@ -43,35 +33,34 @@
     $cond = "DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
   }
   $filtercond = " ORDER BY score DESC limit {$offset},{$num};";
-  $sql1="SELECT * FROM kano1_rank where ".$cond.$filtercond;
-  $sql2="SELECT count(*) FROM kano1_rank where ".$cond;
+  $sql1="SELECT * FROM ".$ranking." where ".$cond.$filtercond;
+  $sql2="SELECT count(*) FROM ".$ranking." where ".$cond;
   ?>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="./index.php">返回</a></li>
+      <li class="breadcrumb-item"><a href="https://www.thac.cc">官网</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=day">日榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=week">周榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=month">月榜</a></li>
-      <li class="breadcrumb-item"><a href="https://www.thac.cc/kano/index.html">合成鹿乃</a></li>
+      <li class="breadcrumb-item"><a href="https://www.thac.cc/kano/index.html">大鹿乃</a></li>
     </ol>
   </nav>
   <div class="page-header text-center">
     <h1>排行榜(<?php echo $title; ?>榜)</h1>
     <!-- 顶部广告区 -->
     <!--THAC游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a><br/>-->
-    <a href="./description.html">上榜说明书-<<<</a>
-    <br />
-    <a href="https://space.bilibili.com/3853579">作者：星夜(点击联系/混个脸熟)</a>
+    <a href="./description.html">查看说明-<<</a>&nbsp;<a href="https://space.bilibili.com/3853579">查看作者-<<<</a>
   </div>
   <div class="list-group">
     <?php
     //数据
     $result1 = mysqli_query($link, $sql1);
     $data = mysqli_fetch_all($result1);
-    //长度
+    //数据的长度
     $result2 = mysqli_query($link, $sql2);
     $count = mysqli_fetch_row($result2);
-    //暂时九页
+    //想要多少页就把9改成多少
     if ($count[0] > $num * 9) {
       $count = $num * 9;
     } else {
