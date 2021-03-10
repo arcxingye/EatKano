@@ -5,6 +5,8 @@
 
 欢迎帮写和修改
 
+不需要排行榜且不使用php直接index.php改为index.html且保留/img和/scripts即可
+
 ## 关于依赖
 Decipher.php使用了依赖Brick\Math
 
