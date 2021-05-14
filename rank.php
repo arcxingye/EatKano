@@ -43,26 +43,25 @@
       <li class="breadcrumb-item"><a href="?lbtype=day">日榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=week">周榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=month">月榜</a></li>
-      <li class="breadcrumb-item"><a href="https://www.thac.cc/kano/index.html">大鹿乃</a></li>
+      <li class="breadcrumb-item"><a href="https://www.thac.cc/game/index.php">更多游戏</a></li>
     </ol>
   </nav>
   <div class="page-header text-center">
-    <h1>排行榜(<?php echo $title; ?>榜)</h1>
-    <!-- 顶部广告区 -->
-    <!--THAC游戏服群(有MC/TR等)<a href="https://qm.qq.com/cgi-bin/qm/qr?k=qF_FKkfuJGsvXotE8nWLJhpjxYB19_o1&jump_from=webapi">180093493</a><br/>-->
-    <a href="./description.html">查看说明-<<</a>&nbsp;<a href="https://space.bilibili.com/3853579">查看作者-<<<</a>
+    <h1>排行榜(<?php echo $title; ?>榜)</h1><br/>
+    <a href="https://www.thac.cc/kano/x/description.html">查看排行榜说明-<<</a>
   </div>
   <div class="list-group">
     <?php
+    //最大显示页数
+    $max_pages = 9;
     //数据
     $result1 = mysqli_query($link, $sql1);
     $data = mysqli_fetch_all($result1);
     //数据的长度
     $result2 = mysqli_query($link, $sql2);
     $count = mysqli_fetch_row($result2);
-    //想要多少页就把9改成多少
-    if ($count[0] > $num * 9) {
-      $count = $num * 9;
+    if ($count[0] > $num * $max_pages) {
+      $count = $num * $max_pages;
     } else {
       $count = $count[0];
     }
