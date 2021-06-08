@@ -1,6 +1,6 @@
 var xtltle = '';
 window.shareData = {
-    "imgUrl": "https://www.thac.cc/kano/x/img/02.png",
+    "imgUrl": "/img/02.png",
     "timeLineLink": "https://www.thac.cc/kano/x/",
     "tTitle": "小鹿乃",
     "tContent": "小鹿乃"
@@ -347,7 +347,7 @@ function replayBtn() {
 }
 
 function gotoRank() {
-    window.location.href = './rank.php';
+    window.location.href = 'https://www.thac.cc/kano/x/rank.php';
 }
 
 function backBtn() {
