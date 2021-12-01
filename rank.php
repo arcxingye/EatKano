@@ -39,7 +39,6 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="./index.php">返回</a></li>
-      <li class="breadcrumb-item"><a href="https://www.thac.cc">官网</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=day">日榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=week">周榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=month">月榜</a></li>
@@ -52,23 +51,9 @@
   </div>
   <div class="list-group">
     <?php
-    //最大显示页数
-    $max_pages = 9;
     //数据
     $result1 = mysqli_query($link, $sql1);
     $data = mysqli_fetch_all($result1);
-    //数据的长度
-    $result2 = mysqli_query($link, $sql2);
-    $count = mysqli_fetch_row($result2);
-    if ($count[0] > $num * $max_pages) {
-      $count = $num * $max_pages;
-    } else {
-      $count = $count[0];
-    }
-    $total = ceil($count / $num);
-    if ($page >= $total) {
-      $page = $page - 1;
-    }
     $rank = $offset;
     foreach ($data as $row) :
       $rank += 1;
@@ -80,6 +65,17 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <?php
+        //最大显示页数
+        $max_pages = 9;
+        //数据的长度
+        $result2 = mysqli_query($link, $sql2);
+        $count = mysqli_fetch_row($result2);
+        //想要多少页就把9改成多少
+        if ($count[0] > $num * $max_pages) {
+          $count = $num * $max_pages;
+        } else {
+          $count = $count[0];
+        }
         $total = ceil($count / $num);
         if ($page >= $total) {
           $page = $page - 1;
