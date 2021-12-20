@@ -1,3 +1,4 @@
+
 if (isDesktop) document.write('<div id="gameBody">');
 var body, blockSize, GameLayer = [],
     GameLayerBG, touchArea = [],
@@ -19,6 +20,14 @@ function init() {
     GameLayerBG = document.getElementById('GameLayerBG');
     GameLayerBG.ontouchstart = gameTapEvent;
     gameInit();
+    var username = cookie("username");
+    var message = cookie("message");
+    if (username){
+        document.getElementById("username").value = username;
+    }
+    if (message){
+        document.getElementById("message").value = message;
+    }
     window.addEventListener('resize', refreshSize, false);
     var btn = document.getElementById('ready-btn');
     btn.className = 'btn btn-primary btn-lg';
@@ -350,10 +359,7 @@ function cookie(name, value, time) {
 }
 document.write(createGameLayer());
 
-var username = cookie("username");
-var message = cookie("message");
-if (username) document.getElementById("username").value = username;
-if (message) document.getElementById("message").value = message;
+
 function show_btn() {
     document.getElementById("btn_group").style.display = "block"
     document.getElementById("setting").style.display = "none"
