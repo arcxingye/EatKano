@@ -38,7 +38,7 @@
   ?>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="./index.php">返回</a></li>
+      <li class="breadcrumb-item"><a href="./index.html">返回</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=day">日榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=week">周榜</a></li>
       <li class="breadcrumb-item"><a href="?lbtype=month">月榜</a></li>
@@ -47,7 +47,6 @@
   </nav>
   <div class="page-header text-center">
     <h1>排行榜(<?php echo $title; ?>榜)</h1><br/>
-    <a href="https://www.thac.cc/kano/x/description.html">查看排行榜说明-<<</a>
   </div>
   <div class="list-group">
     <?php
@@ -59,7 +58,7 @@
       $rank += 1;
       echo "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'>
             <h5 class='mb-1'>" . $rank . "位   " . $row[2] . "</h5><small>" . $row[3] . "</small></div><p class='mb-1'>SCORE: " . $row[1] . " -" . $row[4] . " -" . $row[5] . "</p>
-            <small>" . $row[6] . "</small></a>";
+            <small>" . ($row[6]?$row[6]:"这个人很懒什么也没留下") . "</small></a>";
     endforeach
     ?>
     <nav aria-label="Page navigation example">
@@ -70,7 +69,6 @@
         //数据的长度
         $result2 = mysqli_query($link, $sql2);
         $count = mysqli_fetch_row($result2);
-        //想要多少页就把9改成多少
         if ($count[0] > $num * $max_pages) {
           $count = $num * $max_pages;
         } else {

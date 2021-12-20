@@ -1,11 +1,9 @@
 <?php
-require 'Decipher.php';
 include('conn.php');
-$decipherList = decipher($_POST['ciphertext']);
-$score = $decipherList[0];
 $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
+$score = preg_replace($str, "", $_POST['score']);
 $name = preg_replace($str, "", $_POST['name']);
-$systeminfo = preg_replace($str, "", $decipherList[1]);
+$systeminfo = preg_replace($str, "", $_POST['systeminfo']);
 $area = preg_replace($str, "", $_POST['area']);
 $message = preg_replace($str, "", $_POST['message']);
 if ((strlen($name) <= 30)&&($message <= 150)&&(is_numeric($score))&&(is_string($systeminfo))) {

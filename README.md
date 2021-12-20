@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/img/02.png?raw=true" width="100" height="100" alt="nonebot"></a>
+  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/img/02.png?raw=true" width="100" height="100" alt="EatKano"></a>
 </p>
 <div align="center">
 
@@ -18,13 +18,6 @@ _🦌 网页小游戏 🥛_
 欢迎帮写和修改(可以随便改)
 
 不需要排行榜把PHP文件都扔掉即可
-
-## 关于依赖
-不需要排行榜请无视此依赖
-
-排行榜相关的Decipher.php使用了依赖Brick\Math
-
-可以使用composer自行安装 详情可自行查阅[Brick/math](https://github.com/brick/math)
 
 ## 测试环境
 php7.3+mysql8.0.20

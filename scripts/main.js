@@ -1,17 +1,10 @@
-var xtltle = '';
-window.shareData = {
-    "imgUrl": "https://www.thac.cc/kano/x/img/02.png",
-    "timeLineLink": "https://www.thac.cc/kano/x/",
-    "tTitle": "小鹿乃",
-    "tContent": "小鹿乃"
-};
 if (isDesktop) document.write('<div id="gameBody">');
 var body, blockSize, GameLayer = [],
     GameLayerBG, touchArea = [],
     GameTimeLayer;
 var transform, transitionDuration;
 
-function init(argument) {
+function init() {
     showWelcomeLayer();
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
@@ -24,31 +17,14 @@ function init(argument) {
     GameLayer.push(document.getElementById('GameLayer2'));
     GameLayer[1].children = GameLayer[1].querySelectorAll('div');
     GameLayerBG = document.getElementById('GameLayerBG');
-    if (GameLayerBG.ontouchstart === null) {
-        GameLayerBG.ontouchstart = gameTapEvent;
-    } else {
-        GameLayerBG.onmousedown = gameTapEvent;
-        document.getElementById('landscape-text').innerHTML = '点我开始玩耍';
-        document.getElementById('landscape').onclick = winOpen;
-    }
+    GameLayerBG.ontouchstart = gameTapEvent;
     gameInit();
     window.addEventListener('resize', refreshSize, false);
-    var rtnMsg = "true";
-    setTimeout(function () {
-        if (rtnMsg == 'false') {
-            var btn = document.getElementById('ready-btn');
-            btn.className = 'btn';
-            btn.innerHTML = '您今天已经吃太多鹿乃啦，请明天继续！'
-        } else {
-            var btn = document.getElementById('ready-btn');
-            btn.className = 'btn';
-            btn.innerHTML = ' 预备，上！'
-            btn.style.backgroundColor = '#F00';
-            btn.onclick = function () {
-                closeWelcomeLayer();
-            }
-        }
-    }, 500);
+    var btn = document.getElementById('ready-btn');
+    btn.className = 'btn btn-primary btn-lg';
+    btn.onclick = function () {
+        closeWelcomeLayer();
+    }
 }
 
 function winOpen() {
@@ -107,15 +83,15 @@ var _gameBBList = [],
 
 function gameInit() {
     createjs.Sound.registerSound({
-        src: "img/err.mp3",
+        src: "res/err.mp3",
         id: "err"
     });
     createjs.Sound.registerSound({
-        src: "img/end.mp3",
+        src: "res/end.mp3",
         id: "end"
     });
     createjs.Sound.registerSound({
-        src: "img/tap.mp3",
+        src: "res/tap.mp3",
         id: "tap"
     });
     gameRestart();
@@ -146,47 +122,27 @@ function gameOver() {
     setTimeout(function () {
         GameLayerBG.className = '';
         showGameScoreLayer();
-        dd2.innerHTML = dd1.innerHTML;
     }, 1500);
 }
 
-function cipher(plaintext) {
-    var temp = plaintext.split('');
-    var result = "";
-    for (var i = 0; i < temp.length; i++) {
-        result += '' + Math.pow(temp[i].charCodeAt(), 5) % 3431 + '-';
-    }
-    return result;
-}
-
 function SubmitResults() {
-    var date2 = new Date();
     var systeminfo = "其他操作系统";
     var area = "异世界";
-    var message = "这个人很懒，什么也没有留下"
-    if (document.getElementById("name").value) {
+    if (document.getElementById("username").value) {
         if (navigator.appVersion.indexOf("Win") != -1) systeminfo = "Windows";
         if (navigator.appVersion.indexOf("Mac") != -1) systeminfo = "Macintosh";
         if (navigator.appVersion.indexOf("Linux") != -1) systeminfo = "Linux";
         if (navigator.appVersion.indexOf("Android") != -1) systeminfo = "Android";
         if (navigator.appVersion.indexOf("like Mac") != -1) systeminfo = "iOS";
         if (returnCitySN['cname']) { area = returnCitySN['cname'] };
-        if ((date2.getTime() - _date1.getTime()) <= 22000) {
-            var httpRequest = new XMLHttpRequest();
-            httpRequest.open('POST', './SubmitResults.php', true);
-            httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            var name = document.getElementById("name").value;
-            if (document.getElementById("message").value) {
-                message = document.getElementById("message").value;
-            }
-            var ciphertext = cipher('' + _gameScore + ' ' + systeminfo);
-            httpRequest.send('ciphertext=' + ciphertext + '&name=' + name + '&area=' + area + '&message=' + message);
-        } else {
-            alert("由于您的设备运行过慢，倒计时无法正常运行,请尝试更换更好的设备或者关掉多余的后台。时间偏差" + ((((date2.getTime() - _date1.getTime())) - 20000) / 1000) + "秒")
-        }
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', './SubmitResults.php', true);
+        httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        var name = document.getElementById("username").value;
+        var message = document.getElementById("message").value
+        httpRequest.send('score=' + _gameScore + '&name=' + name + '&systeminfo=' + systeminfo + '&area=' + area + '&message=' + message);
     }
 }
-
 
 function gameTime() {
     _gameTimeNum--;
@@ -195,9 +151,7 @@ function gameTime() {
         gameOver();
         GameLayerBG.className += ' flash';
         createjs.Sound.play("end");
-        if (_gameScore < 300) {
-            SubmitResults()
-        }
+        SubmitResults()
     } else {
         GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     }
@@ -333,7 +287,6 @@ function showGameScoreLayer() {
     }
     document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + bast;
     l.style.display = 'block';
-    window.shareData.tTitle = '我吃掉了' + _gameScore + '个小鹿乃，不服来挑战！！！'
 }
 
 function hideGameScoreLayer() {
@@ -346,30 +299,24 @@ function replayBtn() {
     hideGameScoreLayer();
 }
 
-function gotoRank() {
-    window.location.href = './rank.php';
-}
-
 function backBtn() {
     gameRestart();
     hideGameScoreLayer();
     showWelcomeLayer();
 }
-var mebtnopenurl = 'http://mp.weixin.qq.com/s/SW4B8mPNnJPUaDlQj7vzBA';
-var gototop = 'http://mp.weixin.qq.com/s/SW4B8mPNnJPUaDlQj7vzBA';
 
 function shareText(score) {
+    var date2 = new Date();
+    var time = (date2.getTime() - _date1.getTime())
+    if (time > 22000) {
+        return '倒计时多了' + ((time / 1000) - 20) + "s";
+    }
     cookie('score2', score, 100);
     if (score <= 49) return '试着好好练一下？';
     if (score <= 99) return 'TCL';
     if (score <= 149) return 'TQL';
     if (score <= 199) return '您';
-    if (score > 199 && score < 330) return '人？';
-    if (score > 330) return 'time error';
-}
-
-function shareText1(score) {
-    return '看看你能吃到多少个吧(';
+    return '人？';
 }
 
 function toStr(obj) {
@@ -403,10 +350,38 @@ function cookie(name, value, time) {
 }
 document.write(createGameLayer());
 
-function share() {
-    document.getElementById('share-wx').style.display = 'block';
-    document.getElementById('share-wx').onclick = function () {
-        this.style.display = 'none';
-    };
+var username = cookie("username");
+var message = cookie("message");
+if (username) document.getElementById("username").value = username;
+if (message) document.getElementById("message").value = message;
+function show_btn() {
+    document.getElementById("btn_group").style.display = "block"
+    document.getElementById("setting").style.display = "none"
 }
-document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { }, false);
+function show_setting() {
+    document.getElementById("btn_group").style.display = "none"
+    document.getElementById("setting").style.display = "block"
+}
+function save_cookie() {
+    cookie('username', document.getElementById("username").value, 100);
+    cookie('message', document.getElementById("message").value, 100);
+}
+console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...")
+document.onkeydown = function (e) {
+    if (e.ctrlKey &&
+        (e.keyCode === 65 ||
+            e.keyCode === 67 ||
+            e.keyCode === 73 ||
+            e.keyCode === 74 ||
+            e.keyCode === 80 ||
+            e.keyCode === 83 ||
+            e.keyCode === 85 ||
+            e.keyCode === 86 ||
+            e.keyCode === 117
+        )) {
+        return false;
+    }
+    if (e.keyCode == 18 || e.keyCode == 123) {
+        return false
+    }
+};

@@ -6,13 +6,19 @@ body {
 
 .loading {
     background-image: url("data:image/gif;base64,R0lGODlhJQAlAJECAL3L2AYrTv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgACACwAAAAAJQAlAAACi5SPqcvtDyGYIFpF690i8xUw3qJBwUlSadmcLqYmGQu6KDIeM13beGzYWWy3DlB4IYaMk+Dso2RWkFCfLPcRvFbZxFLUDTt21BW56TyjRep1e20+i+eYMR145W2eefj+6VFmgTQi+ECVY8iGxcg35phGo/iDFwlTyXWphwlm1imGRdcnuqhHeop6UAAAIfkEBQoAAgAsEAACAAQACwAAAgWMj6nLXAAh+QQFCgACACwVAAUACgALAAACFZQvgRi92dyJcVJlLobUdi8x4bIhBQAh+QQFCgACACwXABEADAADAAACBYyPqcsFACH5BAUKAAIALBUAFQAKAAsAAAITlGKZwWoMHYxqtmplxlNT7ixGAQAh+QQFCgACACwQABgABAALAAACBYyPqctcACH5BAUKAAIALAUAFQAKAAsAAAIVlC+BGL3Z3IlxUmUuhtR2LzHhsiEFACH5BAUKAAIALAEAEQAMAAMAAAIFjI+pywUAIfkEBQoAAgAsBQAFAAoACwAAAhOUYJnAagwdjGq2amXGU1PuLEYBACH5BAUKAAIALBAAAgAEAAsAAAIFhI+py1wAIfkEBQoAAgAsFQAFAAoACwAAAhWUL4AIvdnciXFSZS6G1HYvMeGyIQUAIfkEBQoAAgAsFwARAAwAAwAAAgWEj6nLBQAh+QQFCgACACwVABUACgALAAACE5RgmcBqDB2MarZqZcZTU+4sRgEAIfkEBQoAAgAsEAAYAAQACwAAAgWEj6nLXAAh+QQFCgACACwFABUACgALAAACFZQvgAi92dyJcVJlLobUdi8x4bIhBQAh+QQFCgACACwBABEADAADAAACBYSPqcsFADs=");
-
     background-repeat: no-repeat;
-
     background-position: center center;
-
     background-size: auto 60%;
+}
 
+.start_btn{
+    display:inline-block;
+    margin:0 auto;
+    width:8em;
+    height:1.7em;
+    line-height:1.7em;
+    font-size:2.2em;
+    color:#fff;
 }
 
 .SHADE {
@@ -32,7 +38,8 @@ body {
 
 .BOX-D {
     box-align: end;
-    box-pack: center -webkit-box-align: end;
+    box-pack: center;
+    -webkit-box-align: end;
     -webkit-box-pack: center;
     -ms-flex-align: end;
     -ms-flex-pack: center;
@@ -105,7 +112,7 @@ body {
     left: 0;
     width: 100%;
     text-align: center;
-    color: #f00;
+    color: rgb(233, 138, 131);
     font-size: 4em;
     text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff;
     overflow: hidden;
@@ -128,7 +135,7 @@ body {
 
 .block {
     position: absolute;
-    border-top: 1px solid #1D70B6;
+    border-top: 1px solid #b8dfe6;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -139,7 +146,7 @@ body {
 .t4,
 .t5 {
     background-size: auto 100%;
-    background-image: url(./img/02.png);
+    background-image: url(./res/02.png);
 }
 
 .tt1,
@@ -148,43 +155,35 @@ body {
 .tt4,
 .tt5 {
     background-size: auto 86%;
-    background-image: url(./img/03.png);
+    background-image: url(./res/03.png);
 }
 
 .bl {
-    border-left: 1px solid #1D70B6;
+    border-left: 1px solid #b8dfe6;
 }
 
 @-ms-keyframes flash {
-
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
-
 }
 
 @-webkit-keyframes flash {
-
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
-
 }
 
 .flash {
@@ -193,7 +192,7 @@ body {
 }
 
 .bad {
-    background-color: #f00;
+    background-color: rgb(211, 91, 91);
     -webkit-animation: flash .2s 3;
     animation: flash .2s 3;
 }
@@ -201,32 +200,17 @@ body {
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -ms-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color: rgba(0, 0, 0, 0);
     -ms-user-select: none;
 }
-
-
 
 #GameScoreLayer {
     padding-top: 2em;
     font-size: 2em;
     font-weight: bold;
-    color: #000000;
+    color: #251c1c;
     text-align: center;
     overflow: hidden;
 }
-
-.bgc1 {}
-
-.bgc2 {}
-
-.bgc3 {}
-
-.bgc4 {}
-
-.bgc5 {}
-
-
 
 .share-icon {
     width: 1.7em;
@@ -240,12 +224,10 @@ body {
 #GameScoreLayer-share .btn {
     text-align: center;
     font-size: 1.1em;
-    background-color: rgba(0, 0, 0, .3);
+    color: rgba(0, 0, 0, 0.3);
     height: 2em;
     line-height: 2em;
 }
-
-
 
 .btn:active {
     opacity: 0.2;
@@ -255,9 +237,6 @@ body {
     display: none;
 }
 
-
-
-
 #gameBody {
     position: relative;
     width: 640px;
@@ -265,20 +244,11 @@ body {
 }
 
 #share-wx {
-
     background: rgba(0, 0, 0, 0.8);
-
     position: absolute;
-
     top: 0px;
-
     left: 0px;
-
     width: 100%;
-
-
     z-index: 10000;
-
     display: none;
-
 }
