@@ -160,7 +160,6 @@ function gameTime() {
         gameOver();
         GameLayerBG.className += ' flash';
         createjs.Sound.play("end");
-        SubmitResults()
     } else {
         GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     }
@@ -317,10 +316,11 @@ function backBtn() {
 function shareText(score) {
     var date2 = new Date();
     var time = (date2.getTime() - _date1.getTime())
-    if (time > 22000) {
-        return '倒计时多了' + ((time / 1000) - 20) + "s";
+    if (time > 23000) {
+        return '倒计时多了' + ((time / 1000) - 20).toFixed(2) + "s";
     }
     cookie('score2', score, 100);
+    SubmitResults();
     if (score <= 49) return '试着好好练一下？';
     if (score <= 99) return 'TCL';
     if (score <= 149) return 'TQL';
