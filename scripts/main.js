@@ -22,8 +22,6 @@ function init() {
         GameLayerBG.ontouchstart = gameTapEvent;
     } else {
         GameLayerBG.onmousedown = gameTapEvent;
-        document.getElementById('landscape-text').innerHTML = '点我开始玩耍';
-        document.getElementById('landscape').onclick = winOpen;
     }
     gameInit();
     var username = cookie("username");
