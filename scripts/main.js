@@ -116,7 +116,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = 2000;
+    _gameTimeNum = 20;
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);
@@ -158,7 +158,7 @@ function SubmitResults() {
 }
 
 function gameTime() {
-    _gameTimeNum-=100;
+    _gameTimeNum--;
     if (_gameTimeNum <= 0) {
         GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
         gameOver();
@@ -170,9 +170,7 @@ function gameTime() {
 }
 
 function creatTimeText(n) {
-    var text = (100000 + n + '').substr(-4, 4);
-    text = '&nbsp;TIME:' + text.substr(0, 2)
-    return text;
+    return '&nbsp;TIME:'+n;
 }
 var _ttreg = / t{1,2}(\d+)/,
     _clearttClsReg = / t{1,2}\d+| bad/;
