@@ -122,7 +122,7 @@ function gameRestart() {
 function gameStart() {
     _date1 = new Date();
     _gameStart = true;
-    _gameTime = setInterval(gameTime, 10);
+    _gameTime = setInterval(gameTime, 1000);
 }
 
 function gameOver() {
@@ -154,7 +154,7 @@ function SubmitResults() {
 }
 
 function gameTime() {
-    _gameTimeNum--;
+    _gameTimeNum-=100;
     if (_gameTimeNum <= 0) {
         GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
         gameOver();
@@ -167,7 +167,7 @@ function gameTime() {
 
 function creatTimeText(n) {
     var text = (100000 + n + '').substr(-4, 4);
-    text = '&nbsp;&nbsp;' + text.substr(0, 2) + "'" + text.substr(2) + "''"
+    text = '&nbsp;TIME:' + text.substr(0, 2)
     return text;
 }
 var _ttreg = / t{1,2}(\d+)/,
@@ -287,11 +287,15 @@ function showGameScoreLayer() {
     var c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
     l.className = l.className.replace(/bgc\d/, 'bgc' + c);
     document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
-    document.getElementById('GameScoreLayer-score').innerHTML = '得分&nbsp;&nbsp;' + _gameScore;
+    var score_text='得分&nbsp;&nbsp;';
+    score_text+=deviation_time<23000?_gameScore:"<span style='color:red;'>"+_gameScore+"</span>";
+    document.getElementById('GameScoreLayer-score').innerHTML = score_text;
     var bast = cookie('bast-score');
-    if (!bast || _gameScore > bast) {
-        bast = _gameScore;
-        cookie('bast-score', bast, 100);
+    if(deviation_time<23000){
+        if (!bast || _gameScore > bast) {
+            bast = _gameScore;
+            cookie('bast-score', bast, 100);
+        }
     }
     document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + bast;
     l.style.display = 'block';
@@ -315,11 +319,10 @@ function backBtn() {
 
 function shareText(score) {
     var date2 = new Date();
-    var time = (date2.getTime() - _date1.getTime())
-    if (time > 23000) {
-        return '倒计时多了' + ((time / 1000) - 20).toFixed(2) + "s";
+    deviation_time = (date2.getTime() - _date1.getTime())
+    if (deviation_time > 23000) {
+        return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
     }
-    cookie('score2', score, 100);
     SubmitResults();
     if (score <= 49) return '试着好好练一下？';
     if (score <= 99) return 'TCL';
