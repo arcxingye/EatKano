@@ -18,7 +18,13 @@ function init() {
     GameLayer.push(document.getElementById('GameLayer2'));
     GameLayer[1].children = GameLayer[1].querySelectorAll('div');
     GameLayerBG = document.getElementById('GameLayerBG');
-    GameLayerBG.ontouchstart = gameTapEvent;
+    if (GameLayerBG.ontouchstart === null) {
+        GameLayerBG.ontouchstart = gameTapEvent;
+    } else {
+        GameLayerBG.onmousedown = gameTapEvent;
+        document.getElementById('landscape-text').innerHTML = '点我开始玩耍';
+        document.getElementById('landscape').onclick = winOpen;
+    }
     gameInit();
     var username = cookie("username");
     var message = cookie("message");
@@ -377,20 +383,7 @@ function save_cookie() {
 }
 console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...")
 document.onkeydown = function (e) {
-    if (e.ctrlKey &&
-        (e.keyCode === 65 ||
-            e.keyCode === 67 ||
-            e.keyCode === 73 ||
-            e.keyCode === 74 ||
-            e.keyCode === 80 ||
-            e.keyCode === 83 ||
-            e.keyCode === 85 ||
-            e.keyCode === 86 ||
-            e.keyCode === 117
-        )) {
-        return false;
-    }
-    if (e.keyCode == 18 || e.keyCode == 123) {
+    if (e.keyCode == 123) {
         return false
     }
 };
