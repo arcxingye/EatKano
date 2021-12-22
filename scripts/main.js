@@ -377,6 +377,22 @@ function save_cookie() {
     cookie('username', document.getElementById("username").value, 100);
     cookie('message', document.getElementById("message").value, 100);
 }
+function isnull(val) {
+    var str = val.replace(/(^\s*)|(\s*$)/g, '');
+    if (str == '' || str == undefined || str == null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+function goRank() {
+    var name=document.getElementById("username").value;
+    var link='./rank.php';
+    if(!isnull(name)){
+        link+="?name="+name;
+    }
+    window.location.href=link;
+}
 console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...")
 document.onkeydown = function (e) {
     if (e.keyCode == 123) {
