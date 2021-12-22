@@ -63,6 +63,7 @@
             <h5 class='mb-1'>" . $rank . "位   " . $name . "</h5><small>" . $time . "</small></div><p class='mb-1'>SCORE: " . $score . " -" . $systeminfo . " -" . $area . "</p>
             <small>" . ($message ? $message : "这个人很懒什么也没留下") . "</small></a>";
       }
+	  $data_stmt->close();
     }
     ?>
     <nav aria-label="Page navigation example" style="margin-bottom:3em;">
