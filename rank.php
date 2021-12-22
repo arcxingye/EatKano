@@ -108,7 +108,7 @@
     }
     $score_stmt->close();
   } else {
-    echo "小提示：你玩前还没有填名字";
+    echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>小提示：你玩前还没有填名字</div></div></footer>";
   }
   $link->close();
   ?>
