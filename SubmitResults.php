@@ -6,7 +6,7 @@ $name = preg_replace($str, "", $_POST['name']);
 $systeminfo = preg_replace($str, "", $_POST['systeminfo']);
 $area = preg_replace($str, "", $_POST['area']);
 $message = preg_replace($str, "", $_POST['message']);
-if ((strlen($name) <= 30)&&($score < 250)&&($message <= 150)&&(is_numeric($score))&&(is_string($systeminfo))) {
+if ((strlen($name) <= 30)&&($score < 300)&&($message <= 150)&&(is_numeric($score))&&(is_string($systeminfo))) {
     $record_sql="SELECT id FROM ".$ranking." WHERE name=?";
     $record_stmt = $link->prepare($record_sql);
     $record_stmt->bind_param("s",$name);
