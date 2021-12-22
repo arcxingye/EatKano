@@ -11,7 +11,6 @@ if ((strlen($name) <= 30)&&($score < 300)&&($message <= 150)&&(is_numeric($score
     $record_stmt = $link->prepare($record_sql);
     $record_stmt->bind_param("s",$name);
     $record_stmt->execute();
-    $record_stmt->store_result();
     $rows=$record_stmt->num_rows;
     $record_stmt->close();
     if ($rows>0) {
