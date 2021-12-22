@@ -98,7 +98,7 @@
   <?php
   if ($CurrentUser) {
     //查询当前名字历史记录
-    $score_sql = "select score,time from " . $ranking . " where name=?";
+    $score_sql = "SELECT score,time FROM " . $ranking . " where name=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $CurrentUser);
     $score_stmt->bind_result($score, $time);

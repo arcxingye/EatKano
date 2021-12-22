@@ -20,6 +20,7 @@ if ((strlen($name) <= 30)&&($score < 300)&&($message <= 150)&&(is_numeric($score
         $stmt = $link->prepare($sql);
         $stmt->bind_param('issss', $score, $systeminfo, $area, $message, $name);
         $stmt->execute();
+        $stmt->close();
     }
     $link->close();
 }
