@@ -56,14 +56,15 @@
       $data_stmt->bind_param("ii", $offset, $num);
       $data_stmt->execute();
       $data_stmt->store_result();
-      $data_stmt->bind_result($id, $score, $name, $time, $systeminfo, $area, $message);
+      $data_stmt->bind_result($id, $score, $name, $time, $system, $area, $message, $attempts);
       while ($data_stmt->fetch()) {
         $rank += 1;
         echo "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'>
-            <h5 class='mb-1'>" . $rank . "位   " . $name . "</h5><small>" . $time . "</small></div><p class='mb-1'>SCORE: " . $score . " -" . $systeminfo . " -" . $area . "</p>
+            <h5 class='mb-1'>" . $rank . "位   " . $name . "</h5><small>" . $time . "</small></div>
+            <p class='mb-1'>SCORE: " . $score . " TRY:" . $attempts . " -" . $system . " -" . $area . "</p>
             <small>" . ($message ? $message : "这个人很懒什么也没留下") . "</small></a>";
       }
-	  $data_stmt->close();
+      $data_stmt->close();
     }
     ?>
     <nav aria-label="Page navigation example" style="margin-bottom:3em;">
@@ -98,13 +99,13 @@
   <?php
   if ($CurrentUser) {
     //查询当前名字历史记录
-    $score_sql = "SELECT score,time FROM " . $ranking . " where name=?";
+    $score_sql = "SELECT score,time,attempts FROM " . $ranking . " where name=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $CurrentUser);
-    $score_stmt->bind_result($score, $time);
+    $score_stmt->bind_result($score, $time, $attempts);
     $score_stmt->execute();
-    while ($score_stmt->fetch()) {
-      echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>" . $CurrentUser . " 的最新记录<br/>" . "SCORE:" . $score . " " . $time . "</div></div></footer>";
+    if ($score_stmt->fetch()) {
+      echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>" . $CurrentUser . " 的最高记录 已上传".$attempts."次<br/>" . "SCORE:" . $score . " " . $time . "</div></div></footer>";
     }
     $score_stmt->close();
   } else {
