@@ -139,21 +139,21 @@ function gameOver() {
 }
 
 function SubmitResults() {
-    var systeminfo = "其他操作系统";
+    var system = "其他操作系统";
     var area = "异世界";
     if (document.getElementById("username").value) {
-        if (navigator.appVersion.indexOf("Win") != -1) systeminfo = "Windows";
-        if (navigator.appVersion.indexOf("Mac") != -1) systeminfo = "Macintosh";
-        if (navigator.appVersion.indexOf("Linux") != -1) systeminfo = "Linux";
-        if (navigator.appVersion.indexOf("Android") != -1) systeminfo = "Android";
-        if (navigator.appVersion.indexOf("like Mac") != -1) systeminfo = "iOS";
+        if (navigator.appVersion.indexOf("Win") != -1) system = "Windows";
+        if (navigator.appVersion.indexOf("Mac") != -1) system = "Macintosh";
+        if (navigator.appVersion.indexOf("Linux") != -1) system = "Linux";
+        if (navigator.appVersion.indexOf("Android") != -1) system = "Android";
+        if (navigator.appVersion.indexOf("like Mac") != -1) system = "iOS";
         if (returnCitySN['cname']) { area = returnCitySN['cname'] };
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('POST', './SubmitResults.php', true);
         httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         var name = document.getElementById("username").value;
         var message = document.getElementById("message").value
-        httpRequest.send('score=' + _gameScore + '&name=' + name + '&systeminfo=' + systeminfo + '&area=' + area + '&message=' + message);
+        httpRequest.send('score=' + _gameScore + '&name=' + name + '&system=' + system + '&area=' + area + '&message=' + message);
     }
 }
 
