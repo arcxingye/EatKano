@@ -61,7 +61,7 @@
         $rank += 1;
         echo "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'>
             <h5 class='mb-1'>" . $rank . "位   " . $name . "</h5><small>" . $time . "</small></div>
-            <p class='mb-1'>SCORE: " . $score . " TRY:" . $attempts . " -" . $system . " -" . $area . "</p>
+            <p class='mb-1'>SCORE: " . $score . " TRY: " . $attempts . " -" . $system . " -" . $area . "</p>
             <small>" . ($message ? $message : "这个人很懒什么也没留下") . "</small></a>";
       }
       $data_stmt->close();
