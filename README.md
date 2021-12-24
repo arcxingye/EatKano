@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/res/02.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/02.png?raw=true" width="100" height="100" alt="EatKano"></a>
 </p>
 <div align="center">
 
