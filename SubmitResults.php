@@ -12,19 +12,21 @@ if ((strlen($name) <= 30) && ($score < 250) && ($message <= 150) && (is_numeric(
     $score_stmt->bind_param("s", $name);
     $score_stmt->bind_result($highest, $attempts);
     $score_stmt->execute();
-    if ($score_stmt->fetch()) {
+    if ($score_stmt->fetch()&&$score_stmt->close()) {
         $attempts += 1;
-        if($score > $highest){
+        if ($score > $highest) {
             $exec_sql = "UPDATE " . $ranking . " SET score=?,time=NOW(),system=?,area=?,message=?,attempts=? WHERE name=?";
-        }else{
-            $score = $highest;
-            $exec_sql = "UPDATE " . $ranking . " SET score=?,system=?,area=?,message=?,attempts=? WHERE name=?";
+        } else {
+            $count_sql = "UPDATE " . $ranking . " SET attempts=? WHERE name=?";
+            $count_stmt = $link->prepare($count_sql);
+            $count_stmt->bind_param('is', $attempts, $name);
+            $count_stmt->execute();
+            $count_stmt->close();
         }
     } else {
         $attempts = 1;
         $exec_sql = "INSERT INTO " . $ranking . " (score,time,system,area,message,attempts,name) VALUES (?,NOW(),?,?,?,?,?)";
     }
-    $score_stmt->close();
     if ($exec_sql) {
         $exec_stmt = $link->prepare($exec_sql);
         $exec_stmt->bind_param('isssis', $score, $system, $area, $message, $attempts, $name);
