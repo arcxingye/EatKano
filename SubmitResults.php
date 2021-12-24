@@ -6,7 +6,7 @@ $name = preg_replace($str, "", $_POST['name']);
 $system = preg_replace($str, "", $_POST['system']);
 $area = preg_replace($str, "", $_POST['area']);
 $message = preg_replace($str, "", $_POST['message']);
-if ((strlen($name) <= 30) && ($score < 250) && ($message <= 150) && (is_numeric($score)) && (is_string($system))) {
+if ((strlen($name) <= 30) && ($score < 300) && ($message <= 150) && (is_numeric($score)) && (is_string($system))) {
     $score_sql = "SELECT score,attempts FROM " . $ranking . " WHERE name=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $name);
