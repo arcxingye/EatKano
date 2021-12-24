@@ -12,10 +12,14 @@ if ((strlen($name) <= 30) && ($score < 250) && ($message <= 150) && (is_numeric(
     $score_stmt->bind_param("s", $name);
     $score_stmt->bind_result($highest, $attempts);
     $score_stmt->execute();
-    if($score_stmt->fetch()){
-        $score = $score > $highest ? $score : $highest;
+    if ($score_stmt->fetch()) {
         $attempts += 1;
-        $exec_sql = "UPDATE " . $ranking . " SET score=?,time=NOW(),system=?,area=?,message=?,attempts=? WHERE name=?";
+        if($score > $highest){
+            $exec_sql = "UPDATE " . $ranking . " SET score=?,time=NOW(),system=?,area=?,message=?,attempts=? WHERE name=?";
+        }else{
+            $score = $highest;
+            $exec_sql = "UPDATE " . $ranking . " SET score=?,system=?,area=?,message=?,attempts=? WHERE name=?";
+        }
     } else {
         $attempts = 1;
         $exec_sql = "INSERT INTO " . $ranking . " (score,time,system,area,message,attempts,name) VALUES (?,NOW(),?,?,?,?,?)";
