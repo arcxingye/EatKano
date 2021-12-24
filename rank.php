@@ -97,6 +97,7 @@
     </nav>
   </div>
   <?php
+  echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>";
   if ($CurrentUser) {
     //查询当前名字历史记录
     $score_sql = "SELECT score,time,attempts FROM " . $ranking . " where name=?";
@@ -105,12 +106,15 @@
     $score_stmt->bind_result($score, $time, $attempts);
     $score_stmt->execute();
     if ($score_stmt->fetch()) {
-      echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>" . $CurrentUser . " 的最高记录 已上传".$attempts."次<br/>" . "SCORE:" . $score . " " . $time . "</div></div></footer>";
+      echo $CurrentUser . " 的最高记录 已上传" . $attempts . "次<br/>" . "SCORE:" . $score . " " . $time;
+    } else {
+      echo "没有找到 " . $CurrentUser . " 的记录";
     }
     $score_stmt->close();
   } else {
-    echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>小提示：你玩前还没有填名字</div></div></footer>";
+    echo "小提示：你玩前还没有填名字";
   }
+  echo "</div></div></footer>";
   $link->close();
   ?>
 </body>
