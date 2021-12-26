@@ -138,6 +138,14 @@ function gameOver() {
     }, 1500);
 }
 
+
+function encrypt(text){
+	var encrypt = new JSEncrypt();
+    encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTzGwX6FVKc7rDiyF3H+jKpBlRCV4jOiJ4JR33qZPVXx8ahW6brdBF9H1vdHBAyO6AeYBumKIyunXP9xzvs1qJdRNhNoVwHCwGDu7TA+U4M7G9FArDG0Y6k4LbS0Ks9zeRBMiWkW53yQlPshhtOxXCuZZOMLqk1vEvTCODYYqX5QIDAQAB");
+    var data = encrypt.encrypt(text);
+    return data;
+  }
+
 function SubmitResults() {
     var system = "其他操作系统";
     var area = "异世界";
@@ -150,10 +158,10 @@ function SubmitResults() {
         if (returnCitySN['cname']) { area = returnCitySN['cname'] };
         var httpRequest = new XMLHttpRequest();
         httpRequest.open('POST', './SubmitResults.php', true);
-        httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        httpRequest.setRequestHeader("Content-type", "application/json");
         var name = document.getElementById("username").value;
-        var message = document.getElementById("message").value
-        httpRequest.send('score=' + _gameScore + '&name=' + name + '&system=' + system + '&area=' + area + '&message=' + message);
+        var message = document.getElementById("message").value;
+        httpRequest.send(encrypt(_gameScore + '&&&' + name + '&&&' + system + '&&&' + area + '&&&' + message));
     }
 }
 
