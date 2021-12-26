@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/02.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
 </p>
 <div align="center">
 
@@ -21,6 +21,8 @@ _🦌 网页小游戏 🥛_
 简易排行榜(日/周/月)
 
 需配置数据库，信息填进conn.php
+
+如启用务必更换密钥及添加一些安全防范代码
 
 不需要排行榜把PHP文件都扔掉即可
 
