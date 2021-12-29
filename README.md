@@ -16,6 +16,10 @@ _🦌 网页小游戏 🥛_
 
 浏览量超5,000,000+
 
+线上版本:https://www.thac.cc/game/eatkano/index.php
+
+Github Page:https://arcxingye.github.io/EatKano/index.html
+
 ## 可选功能
 
 简易排行榜(日/周/月)
