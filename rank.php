@@ -91,27 +91,31 @@
       </ul>
     </nav>
   </div>
-  <?php
-  echo "<footer class='fixed-bottom container'><div class='row shadow bg-info rounded'><div style='padding:0.2em 1em;'>";
-  if ($CurrentUser) {
-    //查询当前名字历史记录
-    $score_sql = "SELECT score,time,attempts FROM " . $ranking . " where name=?";
-    $score_stmt = $link->prepare($score_sql);
-    $score_stmt->bind_param("s", $CurrentUser);
-    $score_stmt->bind_result($score, $time, $attempts);
-    $score_stmt->execute();
-    if ($score_stmt->fetch()) {
-      echo $CurrentUser . " 的最高记录 已上传" . $attempts . "次<br/>" . "SCORE:" . $score . " " . $time;
-    } else {
-      echo "没有找到 " . $CurrentUser . " 的记录";
-    }
-    $score_stmt->close();
-  } else {
-    echo "小提示：你玩前还没有填名字";
-  }
-  echo "</div></div></footer>";
-  $link->close();
-  ?>
+  <footer class='fixed-bottom container'>
+    <div class='row shadow bg-info rounded'>
+      <div style='padding:0.2em 1em;'>
+        <?php
+        if ($CurrentUser) {
+          //查询当前名字历史记录
+          $score_sql = "SELECT score,time,attempts FROM " . $ranking . " where name=?";
+          $score_stmt = $link->prepare($score_sql);
+          $score_stmt->bind_param("s", $CurrentUser);
+          $score_stmt->bind_result($score, $time, $attempts);
+          $score_stmt->execute();
+          if ($score_stmt->fetch()) {
+            echo $CurrentUser . " 的最高记录 已上传" . $attempts . "次<br/>" . "SCORE:" . $score . " " . $time;
+          } else {
+            echo "没有找到 " . $CurrentUser . " 的记录(或被过滤)";
+          }
+          $score_stmt->close();
+        } else {
+          echo "小提示：你玩前还没有填名字";
+        }
+        $link->close();
+        ?>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
