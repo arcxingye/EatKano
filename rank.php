@@ -76,9 +76,8 @@
         $rows = $rows > $num * $max_pages ? $num * $max_pages : $rows;
         $total = ceil($rows / $num);
         if ($total > 1) {
-          echo "<li class='page-item'>";
           if ($CurrentPage > 1) {
-            echo "<a class='page-link' href='?lbtype=" . $lbtype . "&page=" . ($CurrentPage - 1) . ($CurrentUser ? "&name=" . $CurrentUser : "") . "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
+            echo "<li class='page-item'><a class='page-link' href='?lbtype=" . $lbtype . "&page=" . ($CurrentPage - 1) . ($CurrentUser ? "&name=" . $CurrentUser : "") . "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
           }
           for ($p = 1; $p <= $total; $p++) {
             echo "<li class='page-item " . ($CurrentPage == $p ? "active" : "") . "'><a class='page-link' href='?lbtype=" . $lbtype . "&page=" . $p . ($CurrentUser ? "&name=" . $CurrentUser : "") . "'>" . $p . "</a></li>";
