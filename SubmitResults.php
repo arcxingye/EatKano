@@ -15,7 +15,7 @@ $system = preg_replace($str, "", $arr[2]);
 $area = preg_replace($str, "", $arr[3]);
 $message = preg_replace($str, "", $arr[4]);
 
-if (!empty($name)&&(strlen($name) <= 30) && ($score < 300) && ($message <= 150) && (is_numeric($score))) {
+if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300)) {
     $score_sql = "SELECT score,attempts FROM " . $ranking . " WHERE name=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $name);
