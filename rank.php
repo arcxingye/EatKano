@@ -81,12 +81,7 @@
             echo "<a class='page-link' href='?lbtype=" . $lbtype . "&page=" . ($CurrentPage - 1) . ($CurrentUser ? "&name=" . $CurrentUser : "") . "' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
           }
           for ($p = 1; $p <= $total; $p++) {
-            if ($CurrentPage == $p) {
-              echo "<li class='page-item active'";
-            } else {
-              echo "<li class='page-item'";
-            }
-            echo "><a class='page-link' href='?lbtype=" . $lbtype . "&page=" . $p . ($CurrentUser ? "&name=" . $CurrentUser : "") . "'>" . $p . "</a></li>";
+            echo "<li class='page-item " . ($CurrentPage == $p ? "active" : "") . "'><a class='page-link' href='?lbtype=" . $lbtype . "&page=" . $p . ($CurrentUser ? "&name=" . $CurrentUser : "") . "'>" . $p . "</a></li>";
           }
           if ($total > $CurrentPage) {
             echo "<li class='page-item'><a class='page-link' href='?lbtype=" . $lbtype . "&page=" . ($CurrentPage + 1) . ($CurrentUser ? "&name=" . $CurrentUser : "") . "' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
