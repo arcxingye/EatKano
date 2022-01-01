@@ -8,5 +8,6 @@ CREATE TABLE `kano_rank` (
   `area` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
   `attempts` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
