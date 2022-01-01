@@ -12,7 +12,7 @@
 
 <body>
   <?php
-  include('conn.php');
+  require 'conn.php';
   //最大显示页数
   $max_pages = 9;
   $lbtype = isset($_GET['lbtype']) ? $_GET['lbtype'] : 'day';
