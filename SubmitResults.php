@@ -1,11 +1,11 @@
 <?php
-require 'conn.php';
+@require 'conn.php';
 $encryptString = file_get_contents("php://input");
 $decrypted = '';
 $key       = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANPMbBfoVUpzusOLIXcf6MqkGVEJXiM6InglHfepk9VfHxqFbput0EX0fW90cEDI7oB5gG6YojK6dc/3HO+zWol1E2E2hXAcLAYO7tMD5Tgzsb0UCsMbRjqTgttLQqz3N5EEyJaRbnfJCU+yGG07FcK5lk4wuqTW8S9MI4NhipflAgMBAAECgYEAl4bN4sDWnGB1wsZ8V8SdgLSsZBymm99Qn9I2QWSyHlpiX1ANFRXiRtonD6EnWkIm2AWVTAqpKE/cT8AElL0lTJpZdUxsb7Y6nZvbFEmkpFA183f9pzkFjBAxW21RQJMW5MzSnUhYXVZr7AgUaxMDy7M2RMFZ/5XbwKwuNGaT5qECQQD5jCvnlpVmq5tTmIGRy+o18WtQdZRvEvkRAhRw8qAowZtBhCO+ycMtQKCwVDya8aDUItzrIBrzGv2eOfBndZqpAkEA2UZg/nGwpcDd7EVU3XltU5t3cX3wLhUZp1bDv3OZql44h0V2p+p1Oa2qVrF2JmbTu1gWn2YsOFlktrbogKP03QJBAIrXaUoVpxQToH0XWeeza6ENrCZ89NQD212SKatZ4rAqX+ZIzdaFzTjtPzo78+hFTbUZnI6ZM0VVHAyfsdjuPtkCQDAJED6QsgYjOq0Wsul4BASc9W5A8o2tmotVcldsXke9JvA5Gj+LZTlIPMWH3GAnEZ50niPFefdHRC3lCEgQd30CQQDbEqFoSCM4sEHih9h8b3V88X7X/sAbWk+rDnGy6TITplPZrLsBWu3D14VMpiCcNQ1ms6RKZxUFwNZXYynQNrhp";
 $key_eol   = (string) implode("\n", str_split((string) $key, 64));
 $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
-openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
+@openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
 $arr=explode('&&&',$decrypted);
 
 $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
