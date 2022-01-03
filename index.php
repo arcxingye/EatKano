@@ -15,7 +15,7 @@
     <script src="https://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
     <?php
     session_start();
-    $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 64);
+    $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 16);
     $_SESSION['t'] = $str;
     echo "<script>var __tj__='" . "__" . $str . "__" . "'</script>";
     ?>
