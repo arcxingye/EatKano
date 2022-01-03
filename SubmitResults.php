@@ -7,7 +7,7 @@ $key       = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANPMbBfoVUpzusOLIX
 $key_eol   = (string) implode("\n", str_split((string) $key, 64));
 $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
 @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
-$arr=explode('/|||/',$decrypted);
+$arr=explode('|_|',$decrypted);
 
 $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
 $score = preg_replace($str, "", $arr[0]);

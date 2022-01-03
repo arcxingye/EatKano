@@ -167,8 +167,8 @@ function SubmitResults() {
         httpRequest.setRequestHeader("Content-type", "application/json");
         var name = document.getElementById("username").value;
         var message = document.getElementById("message").value;
-		var test="/|||/";
-        httpRequest.send(encrypt(_gameScore + test + name + test + __tj__ + test + system + test + area + test + message));
+		var test="|_|";
+        httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + system + test + area + test + message));
     }
 }
 
