@@ -1,4 +1,5 @@
 <?php
+session_start();
 @require 'conn.php';
 $encryptString = file_get_contents("php://input");
 $decrypted = '';
@@ -6,16 +7,17 @@ $key       = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANPMbBfoVUpzusOLIX
 $key_eol   = (string) implode("\n", str_split((string) $key, 64));
 $privateKey = (string) "-----BEGIN PRIVATE KEY-----\n" . $key_eol . "\n-----END PRIVATE KEY-----";
 @openssl_private_decrypt(base64_decode($encryptString), $decrypted, $privateKey);
-$arr=explode('&&&',$decrypted);
+$arr=explode('/|||/',$decrypted);
 
 $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\,|\.|\/|\;|\'|\`|\-|\=|\\\|\|/";
 $score = preg_replace($str, "", $arr[0]);
 $name = preg_replace($str, "", $arr[1]);
-$system = preg_replace($str, "", $arr[2]);
-$area = preg_replace($str, "", $arr[3]);
-$message = preg_replace($str, "", $arr[4]);
+$t = preg_replace($str, "", $arr[2]);
+$system = preg_replace($str, "", $arr[3]);
+$area = preg_replace($str, "", $arr[4]);
+$message = preg_replace($str, "", $arr[5]);
 
-if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300)) {
+if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300) && ($t == $_SESSION['t'])) {
     $score_sql = "SELECT score,attempts FROM " . $ranking . " WHERE name=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $name);
