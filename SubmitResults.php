@@ -23,7 +23,9 @@ if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strl
     $score_stmt->bind_param("s", $name);
     $score_stmt->bind_result($highest, $attempts);
     $score_stmt->execute();
-    if ($score_stmt->fetch()&&$score_stmt->close()) {
+    $data=$score_stmt->fetch();
+    $score_stmt->close();
+    if (!empty($data)) {
         $attempts += 1;
         if ($score > $highest) {
             $update_sql = "UPDATE " . $ranking . " SET score=?,time=NOW(),system=?,area=?,message=?,attempts=? WHERE name=?";
