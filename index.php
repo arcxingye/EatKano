@@ -3,11 +3,13 @@
 
 <head>
     <title>吃掉小鹿乃</title>
-    <meta item="description" content="新概念音游" />
-    <meta name="Keywords" content="吃掉小鹿乃" />
+    <meta itemprop="name" content="吃掉小鹿乃" />
+    <meta itemprop="description" content="新概念音游" />
     <meta itemprop="image" content="https://www.thac.cc/kano/res/logo.jpg" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="./static/index.css" rel="stylesheet" type="text/css">
     <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="https://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
@@ -15,23 +17,12 @@
     session_start();
     $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 64);
     $_SESSION['t'] = $str;
-    echo "<script>var __tj__='" . "__" . $str . "__" . "'</script>"
+    echo "<script>var __tj__='" . "__" . $str . "__" . "'</script>";
     ?>
-    <script type="text/javascript">
-        var isDesktop = navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i) ? false : true;
-        var fontunit = isDesktop ? 20 : ((window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth) / 320) * 10;
-        document.write('<style type="text/css">' +
-            'html,body {font-size:' + (fontunit < 30 ? fontunit : '30') + 'px;}' +
-            (isDesktop ? '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position: absolute;}' :
-                '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position:fixed;}@media screen and (orientation:landscape) {#landscape {display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}}') +
-            '</style>');
-    </script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="./static/index.css" rel="stylesheet" type="text/css">
+    <script src="./static/index.js"></script>
 </head>
 
 <body onLoad="init()" oncontextmenu=self.event.returnValue=false>
-    <script src="./static/index.js" type="text/javascript"></script>
     <div id="GameScoreLayer" class="BBOX SHADE bgc1" style="display:none;">
         <div style="padding:5%;margin-top: 200px;background-color: rgba(125, 181, 216, 0.3);">
             <div id="GameScoreLayer-text"></div>
