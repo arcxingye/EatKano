@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.thac.cc/kano/x/"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
 </p>
 <div align="center">
 
@@ -14,9 +14,9 @@ _🦌 网页小游戏 🥛_
 
 小游戏：吃掉小鹿乃
 
-浏览量超5,000,000+
+浏览量超10,000,000+
 
-线上版本:https://www.thac.cc/game/eatkano/index.php
+线上版本:https://xingye.me/game/eatkano/index.php
 
 Github Page:https://arcxingye.github.io/EatKano/index.html
 
