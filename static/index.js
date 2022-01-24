@@ -386,10 +386,10 @@ function initSetting() {
     if(cookie("keyboard")){
         document.getElementById("keyboard").value = cookie("keyboard");
         map={}
-        map[cookie("keyboard").charAt(0)]=1;
-        map[cookie("keyboard").charAt(1)]=2;
-        map[cookie("keyboard").charAt(2)]=3;
-        map[cookie("keyboard").charAt(3)]=4;
+        map[cookie("keyboard").charAt(0).toLowerCase()]=1;
+        map[cookie("keyboard").charAt(1).toLowerCase()]=2;
+        map[cookie("keyboard").charAt(2).toLowerCase()]=3;
+        map[cookie("keyboard").charAt(3).toLowerCase()]=4;
     }
 }
 function show_btn() {
