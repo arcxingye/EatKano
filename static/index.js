@@ -416,7 +416,7 @@ function click(index) {
     let id = p.id.substring(0, 11) + num;
 
     let fakeEvent = {
-        clientX: ((index - 1) * blockSize + index * blockSize) / 2,
+        clientX: ((index - 1) * blockSize + index * blockSize) / 2 + body.offsetLeft,
         // Make sure that it is in the area
         clientY: (touchArea[0] + touchArea[1]) / 2,
         target: document.getElementById(id),
