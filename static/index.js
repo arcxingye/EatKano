@@ -408,9 +408,32 @@ function goRank() {
     }
     window.location.href=link;
 }
-console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...")
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false
+
+function click(index) {
+    let p = _gameBBList[_gameBBListIndex];
+    let base = parseInt(document.getElementById(p.id).getAttribute("num")) - p.cell;
+    let num = base + index - 1;
+    let id = p.id.substring(0, 11) + num;
+
+    let fakeEvent = {
+        clientX: ((index - 1) * blockSize + index * blockSize) / 2,
+        // Make sure that it is in the area
+        clientY: (touchArea[0] + touchArea[1]) / 2,
+        target: document.getElementById(id),
+    };
+
+    gameTapEvent(fakeEvent)
+}
+
+document.onkeydown = function(e) {
+    const map = {
+        'd': 1, 'f': 2, 'j': 3, 'k': 4
     }
-};
+    let key = e.key.toLowerCase();
+
+    if (Object.keys(map).indexOf(key) !== -1) {
+        click(map[key])
+    }
+}
+
+console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...")
