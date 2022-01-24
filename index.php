@@ -5,7 +5,6 @@
     <title>吃掉小鹿乃</title>
     <meta itemprop="name" content="吃掉小鹿乃" />
     <meta itemprop="description" content="新概念音游" />
-    <meta itemprop="image" content="https://www.thac.cc/kano/res/logo.jpg" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
