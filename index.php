@@ -53,13 +53,19 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">名字</span>
                         </div>
-                        <input type="text" id="username" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)" aria-label="username" aria-describedby="basic-addon1">
+                        <input type="text" id="username" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">留言</span>
                         </div>
-                        <input type="text" id="message" class="form-control" maxlength=50 placeholder="禁广告/脏话(本项可不填)" aria-label="username" aria-describedby="basic-addon1">
+                        <input type="text" id="message" class="form-control" maxlength=50 placeholder="禁广告/脏话(本项可不填)">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">按键</span>
+                        </div>
+                        <input type="text" id="keyboard" class="form-control" maxlength=4 placeholder="默认为DFJK">
                     </div>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();">完成</button>
                 </div>

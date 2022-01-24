@@ -38,19 +38,28 @@
                 <br />
                 <div id="btn_group" style="display: block;">
                     <button type="button" id="ready-btn" class="btn btn-primary loading btn-lg">点击开始</button>
+                    <br /><br />
+                    <button type="button" class="btn btn-secondary btn-lg" onclick="show_setting()">游戏设置</button>
                 </div>
                 <div id="setting" style="display: none;">
-                    <div class="input-group mb-3">
+                    <!-- 此为无排行榜版本，去除名字留言 -->
+                    <div class="input-group mb-3" style="display: none;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">名字</span>
                         </div>
-                        <input type="text" id="username" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)" aria-label="username" aria-describedby="basic-addon1">
+                        <input type="text" id="username" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" style="display: none;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">留言</span>
                         </div>
-                        <input type="text" id="message" class="form-control" maxlength=50 placeholder="禁广告/脏话(本项可不填)" aria-label="username" aria-describedby="basic-addon1">
+                        <input type="text" id="message" class="form-control" maxlength=50 placeholder="禁广告/脏话(本项可不填)">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">按键</span>
+                        </div>
+                        <input type="text" id="keyboard" class="form-control" maxlength=4 placeholder="默认为DFJK">
                     </div>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();">完成</button>
                 </div>

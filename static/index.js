@@ -5,7 +5,16 @@ document.write('<style type="text/css">' +
     (isDesktop ? '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position: absolute;}' :
         '#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position:fixed;}@media screen and (orientation:landscape) {#landscape {display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}}') +
     '</style>');
-if (isDesktop) document.write('<div id="gameBody">');
+let map = {'d': 1, 'f': 2, 'j': 3, 'k': 4};
+if (isDesktop){
+    document.write('<div id="gameBody">');
+    document.onkeydown = function (e) {
+        let key = e.key.toLowerCase();
+        if (Object.keys(map).indexOf(key) !== -1) {
+            click(map[key])
+        }
+    }
+}
 let body, blockSize, GameLayer = [],
     GameLayerBG, touchArea = [],
     GameTimeLayer;
@@ -135,7 +144,6 @@ function gameOver() {
         GameLayerBG.className = '';
         showGameScoreLayer();
     }, 1500);
-    console.log()
 }
 
 
@@ -348,7 +356,6 @@ function toStr(obj) {
     } else {
         return obj;
     }
-    return '';
 }
 
 function cookie(name, value, time) {
@@ -376,6 +383,14 @@ document.write(createGameLayer());
 function initSetting() {
     document.getElementById("username").value = cookie("username") ? cookie("username") : "";
     document.getElementById("message").value = cookie("message") ? cookie("message") : "";
+    if(cookie("keyboard")){
+        document.getElementById("keyboard").value = cookie("keyboard");
+        map={}
+        map[cookie("keyboard").charAt(0)]=1;
+        map[cookie("keyboard").charAt(1)]=2;
+        map[cookie("keyboard").charAt(2)]=3;
+        map[cookie("keyboard").charAt(3)]=4;
+    }
 }
 function show_btn() {
     document.getElementById("btn_group").style.display = "block"
@@ -388,6 +403,8 @@ function show_setting() {
 function save_cookie() {
     cookie('username', document.getElementById("username").value, 100);
     cookie('message', document.getElementById("message").value, 100);
+    cookie('keyboard', document.getElementById("keyboard").value, 100);
+    initSetting();
 }
 function isnull(val) {
     let str = val.replace(/(^\s*)|(\s*$)/g, '');
@@ -420,17 +437,6 @@ function click(index) {
     };
 
     gameTapEvent(fakeEvent)
-}
-
-document.onkeydown = function (e) {
-    const map = {
-        'd': 1, 'f': 2, 'j': 3, 'k': 4
-    }
-    let key = e.key.toLowerCase();
-
-    if (Object.keys(map).indexOf(key) !== -1) {
-        click(map[key])
-    }
 }
 
 console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...")
