@@ -1,24 +1,12 @@
 <p align="center">
-  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <img src="https://github.com/wxx9248/Rei/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="Rei">
 </p>
-<div align="center">
-
-# EatKano
-
-_🦌 网页小游戏 🥛_
-
-</div>
-
 
 ## 简介
 
-小游戏：吃掉小鹿乃
+小游戏：朔间小零
 
-浏览量超10,000,000+
-
-线上版本:https://xingye.me/game/eatkano/index.php
-
-Github Page:https://arcxingye.github.io/EatKano/index.html
+Cloudflare Pages: https://rei.pages.dev/
 
 ## 可选功能
 
@@ -38,4 +26,4 @@ Github Page:https://arcxingye.github.io/EatKano/index.html
 
 欢迎修改和续写，需保留跳转此仓库的开源按钮
 
-如整成自己想要的吃掉xxx，可以Fork一份改下图和字，并在github pages运行
+如整成自己想要的吃掉xxx，可以Fork一份改下图和字，并在Github Pages运行
