@@ -18,7 +18,7 @@ $area = preg_replace($str, "", $arr[4]);
 $message = preg_replace($str, "", $arr[5]);
 
 if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300) && ($t == $_SESSION['t'])) {
-    $score_sql = "SELECT score,attempts FROM " . $ranking . " WHERE name=?";
+    $score_sql = "SELECT `score`,`attempts` FROM " . $ranking . " WHERE `name`=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $name);
     $score_stmt->bind_result($highest, $attempts);
@@ -28,13 +28,13 @@ if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strl
     if (!empty($data)) {
         $attempts += 1;
         if ($score > $highest) {
-            $update_sql = "UPDATE " . $ranking . " SET score=?,time=NOW(),system=?,area=?,message=?,attempts=? WHERE name=?";
+            $update_sql = "UPDATE " . $ranking . " SET `score`=?,`time`=NOW(),`system`=?,`area`=?,`message`=?,`attempts`=? WHERE `name`=?";
             $update_stmt = $link->prepare($update_sql);
             $update_stmt->bind_param('isssis', $score, $system, $area, $message, $attempts, $name);
             $update_stmt->execute();
             $update_stmt->close();
         } else {
-            $count_sql = "UPDATE " . $ranking . " SET attempts=? WHERE name=?";
+            $count_sql = "UPDATE " . $ranking . " SET `attempts`=? WHERE `name`=?";
             $count_stmt = $link->prepare($count_sql);
             $count_stmt->bind_param('is', $attempts, $name);
             $count_stmt->execute();
@@ -42,7 +42,7 @@ if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strl
         }
     } else {
         $attempts = 1;
-        $insert_sql = "INSERT INTO " . $ranking . " (score,time,system,area,message,attempts,name) VALUES (?,NOW(),?,?,?,?,?)";
+        $insert_sql = "INSERT INTO " . $ranking . " (`score`,`time`,`system`,`area`,`message`,`attempts`,`name`) VALUES (?,NOW(),?,?,?,?,?)";
         $insert_stmt = $link->prepare($insert_sql);
         $insert_stmt->bind_param('isssis', $score, $system, $area, $message, $attempts, $name);
         $insert_stmt->execute();
