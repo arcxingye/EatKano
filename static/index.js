@@ -446,5 +446,53 @@
         gameTapEvent(fakeEvent);
     }
 
+    const clickBeforeStyle = document.createElement('style');
+    const clickAfterStyle = document.createElement('style');
+    document.head.append(clickBeforeStyle);
+    document.head.append(clickAfterStyle);
+
+    function saveImage(dom, callback) {
+        if (dom.files && dom.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function() {
+                callback(this.result);
+            }
+            reader.readAsDataURL(dom.files[0]);
+        }
+    }
+
+
+    w.getClickBeforeImage = function() {
+        const img = document.getElementById('click-before-image');
+        img.click();
+    }
+
+    w.saveClickBeforeImage = function() {
+        const img = document.getElementById('click-before-image');
+        saveImage(img, r => {
+            clickBeforeStyle.innerHTML = `
+                .t1, .t2, .t3, .t4, .t5 {
+                   background-size: auto 100%;
+                   background-image: url(${r});
+            }`;
+        })
+    }
+
+    w.getClickAfterImage = function() {
+        const img = document.getElementById('click-after-image');
+        img.click();
+    }
+
+    w.saveClickAfterImage = function() {
+        const img = document.getElementById('click-after-image');
+        saveImage(img, r => {
+            clickAfterStyle.innerHTML = `
+                .tt1, .tt2, .tt3, .tt4, .tt5 {
+                  background-size: auto 86%;
+                  background-image: url(${r});
+            }`;
+        })
+    }
+
     console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...");
 }) (window);
