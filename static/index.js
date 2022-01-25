@@ -19,7 +19,7 @@
     let body, blockSize, GameLayer = [],
         GameLayerBG, touchArea = [],
         GameTimeLayer;
-    let transform, transitionDuration;
+    let transform, transitionDuration, welcomeLayerClosed;
 
     w.init = function() {
         showWelcomeLayer();
@@ -297,11 +297,13 @@
     }
 
     w.closeWelcomeLayer = function() {
+        welcomeLayerClosed = true;
         let l = document.getElementById('welcome');
         l.style.display = 'none';
     }
 
     w.showWelcomeLayer = function() {
+        welcomeLayerClosed = false;
         let l = document.getElementById('welcome');
         l.style.display = 'block';
     }
@@ -431,6 +433,10 @@
     }
 
     function click(index) {
+        if (!welcomeLayerClosed) {
+            return;
+        }
+
         let p = _gameBBList[_gameBBListIndex];
         let base = parseInt(document.getElementById(p.id).getAttribute("num")) - p.cell;
         let num = base + index - 1;
