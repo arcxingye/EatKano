@@ -152,7 +152,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function updatePanel() {
         if (mode === MODE_NORMAL) {
-            _gameTimeNum--;
+            if (_gameStart) {
+                _gameTimeNum--;
+            }
             if (_gameTimeNum <= 0) {
                 GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
                 gameOver();
@@ -162,11 +164,14 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
             }
         } else if (mode === MODE_ENDLESS) {
-            _gameStartTime++;
-            let cps = (_gameScore / _gameStartTime);
-            if (!isNaN(cps) && cps !== Infinity) {
-                _maxCPS = Math.max(cps, _maxCPS);
+            if (_gameStart) {
+                _gameStartTime++;
             }
+            let cps = (_gameScore / _gameStartTime);
+            if (isNaN(cps) || cps === Infinity) {
+                cps = 0;
+            }
+            _maxCPS = Math.max(cps, _maxCPS);
             GameTimeLayer.innerHTML = `CPS:${cps.toFixed(2)}`;
         } else {
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
@@ -291,7 +296,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             _gameBBListIndex++;
             _gameScore++;
 
-            updatePanel();
+            if (mode !== MODE_NORMAL) {
+                updatePanel();
+            }
 
             gameLayerMoveNextRow();
         } else if (_gameStart && !tar.notEmpty) {
