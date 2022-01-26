@@ -167,6 +167,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             if (_gameStart) {
                 _gameStartTime++;
             }
+            if (_gameStartTime === 1) {
+                return;
+            }
             let cps = (_gameScore / _gameStartTime);
             if (isNaN(cps) || cps === Infinity) {
                 cps = 0;
