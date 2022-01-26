@@ -1,3 +1,5 @@
+const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
+
 (function(w) {
     let isDesktop = !navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i);
     let fontunit = isDesktop ? 20 : ((window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth) / 320) * 10;
@@ -16,8 +18,6 @@
             }
         }
     }
-
-    const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let body, blockSize, GameLayer = [],
         GameLayerBG, touchArea = [],
@@ -45,12 +45,11 @@
         gameInit();
         initSetting();
         window.addEventListener('resize', refreshSize, false);
-        let btn = document.getElementById('ready-btn');
-        btn.className = 'btn btn-primary btn-lg';
-        btn.onclick = function () {
-            mode = parseInt(document.getElementById('mode').value);
-            closeWelcomeLayer();
-        }
+    }
+
+    w.readyBtn = function(mod) {
+        mode = mod;
+        closeWelcomeLayer();
     }
 
     w.winOpen = function() {
