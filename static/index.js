@@ -107,8 +107,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameBBListIndex = 0,
         _gameOver = false,
         _gameStart = false,
-        _gameTime, _gameTimeNum, _gameScore, _date1, deviation_time,
-        _maxCPS;
+        _gameTime, _gameTimeNum, _gameScore, _date1, deviation_time;
 
     let _gameStartTime;
 
@@ -136,7 +135,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameStart = false;
         _gameTimeNum = 20;
         _gameStartTime = 0;
-        _maxCPS = 0;
         countBlockSize();
         refreshGameLayer(GameLayer[0]);
         refreshGameLayer(GameLayer[1], 1);
@@ -147,14 +145,26 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _date1 = new Date();
         _gameStart = true;
 
-        _gameTime = setInterval(updatePanel, 1000);
+        _gameTime = setInterval(timer, 200);
+    }
+
+    function getCPS() {
+        let cps = _gameScore / _gameStartTime;
+        if (isNaN(cps) || cps === Infinity) {
+            cps = 0;
+        }
+        return cps;
+    }
+
+    function timer() {
+        _gameTimeNum -= 0.2;
+        _gameStartTime += 0.2;
+
+        updatePanel();
     }
 
     function updatePanel() {
         if (mode === MODE_NORMAL) {
-            if (_gameStart) {
-                _gameTimeNum--;
-            }
             if (_gameTimeNum <= 0) {
                 GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
                 gameOver();
@@ -164,18 +174,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
             }
         } else if (mode === MODE_ENDLESS) {
-            if (_gameStart) {
-                _gameStartTime++;
-            }
-            if (_gameStartTime === 1) {
-                return;
-            }
-            let cps = (_gameScore / _gameStartTime);
-            if (isNaN(cps) || cps === Infinity) {
-                cps = 0;
-            }
-            _maxCPS = Math.max(cps, _maxCPS);
-            GameTimeLayer.innerHTML = `CPS:${cps.toFixed(2)}`;
+            GameTimeLayer.innerHTML = `CPS:${getCPS().toFixed(2)}`;
         } else {
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
@@ -220,7 +219,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.creatTimeText = function(n) {
-        return '&nbsp;TIME:' + n;
+        return '&nbsp;TIME:' + Math.ceil(n);
     }
 
     let _ttreg = / t{1,2}(\d+)/,
@@ -299,9 +298,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             _gameBBListIndex++;
             _gameScore++;
 
-            if (mode === MODE_PRACTICE) {
-                updatePanel();
-            }
+            updatePanel();
 
             gameLayerMoveNextRow();
         } else if (_gameStart && !tar.notEmpty) {
@@ -357,18 +354,23 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return best;
     }
 
+    function scoreToString(score) {
+        return mode === MODE_ENDLESS ? score.toFixed(2) : score.toString();
+    }
+
     w.showGameScoreLayer = function() {
         let l = document.getElementById('GameScoreLayer');
         let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
-        let score = (mode === MODE_ENDLESS ? parseFloat(_maxCPS.toFixed(2)) : _gameScore);
+        let score = (mode === MODE_ENDLESS ? parseFloat(getCPS().toFixed(2)) : _gameScore);
+        let best = getBestScore(score);
+        score = scoreToString(score);
         l.className = l.className.replace(/bgc\d/, 'bgc' + c);
         document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
         let score_text = '得分&nbsp;&nbsp;';
         let normalCond = deviation_time < 23000 || mode !== MODE_NORMAL;
         score_text += normalCond ? score : "<span style='color:red;'>" + score + "</span>";
         document.getElementById('GameScoreLayer-score').innerHTML = score_text;
-        let best = getBestScore(score);
-        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + best;
+        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + scoreToString(best);
         l.style.display = 'block';
     }
 
@@ -397,6 +399,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }
             SubmitResults();
         }
+        // TODO 添加反馈
+        if (mode === MODE_ENDLESS) return '';
         if (score <= 49) return '试着好好练一下？';
         if (score <= 99) return 'TCL';
         if (score <= 149) return 'TQL';
