@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
     <title>吃掉小鹿乃</title>
@@ -7,18 +7,18 @@
     <meta itemprop="description" content="新概念音游" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="./static/index.css" rel="stylesheet" type="text/css">
     <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script src="https://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
-    <?php
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+	<?php
     session_start();
     $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 8);
     $_SESSION['t'] = $str;
     echo "<script>var tj='" . $str . "'</script>";
     ?>
-    <script src="./static/index.js"></script>
 </head>
 
 <body onLoad="init()" oncontextmenu=self.event.returnValue=false>
@@ -28,7 +28,7 @@
             <div id="GameScoreLayer-score" style="margin:10px 0;">得分</div>
             <div id="GameScoreLayer-bast">最佳</div>
             <button type="button" class="btn btn-secondary btn-lg" onclick="replayBtn()">重来</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="goRank();">排行</button>
+			<button type="button" class="btn btn-secondary btn-lg" onclick="goRank();">排行</button>
             <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'">开源</button>
         </div>
     </div>
@@ -44,9 +44,16 @@
                 </div>
                 <br />
                 <div id="btn_group" style="display: block;">
-                    <button type="button" id="ready-btn" class="btn btn-primary loading btn-lg">点击开始</button>
-                    <br /><br />
-                    <button type="button" class="btn btn-secondary btn-lg" onclick="show_setting()">游戏设置</button>
+                    <div class="dropdown">
+                        <a class="btn btn-primary btn-lg dropdown-toggle" href="javascript: void(0);" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">点击开始</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_NORMAL)">普通模式</a></li>
+                            <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_ENDLESS)">无尽模式</a></li>
+                            <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_PRACTICE)">练习模式</a></li>
+                        </ul>
+                    </div>
+                    <br/>
+                    <a class="btn btn-secondary btn-lg" onclick="show_setting()">游戏设置</a>
                 </div>
                 <div id="setting" style="display: none;">
                     <div class="container mb-3">
@@ -84,6 +91,8 @@
             </div>
         </div>
     </div>
+
+    <script src="./static/index.js"></script>
 </body>
 
 </html>
