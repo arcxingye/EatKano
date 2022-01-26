@@ -391,6 +391,7 @@
     w.initSetting = function() {
         document.getElementById("username").value = cookie("username") ? cookie("username") : "";
         document.getElementById("message").value = cookie("message") ? cookie("message") : "";
+        document.getElementsByTagName("title")[0].innerText = cookie("title") ? cookie("title") : "吃掉小鹿乃";
         if (cookie("keyboard")) {
             document.getElementById("keyboard").value = cookie("keyboard");
             map = {}
@@ -417,9 +418,8 @@
         cookie('username', document.getElementById("username").value, 100);
         cookie('message', document.getElementById("message").value, 100);
         cookie('keyboard', document.getElementById("keyboard").value, 100);
+        cookie('title', document.getElementById("title").value, 100);
         initSetting();
-        let title=document.getElementById("title").value;
-        document.getElementsByTagName("title")[0].innerText = title?title:"吃掉小鹿乃";
     }
 
     w.isnull = function(val) {
