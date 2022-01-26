@@ -62,12 +62,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let refreshSizeTime;
 
-    w.refreshSize = function() {
+    function refreshSize() {
         clearTimeout(refreshSizeTime);
         refreshSizeTime = setTimeout(_refreshSize, 200);
     }
 
-    w._refreshSize = function() {
+    function _refreshSize() {
         countBlockSize();
         for (let i = 0; i < GameLayer.length; i++) {
             let box = GameLayer[i];
@@ -95,7 +95,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         a.style[transform] = 'translate3D(0,' + a.y + 'px,0)';
     }
 
-    w.countBlockSize = function() {
+    function countBlockSize() {
         blockSize = body.offsetWidth / 4;
         body.style.height = window.innerHeight + 'px';
         GameLayerBG.style.height = window.innerHeight + 'px';
@@ -111,7 +111,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let _gameStartTime;
 
-    w.gameInit = function() {
+    function gameInit() {
         createjs.Sound.registerSound({
             src: "./static/music/err.mp3",
             id: "err"
@@ -127,7 +127,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         gameRestart();
     }
 
-    w.gameRestart = function() {
+    function gameRestart() {
         _gameBBList = [];
         _gameBBListIndex = 0;
         _gameScore = 0;
@@ -141,7 +141,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         updatePanel();
     }
 
-    w.gameStart = function() {
+    function gameStart() {
         _date1 = new Date();
         _gameStart = true;
 
@@ -171,7 +171,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 GameLayerBG.className += ' flash';
                 createjs.Sound.play("end");
             } else {
-                GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
+                GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
             }
         } else if (mode === MODE_ENDLESS) {
             GameTimeLayer.innerHTML = `CPS:${getCPS().toFixed(2)}`;
@@ -180,7 +180,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
     }
 
-    w.gameOver = function() {
+    function gameOver() {
         _gameOver = true;
         clearInterval(_gameTime);
         setTimeout(function () {
@@ -190,13 +190,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
 
-    w.encrypt = function(text) {
+    function encrypt(text) {
         let encrypt = new JSEncrypt();
         encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTzGwX6FVKc7rDiyF3H+jKpBlRCV4jOiJ4JR33qZPVXx8ahW6brdBF9H1vdHBAyO6AeYBumKIyunXP9xzvs1qJdRNhNoVwHCwGDu7TA+U4M7G9FArDG0Y6k4LbS0Ks9zeRBMiWkW53yQlPshhtOxXCuZZOMLqk1vEvTCODYYqX5QIDAQAB");
         return encrypt.encrypt(text);
     }
 
-    w.SubmitResults = function() {
+    function SubmitResults() {
         let system = "其他操作系统";
         let area = "异世界";
         if (document.getElementById("username").value) {
@@ -218,14 +218,14 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
     }
 
-    w.creatTimeText = function(n) {
+    function createTimeText(n) {
         return '&nbsp;TIME:' + Math.ceil(n);
     }
 
     let _ttreg = / t{1,2}(\d+)/,
         _clearttClsReg = / t{1,2}\d+| bad/;
 
-    w.refreshGameLayer = function(box, loop, offset) {
+    function refreshGameLayer(box, loop, offset) {
         let i = Math.floor(Math.random() * 1000) % 4 + (loop ? 0 : 4);
         for (let j = 0; j < box.children.length; j++) {
             let r = box.children[j],
@@ -264,7 +264,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         box.style[transitionDuration] = '150ms';
     }
 
-    w.gameLayerMoveNextRow = function() {
+    function gameLayerMoveNextRow() {
         for (let i = 0; i < GameLayer.length; i++) {
             let g = GameLayer[i];
             g.y += blockSize;
@@ -276,7 +276,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
     }
 
-    w.gameTapEvent = function(e) {
+    function gameTapEvent(e) {
         if (_gameOver) {
             return false;
         }
@@ -315,7 +315,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return false;
     }
 
-    w.createGameLayer = function() {
+    function createGameLayer() {
         let html = '<div id="GameLayerBG">';
         for (let i = 1; i <= 2; i++) {
             let id = 'GameLayer' + i;
@@ -333,14 +333,14 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return html;
     }
 
-    w.closeWelcomeLayer = function() {
+    function closeWelcomeLayer() {
         welcomeLayerClosed = true;
         let l = document.getElementById('welcome');
         l.style.display = 'none';
         updatePanel();
     }
 
-    w.showWelcomeLayer = function() {
+    function showWelcomeLayer() {
         welcomeLayerClosed = false;
         let l = document.getElementById('welcome');
         l.style.display = 'block';
@@ -358,7 +358,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return mode === MODE_ENDLESS ? score.toFixed(2) : score.toString();
     }
 
-    w.showGameScoreLayer = function() {
+    function showGameScoreLayer() {
         let l = document.getElementById('GameScoreLayer');
         let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
         let score = (mode === MODE_ENDLESS ? parseFloat(getCPS().toFixed(2)) : _gameScore);
@@ -374,7 +374,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         l.style.display = 'block';
     }
 
-    w.hideGameScoreLayer = function() {
+    function hideGameScoreLayer() {
         let l = document.getElementById('GameScoreLayer');
         l.style.display = 'none';
     }
@@ -390,7 +390,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         showWelcomeLayer();
     }
 
-    w.shareText = function(score) {
+    function shareText(score) {
         if (mode === MODE_NORMAL) {
             let date2 = new Date();
             deviation_time = (date2.getTime() - _date1.getTime())
@@ -408,7 +408,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return '人？';
     }
 
-    w.toStr = function(obj) {
+    function toStr(obj) {
         if (typeof obj === 'object') {
             return JSON.stringify(obj);
         } else {
@@ -416,7 +416,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
     }
 
-    w.cookie = function(name, value, time) {
+    function cookie(name, value, time) {
         if (name) {
             if (value) {
                 if (time) {
@@ -439,7 +439,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     document.write(createGameLayer());
 
-    w.initSetting = function() {
+    function initSetting() {
         document.getElementById("username").value = cookie("username") ? cookie("username") : "";
         document.getElementById("message").value = cookie("message") ? cookie("message") : "";
         document.getElementsByTagName("title")[0].innerText = cookie("title") ? cookie("title") : "吃掉小鹿乃";
@@ -473,7 +473,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         initSetting();
     }
 
-    w.isnull = function(val) {
+    function isnull(val) {
         let str = val.replace(/(^\s*)|(\s*$)/g, '');
         return str === '' || str === undefined || str == null;
     }
