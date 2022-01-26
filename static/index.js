@@ -107,15 +107,15 @@
 
     w.gameInit = function() {
         createjs.Sound.registerSound({
-            src: "./static/music/err.mp3",
+            src: "./static/music/err-吃饱喝足去rp嘿嘿.mp3",
             id: "err"
         });
         createjs.Sound.registerSound({
-            src: "./static/music/end.mp3",
+            src: "./static/music/end-药水哥哥，快超市我，我是大母狗.mp3",
             id: "end"
         });
         createjs.Sound.registerSound({
-            src: "./static/music/tap.mp3",
+            src: "./static/music/tap-爸.mp3",
             id: "tap"
         });
         gameRestart();
@@ -350,10 +350,10 @@
             return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
         }
         SubmitResults();
-        if (score <= 49) return '试着好好练一下？';
-        if (score <= 99) return 'TCL';
-        if (score <= 149) return 'TQL';
-        if (score <= 199) return '您';
+        if (score <= 49) return '浩杰的蔑视';
+        if (score <= 99) return '吃饱喝足去rp，嘿嘿';
+        if (score <= 149) return '来两部骚一点的色图，发到群里面，我要自己看';
+        if (score <= 199) return '浩杰爱你哟';
         return '人？';
     }
 
@@ -391,7 +391,7 @@
     w.initSetting = function() {
         document.getElementById("username").value = cookie("username") ? cookie("username") : "";
         document.getElementById("message").value = cookie("message") ? cookie("message") : "";
-        document.getElementsByTagName("title")[0].innerText = cookie("title") ? cookie("title") : "吃掉小鹿乃";
+        document.getElementsByTagName("title")[0].innerText = cookie("title") ? cookie("title") : "吃掉💊";
         if (cookie("keyboard")) {
             document.getElementById("keyboard").value = cookie("keyboard");
             map = {}
