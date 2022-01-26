@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://xtsat.github.io/Eatyaoshui/"><img src="https://github.com/XTsat/Eatyaoshui/blob/main/static/image/ClickBefore-药水.png?raw=true" width="100" height="100" alt="EatKano"></a>
 </p>
 <div align="center">
 
-# EatKano
+# Eat💊
 
 _🦌 网页小游戏 🥛_
 
@@ -12,11 +12,10 @@ _🦌 网页小游戏 🥛_
 
 ## 简介
 
-小游戏：吃掉小鹿乃
+小游戏：吃掉浩杰
 
-[线上版本](https://xingye.me/game/eatkano/index.php)
-|
-[Github Page](https://arcxingye.github.io/EatKano/index.html)
+
+[Github Page](https://xtsat.github.io/Eatyaoshui/index.html)
 
 ## 可选功能
 
