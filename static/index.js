@@ -205,7 +205,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             if (navigator.appVersion.indexOf("Linux") !== -1) system = "Linux";
             if (navigator.appVersion.indexOf("Android") !== -1) system = "Android";
             if (navigator.appVersion.indexOf("like Mac") !== -1) system = "iOS";
-            if (returnCitySN['cname']) {
+            if (returnCitySN && returnCitySN['cname']) {
                 area = returnCitySN['cname']
             }
             let httpRequest = new XMLHttpRequest();
