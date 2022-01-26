@@ -22,7 +22,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     let body, blockSize, GameLayer = [],
         GameLayerBG, touchArea = [],
         GameTimeLayer;
-    let transform, transitionDuration, welcomeLayerClosed, mode;
+    let transform, transitionDuration, welcomeLayerClosed;
+
+    let mode = MODE_NORMAL;
 
     w.init = function() {
         showWelcomeLayer();
@@ -47,8 +49,16 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         window.addEventListener('resize', refreshSize, false);
     }
 
-    w.readyBtn = function(mod) {
-        mode = mod;
+    function modeToString(m) {
+        return m === MODE_NORMAL ? "普通模式" : (m === MODE_ENDLESS ? "无尽模式" : "练习模式");
+    }
+
+    w.changeMode = function(m) {
+        mode = m;
+        document.getElementById('mode').innerText = modeToString(m);
+    }
+
+    w.readyBtn = function() {
         closeWelcomeLayer();
         updatePanel();
     }
@@ -365,7 +375,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         let best = getBestScore(score);
         score = scoreToString(score);
         l.className = l.className.replace(/bgc\d/, 'bgc' + c);
-        document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
+        document.getElementById('GameScoreLayer-text').innerHTML = shareText(score);
         let score_text = '得分&nbsp;&nbsp;';
         let normalCond = deviation_time < 23000 || mode !== MODE_NORMAL;
         score_text += normalCond ? score : "<span style='color:red;'>" + score + "</span>";
@@ -399,13 +409,20 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }
             SubmitResults();
         }
-        // TODO 添加反馈
-        if (mode === MODE_ENDLESS) return '';
-        if (score <= 49) return '试着好好练一下？';
-        if (score <= 99) return 'TCL';
-        if (score <= 149) return 'TQL';
-        if (score <= 199) return '您';
-        return '人？';
+
+        if (mode === MODE_ENDLESS) {
+            if (score <= 5) return '试着好好练一下？';
+            if (score <= 8) return 'TCL';
+            if (score <= 10)  return 'TQL';
+            if (score <= 15) return '您';
+            return '人？';
+        } else {
+            if (score <= 49) return '试着好好练一下？';
+            if (score <= 99) return 'TCL';
+            if (score <= 149) return 'TQL';
+            if (score <= 199) return '您';
+            return '人？';
+        }
     }
 
     function toStr(obj) {
