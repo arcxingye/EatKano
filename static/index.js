@@ -404,11 +404,13 @@
     w.show_btn = function() {
         document.getElementById("btn_group").style.display = "block"
         document.getElementById("setting").style.display = "none"
+        document.getElementById("desc").style.display = "block"
     }
 
     w.show_setting = function() {
         document.getElementById("btn_group").style.display = "none"
         document.getElementById("setting").style.display = "block"
+        document.getElementById("desc").style.display = "none"
     }
 
     w.save_cookie = function() {
@@ -416,6 +418,8 @@
         cookie('message', document.getElementById("message").value, 100);
         cookie('keyboard', document.getElementById("keyboard").value, 100);
         initSetting();
+        let title=document.getElementById("title").value;
+        document.getElementsByTagName("title")[0].innerText = title?title:"吃掉小鹿乃";
     }
 
     w.isnull = function(val) {
@@ -499,6 +503,4 @@
             }`;
         })
     }
-
-    console.log("不修改，好嘛？乱传又有什么用呢？(ˉ▽ˉ；)...");
 }) (window);

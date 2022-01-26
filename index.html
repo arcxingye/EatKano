@@ -31,9 +31,9 @@
         <div class="FILL BOX-M" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;">
             <div style="margin:0 8% 0 9%;">
                 <div style="font-size:2.6em; color:#FEF002;">新概念音游</div><br />
-                <div style="font-size:2.2em; color:#fff; line-height:1.5em;">
-                    从最底下小鹿乃开始<br />
-                    看看你20秒能多少分<br />
+                <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
+                    从最底下的开始<br />
+                    看你20秒多少分<br />
                 </div>
                 <br />
                 <div id="btn_group" style="display: block;">
@@ -42,7 +42,25 @@
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_setting()">游戏设置</button>
                 </div>
                 <div id="setting" style="display: none;">
-                    <!-- 此为无排行榜版本，去除名字留言 -->
+                    <div class="container mb-3">
+                        <input type="button" class="btn btn-secondary btn-lg" onclick="getClickBeforeImage()" value="设置点击前的图" style="left: 0">
+                        <input type="file" id="click-before-image" accept="image/*" style="display: none;" onchange="saveClickBeforeImage()">
+                        <input type="button" class="btn btn-secondary btn-lg" onclick="getClickAfterImage()" value="设置点击后的图" style="right: 0">
+                        <input type="file" id="click-after-image" accept="image/*" style="display: none;" onchange="saveClickAfterImage()">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">标题</span>
+                        </div>
+                        <input type="text" id="title" class="form-control" placeholder="吃掉小鹿乃">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">按键</span>
+                        </div>
+                        <input type="text" id="keyboard" class="form-control" maxlength=4 placeholder="默认为DFJK">
+                    </div>
+                    <!-- 此为无排行榜版本，隐藏了名字留言 -->
                     <div class="input-group mb-3" style="display: none;">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">名字</span>
@@ -54,19 +72,6 @@
                             <span class="input-group-text" id="basic-addon1">留言</span>
                         </div>
                         <input type="text" id="message" class="form-control" maxlength=50 placeholder="禁广告/脏话(本项可不填)">
-                    </div>
-                    <div class="container mb-3">
-                        <input type="button" class="btn btn-secondary btn-lg" onclick="getClickBeforeImage()" value="设置点击前的图片" style="left: 0">
-                        <input type="file" id="click-before-image" accept="image/*" style="display: none;" onchange="saveClickBeforeImage()">
-                        <input type="button" class="btn btn-secondary btn-lg" onclick="getClickAfterImage()" value="设置点击后的图片" style="right: 0">
-                        <input type="file" id="click-after-image" accept="image/*" style="display: none;" onchange="saveClickAfterImage()">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">按键</span>
-                        </div>
-                        <input type="text" id="keyboard" class="form-control" maxlength=4 placeholder="默认为DFJK">
                     </div>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();">完成</button>
                 </div>
