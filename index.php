@@ -2,8 +2,8 @@
 <html lang="zh">
 
 <head>
-    <title>调教希</title>
-    <meta itemprop="name" content="调教希" />
+    </title>吃掉希</title>
+    <meta itemprop="name" content="吃掉希" />
     <meta itemprop="description" content="乐子人整活" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
@@ -37,7 +37,7 @@
         <div class="welcome-bg FILL"></div>
         <div class="FILL BOX-M" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;">
             <div style="margin:0 8% 0 9%;">
-                <div style="font-size:2.6em; color:#FEF002;">新概念音游</div><br />
+                <div style="font-size:2.6em; color:#FEF002;">乐子人整活</div><br />
                 <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
                     从最底下的希开始<br />
                     看你20秒能把希调教成什么样子<br />
@@ -45,7 +45,7 @@
                 <br />
                 <div id="btn_group" style="display: block;">
                     <div class="dropdown">
-                        <a class="btn btn-primary btn-lg dropdown-toggle" href="javascript: void(0);" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">点击开始</a>
+                        <a class="btn btn-primary btn-lg dropdown-toggle" href="javascript: void(0);" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">调教</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_NORMAL)">普通模式</a></li>
                             <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_ENDLESS)">无尽模式</a></li>
