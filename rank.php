@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>吃掉小鹿乃-排行榜</title>
+  <title>调教希-排行榜</title>
   <meta item="description" content="来看神仙" />
   <meta itemprop="image" content="https://www.thac.cc/kano/res/logo.jpg" />
   <meta charset="utf-8" />
