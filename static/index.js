@@ -50,6 +50,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.readyBtn = function(mod) {
         mode = mod;
         closeWelcomeLayer();
+        updatePanel();
     }
 
     w.winOpen = function() {
