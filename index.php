@@ -2,9 +2,9 @@
 <html lang="zh">
 
 <head>
-    <title>吃掉小鹿乃</title>
-    <meta itemprop="name" content="吃掉小鹿乃" />
-    <meta itemprop="description" content="新概念音游" />
+    <title>调教希</title>
+    <meta itemprop="name" content="调教希" />
+    <meta itemprop="description" content="乐子人整活" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
     <link href="./static/index.css" rel="stylesheet" type="text/css">
@@ -39,8 +39,8 @@
             <div style="margin:0 8% 0 9%;">
                 <div style="font-size:2.6em; color:#FEF002;">新概念音游</div><br />
                 <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
-                    从最底下的开始<br />
-                    看你20秒多少分<br />
+                    从最底下的希开始<br />
+                    看你20秒能把希调教成什么样子<br />
                 </div>
                 <br />
                 <div id="btn_group" style="display: block;">
@@ -66,7 +66,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">标题</span>
                         </div>
-                        <input type="text" id="title" class="form-control" placeholder="吃掉小鹿乃">
+                        <input type="text" id="title" class="form-control" placeholder="调教希">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
