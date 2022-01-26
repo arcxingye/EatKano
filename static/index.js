@@ -296,7 +296,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             _gameBBListIndex++;
             _gameScore++;
 
-            if (mode !== MODE_NORMAL) {
+            if (mode === MODE_PRACTICE) {
                 updatePanel();
             }
 
