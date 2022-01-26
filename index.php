@@ -44,14 +44,18 @@
                 </div>
                 <br />
                 <div id="btn_group" style="display: block;">
+                    <a class="btn btn-primary btn-lg" onclick="readyBtn()">开始游戏</a>
+                    <br/><br/>
+
                     <div class="dropdown">
-                        <a class="btn btn-primary btn-lg dropdown-toggle" href="javascript: void(0);" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">点击开始</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_NORMAL)">普通模式</a></li>
-                            <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_ENDLESS)">无尽模式</a></li>
-                            <li><a class="dropdown-item btn-lg" onclick="readyBtn(MODE_PRACTICE)">练习模式</a></li>
+                        <a class="btn btn-secondary btn-lg" href="javascript: void(0);" role="button" id="mode" data-bs-toggle="dropdown" aria-expanded="false">普通模式</a>
+                        <ul class="dropdown-menu" aria-labelledby="mode">
+                            <li><a class="dropdown-item" onclick="changeMode(MODE_NORMAL)">普通模式</a></li>
+                            <li><a class="dropdown-item" onclick="changeMode(MODE_ENDLESS)">无尽模式</a></li>
+                            <li><a class="dropdown-item" onclick="changeMode(MODE_PRACTICE)">练习模式</a></li>
                         </ul>
                     </div>
+
                     <br/>
                     <a class="btn btn-secondary btn-lg" onclick="show_setting()">游戏设置</a>
                 </div>
