@@ -119,7 +119,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameStart = false,
         _gameTime, _gameTimeNum, _gameScore, _date1, deviation_time;
 
-    let _gameStartTime;
+    let _gameStartTime, _gameStartDatetime;
 
     function gameInit() {
         createjs.Sound.registerSound({
@@ -145,6 +145,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameStart = false;
         _gameTimeNum = 20;
         _gameStartTime = 0;
+        _gameStartDatetime = new Date().getTime();
         countBlockSize();
         refreshGameLayer(GameLayer[0]);
         refreshGameLayer(GameLayer[1], 1);
@@ -155,11 +156,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _date1 = new Date();
         _gameStart = true;
 
-        _gameTime = setInterval(timer, 200);
+        _gameTime = setInterval(timer, 1000);
     }
 
     function getCPS() {
-        let cps = _gameScore / _gameStartTime;
+        let cps = _gameScore / ((new Date().getTime() - _gameStartDatetime) / 1000);
         if (isNaN(cps) || cps === Infinity || _gameStartTime < 2) {
             cps = 0;
         }
@@ -167,9 +168,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function timer() {
-        _gameTimeNum -= 0.2;
-        _gameStartTime += 0.2;
-
+        _gameTimeNum--;
+        _gameStartTime++;
         updatePanel();
     }
 
