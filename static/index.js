@@ -118,7 +118,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameOver = false,
         _gameStart = false,
         _gameSettingNum=20,
-        _gameTime, _gameTimeNum, _gameScore, _date1, deviation_time;
+        _gameTime, _gameTimeNum, _gameScore, _date1, deviationTime;
 
     let _gameStartTime, _gameStartDatetime;
 
@@ -369,6 +369,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return mode === MODE_ENDLESS ? score.toFixed(2) : score.toString();
     }
 
+    function legalDeviationTime() {
+        return deviationTime < (_gameSettingNum + 3) * 1000;
+    }
+
     function showGameScoreLayer() {
         let l = document.getElementById('GameScoreLayer');
         let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
@@ -377,13 +381,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         score = scoreToString(score);
         l.className = l.className.replace(/bgc\d/, 'bgc' + c);
         document.getElementById('GameScoreLayer-text').innerHTML = shareText(score);
-        let score_text = '得分&nbsp;&nbsp;';
-        let normalCond = deviation_time < (_gameSettingNum+3)*1000 || mode !== MODE_NORMAL;
-        score_text += normalCond ? score : "<span style='color:red;'>" + score + "</span>";
+        let normalCond = legalDeviationTime() || mode !== MODE_NORMAL;
         //显示CPS
-        score_text += getCPS() && mode!=MODE_ENDLESS ? '<br>CPS&nbsp;' + getCPS().toFixed(2) : '' //获取CPS
-        document.getElementById('GameScoreLayer-score').innerHTML = score_text;
-        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + scoreToString(best);
+
+        document.getElementById('GameScoreLayer-CPS').innerHTML = getCPS() && mode !== MODE_ENDLESS ? 'CPS&nbsp;' + getCPS().toFixed(2) : '' //获取CPS
+        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;' + scoreToString(best);
+        document.getElementById('GameScoreLayer-score').innerHTML = '得分&nbsp;' + (normalCond ? score : "<span style='color:red;'>" + score + "</span>");
         l.style.display = 'block';
     }
 
@@ -406,9 +409,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function shareText(score) {
         if (mode === MODE_NORMAL) {
             let date2 = new Date();
-            deviation_time = (date2.getTime() - _date1.getTime())
-            if (deviation_time > (_gameSettingNum+3)*1000) {
-                return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
+            deviationTime = (date2.getTime() - _date1.getTime())
+            if (!legalDeviationTime()) {
+                return '倒计时多了' + ((deviationTime / 1000) - 20).toFixed(2) + "s";
             }
             SubmitResults();
         }
