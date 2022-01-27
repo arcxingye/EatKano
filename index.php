@@ -13,6 +13,7 @@
     <script src="https://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<?php
     session_start();
     $str = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890'), 0, 8);
@@ -28,7 +29,7 @@
             <div id="GameScoreLayer-CPS" style="margin:5px 0;"></div>
             <div id="GameScoreLayer-score" style="margin:10px 0;">得分</div>
             <div id="GameScoreLayer-bast">最佳</div>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="replayBtn()">重来</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()">重来</button>
         <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload()">主页</button>
 			<button type="button" class="btn btn-secondary btn-lg" onclick="goRank();">排行</button>
             <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'">开源</button>
@@ -42,7 +43,7 @@
                 <div style="font-size:2.6em; color:#FEF002;">新概念音游</div><br />
                 <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
                     从最底下的开始<br />
-                    看你20秒多少分<br />
+                    看你能得多少分<br />
                 </div>
                 <br />
                 <div id="btn_group" style="display: block;">
