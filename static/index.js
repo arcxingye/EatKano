@@ -213,11 +213,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         let area = "异世界";
         if ($("#username").val() && _gameSettingNum === 20) {
             const systems = [
-                ['like Mac', 'iOS'],
                 ['Win', 'Windows'],
+                ['like Mac', 'iOS'],
                 ['Mac', 'Macintosh'],
-                ['Linux', 'Linux'],
                 ['Android', 'Android'],
+                ['Linux', 'Linux'],
             ];
 
             for (let sys of systems) {
