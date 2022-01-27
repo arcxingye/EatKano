@@ -55,7 +55,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.changeMode = function(m) {
         mode = m;
-        document.getElementById('mode').innerText = modeToString(m);
+        $('#mode').text(modeToString(m));
     }
 
     w.readyBtn = function() {
@@ -171,19 +171,18 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function timer() {
         _gameTimeNum--;
         _gameStartTime++;
+        if (_gameTimeNum <= 0) {
+            GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
+            gameOver();
+            GameLayerBG.className += ' flash';
+            createjs.Sound.play("end");
+        }
         updatePanel();
     }
 
     function updatePanel() {
         if (mode === MODE_NORMAL) {
-            if (_gameTimeNum <= 0) {
-                GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
-                gameOver();
-                GameLayerBG.className += ' flash';
-                createjs.Sound.play("end");
-            } else {
-                GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
-            }
+            GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
         } else if (mode === MODE_ENDLESS) {
             GameTimeLayer.innerHTML = `CPS:${getCPS().toFixed(2)}`;
         } else {
@@ -194,9 +193,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function gameOver() {
         _gameOver = true;
         clearInterval(_gameTime);
+        let cps = getCPS();
+        updatePanel();
         setTimeout(function () {
             GameLayerBG.className = '';
-            showGameScoreLayer();
+            showGameScoreLayer(cps);
         }, 1500);
     }
 
@@ -210,20 +211,31 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function SubmitResults() {
         let system = "其他操作系统";
         let area = "异世界";
-        if (document.getElementById("username").value && _gameSettingNum==20) {
-            if (navigator.appVersion.indexOf("Win") !== -1) system = "Windows";
-            if (navigator.appVersion.indexOf("Mac") !== -1) system = "Macintosh";
-            if (navigator.appVersion.indexOf("Linux") !== -1) system = "Linux";
-            if (navigator.appVersion.indexOf("Android") !== -1) system = "Android";
-            if (navigator.appVersion.indexOf("like Mac") !== -1) system = "iOS";
+        if ($("#username").val() && _gameSettingNum === 20) {
+            const systems = [
+                ['Win', 'Windows'],
+                ['like Mac', 'iOS'],
+                ['Mac', 'Macintosh'],
+                ['Android', 'Android'],
+                ['Linux', 'Linux'],
+            ];
+
+            for (let sys of systems) {
+                if (navigator.appVersion.indexOf(sys[0]) !== -1) {
+                    system = sys[1];
+                    break;
+                }
+            }
+
             if (returnCitySN && returnCitySN['cname']) {
                 area = returnCitySN['cname']
             }
+
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
-            let name = document.getElementById("username").value;
-            let message = document.getElementById("message").value;
+            let name = $("#username").val();
+            let message = $("#message").val();
             let test = "|_|";
             httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + system + test + area + test + message));
         }
@@ -239,8 +251,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function refreshGameLayer(box, loop, offset) {
         let i = Math.floor(Math.random() * 1000) % 4 + (loop ? 0 : 4);
         for (let j = 0; j < box.children.length; j++) {
-            let r = box.children[j],
-                rstyle = r.style;
+            let r = box.children[j], rstyle = r.style;
             rstyle.left = (j % 4) * blockSize + 'px';
             rstyle.bottom = Math.floor(j / 4) * blockSize + 'px';
             rstyle.width = blockSize + 'px';
@@ -346,15 +357,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function closeWelcomeLayer() {
         welcomeLayerClosed = true;
-        let l = document.getElementById('welcome');
-        l.style.display = 'none';
+        $('#welcome').css('display', 'none');
         updatePanel();
     }
 
     function showWelcomeLayer() {
         welcomeLayerClosed = false;
-        let l = document.getElementById('welcome');
-        l.style.display = 'block';
+        $('#welcome').css('display', 'block');
     }
 
     function getBestScore(score) {
@@ -373,26 +382,26 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return deviationTime < (_gameSettingNum + 3) * 1000;
     }
 
-    function showGameScoreLayer() {
-        let l = document.getElementById('GameScoreLayer');
-        let c = document.getElementById(_gameBBList[_gameBBListIndex - 1].id).className.match(_ttreg)[1];
-        let score = (mode === MODE_ENDLESS ? parseFloat(getCPS().toFixed(2)) : _gameScore);
+    function showGameScoreLayer(cps) {
+        let l = $('#GameScoreLayer');
+        let c = $(`#${_gameBBList[_gameBBListIndex - 1].id}`).attr('class').match(_ttreg)[1];
+        let score = (mode === MODE_ENDLESS ? cps.toFixed(2) : _gameScore);
         let best = getBestScore(score);
-        score = scoreToString(score);
-        l.className = l.className.replace(/bgc\d/, 'bgc' + c);
-        document.getElementById('GameScoreLayer-text').innerHTML = shareText(score);
+        l.attr('class', l.attr('class').replace(/bgc\d/, 'bgc' + c));
+        $('#GameScoreLayer-text').html(shareText(cps));
         let normalCond = legalDeviationTime() || mode !== MODE_NORMAL;
         //显示CPS
 
-        document.getElementById('GameScoreLayer-CPS').innerHTML = getCPS() && mode !== MODE_ENDLESS ? 'CPS&nbsp;' + getCPS().toFixed(2) : '' //获取CPS
-        document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;' + scoreToString(best);
-        document.getElementById('GameScoreLayer-score').innerHTML = '得分&nbsp;' + (normalCond ? score : "<span style='color:red;'>" + score + "</span>");
-        l.style.display = 'block';
+        $('#GameScoreLayer-CPS').html('CPS&nbsp;' + cps.toFixed(2)); //获取CPS
+        $('#GameScoreLayer-score').css('display', mode === MODE_ENDLESS ? 'none' : '')
+            .html('得分&nbsp;' + (normalCond ? score : "<span style='color:red;'>" + score + "</span>"));
+        $('#GameScoreLayer-bast').html('最佳&nbsp;' + scoreToString(best));
+
+        l.css('display', 'block');
     }
 
     function hideGameScoreLayer() {
-        let l = document.getElementById('GameScoreLayer');
-        l.style.display = 'none';
+        $('#GameScoreLayer').css('display', 'none');
     }
 
     w.replayBtn = function() {
@@ -406,7 +415,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         showWelcomeLayer();
     }
 
-    function shareText(score) {
+    function shareText(cps) {
         if (mode === MODE_NORMAL) {
             let date2 = new Date();
             deviationTime = (date2.getTime() - _date1.getTime())
@@ -416,19 +425,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             SubmitResults();
         }
 
-        if (mode === MODE_ENDLESS) {
-            if (score <= 5) return '试着好好练一下？';
-            if (score <= 8) return 'TCL';
-            if (score <= 10)  return 'TQL';
-            if (score <= 15) return '您';
-            return '人？';
-        } else {
-            if (score <= 49) return '试着好好练一下？';
-            if (score <= 99) return 'TCL';
-            if (score <= 149) return 'TQL';
-            if (score <= 199) return '您';
-            return '人？';
-        }
+        if (cps <= 5) return '试着好好练一下？';
+        if (cps <= 8) return 'TCL';
+        if (cps <= 10)  return 'TQL';
+        if (cps <= 15) return '您';
+        return '人？';
     }
 
     function toStr(obj) {
@@ -463,42 +464,41 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     document.write(createGameLayer());
 
     function initSetting() {
-        document.getElementById("username").value = cookie("username") ? cookie("username") : "";
-        document.getElementById("message").value = cookie("message") ? cookie("message") : "";
-        document.getElementsByTagName("title")[0].innerText = cookie("title") ? cookie("title") : "吃掉小鹿乃";
-        if (cookie("keyboard")) {
-            document.getElementById("keyboard").value = cookie("keyboard");
+        $("#username").val(cookie("username") ? cookie("username") : "");
+        $("#message").val(cookie("message") ? cookie("message") : "");
+        $("title").text(cookie("title") ? cookie("title") : "吃掉小鹿乃");
+        let keyboard = cookie('keyboard');
+        if (keyboard) {
+            keyboard = keyboard.toLowerCase();
+            $("#keyboard").val(keyboard);
             map = {}
-            map[cookie("keyboard").charAt(0).toLowerCase()] = 1;
-            map[cookie("keyboard").charAt(1).toLowerCase()] = 2;
-            map[cookie("keyboard").charAt(2).toLowerCase()] = 3;
-            map[cookie("keyboard").charAt(3).toLowerCase()] = 4;
+            map[keyboard.charAt(0)] = 1;
+            map[keyboard.charAt(1)] = 2;
+            map[keyboard.charAt(2)] = 3;
+            map[keyboard.charAt(3)] = 4;
         }
-        if (cookie('gameTime') && !isNaN(cookie('gameTime'))) {
-            document.getElementById('gameTime').value=cookie('gameTime');
-            _gameSettingNum=cookie('gameTime')
+        if (cookie('gameTime')) {
+            document.getElementById('gameTime').value = cookie('gameTime');
+            _gameSettingNum = cookie('gameTime')
             gameRestart();
         }
     }
 
     w.show_btn = function() {
-        document.getElementById("btn_group").style.display = "block"
-        document.getElementById("setting").style.display = "none"
-        document.getElementById("desc").style.display = "block"
+        $("#btn_group,#desc").css('display', 'block')
+        $('#setting').css('display', 'none')
     }
 
     w.show_setting = function() {
-        document.getElementById("btn_group").style.display = "none"
-        document.getElementById("setting").style.display = "block"
-        document.getElementById("desc").style.display = "none"
+        $('#btn_group,#desc').css('display', 'none')
+        $('#setting').css('display', 'block')
     }
 
     w.save_cookie = function() {
-        cookie('username', document.getElementById("username").value, 100);
-        cookie('message', document.getElementById("message").value, 100);
-        cookie('keyboard', document.getElementById("keyboard").value, 100);
-        cookie('title', document.getElementById("title").value, 100);
-        cookie('gameTime', document.getElementById("gameTime").value, 100);
+        const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
+        for (let s of settings) {
+            cookie(s, $(`#${s}`).val(), 100);
+        }
         initSetting();
     }
 
@@ -508,7 +508,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.goRank = function() {
-        let name = document.getElementById("username").value;
+        let name = $("#username").val();
         let link = './rank.php';
         if (!isnull(name)) {
             link += "?name=" + name;
@@ -522,7 +522,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
 
         let p = _gameBBList[_gameBBListIndex];
-        let base = parseInt(document.getElementById(p.id).getAttribute("num")) - p.cell;
+        let base = parseInt($(`#${p.id}`).attr("num")) - p.cell;
         let num = base + index - 1;
         let id = p.id.substring(0, 11) + num;
 
@@ -536,10 +536,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         gameTapEvent(fakeEvent);
     }
 
-    const clickBeforeStyle = document.createElement('style');
-    const clickAfterStyle = document.createElement('style');
-    document.head.append(clickBeforeStyle);
-    document.head.append(clickAfterStyle);
+    const clickBeforeStyle = $('<style></style>');
+    const clickAfterStyle = $('<style></style>');
+    clickBeforeStyle.appendTo($(document.head));
+    clickAfterStyle.appendTo($(document.head));
 
     function saveImage(dom, callback) {
         if (dom.files && dom.files[0]) {
@@ -553,34 +553,32 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
 
     w.getClickBeforeImage = function() {
-        const img = document.getElementById('click-before-image');
-        img.click();
+        $('#click-before-image').click();
     }
 
     w.saveClickBeforeImage = function() {
         const img = document.getElementById('click-before-image');
         saveImage(img, r => {
-            clickBeforeStyle.innerHTML = `
+            clickBeforeStyle.html(`
                 .t1, .t2, .t3, .t4, .t5 {
                    background-size: auto 100%;
                    background-image: url(${r});
-            }`;
+            }`);
         })
     }
 
     w.getClickAfterImage = function() {
-        const img = document.getElementById('click-after-image');
-        img.click();
+        $('#click-after-image').click();
     }
 
     w.saveClickAfterImage = function() {
         const img = document.getElementById('click-after-image');
         saveImage(img, r => {
-            clickAfterStyle.innerHTML = `
+            clickAfterStyle.html(`
                 .tt1, .tt2, .tt3, .tt4, .tt5 {
                   background-size: auto 86%;
                   background-image: url(${r});
-            }`;
+            }`);
         })
     }
 }) (window);
