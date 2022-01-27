@@ -80,6 +80,12 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
+                            <span class="input-group-text">时间</span>
+                        </div>
+                        <input type="text" id="gameTime" class="form-control" maxlength=4 placeholder="默认为20秒，修改后将不会排行">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">名字</span>
                         </div>
                         <input type="text" id="username" class="form-control" maxlength=8 placeholder="用于纪录排行(特殊字符会被过滤)">
