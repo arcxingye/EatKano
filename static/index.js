@@ -171,19 +171,18 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function timer() {
         _gameTimeNum--;
         _gameStartTime++;
+        if (_gameTimeNum <= 0) {
+            GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
+            gameOver();
+            GameLayerBG.className += ' flash';
+            createjs.Sound.play("end");
+        }
         updatePanel();
     }
 
     function updatePanel() {
         if (mode === MODE_NORMAL) {
-            if (_gameTimeNum <= 0) {
-                GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
-                gameOver();
-                GameLayerBG.className += ' flash';
-                createjs.Sound.play("end");
-            } else {
-                GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
-            }
+            GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
         } else if (mode === MODE_ENDLESS) {
             GameTimeLayer.innerHTML = `CPS:${getCPS().toFixed(2)}`;
         } else {
