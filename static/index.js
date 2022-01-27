@@ -171,7 +171,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function timer() {
         _gameTimeNum--;
         _gameStartTime++;
-        if (_gameTimeNum <= 0) {
+        if (mode === MODE_NORMAL && _gameTimeNum <= 0) {
             GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
             gameOver();
             GameLayerBG.className += ' flash';
