@@ -36,7 +36,7 @@
   ?>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="./index.html">返回</a></li>
+      <li class="breadcrumb-item"><a href="./">返回</a></li>
       <li class="breadcrumb-item"><a href="https://www.thac.cc/game/index.php">更多游戏</a></li>
     </ol>
   </nav>
