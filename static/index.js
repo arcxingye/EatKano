@@ -55,7 +55,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.changeMode = function(m) {
         mode = m;
-        document.getElementById('mode').innerText = modeToString(m);
+        $('#mode').text(modeToString(m));
     }
 
     w.readyBtn = function() {
@@ -234,8 +234,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
-            let name = document.getElementById("username").value;
-            let message = document.getElementById("message").value;
+            let name = $("#username").val();
+            let message = $("#message").val();
             let test = "|_|";
             httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + system + test + area + test + message));
         }
