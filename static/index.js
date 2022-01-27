@@ -379,6 +379,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         let score_text = '得分&nbsp;&nbsp;';
         let normalCond = deviation_time < 23000 || mode !== MODE_NORMAL;
         score_text += normalCond ? score : "<span style='color:red;'>" + score + "</span>";
+        //显示CPS
+        score_text += getCPS() && mode!=MODE_ENDLESS ? '<br>CPS&nbsp;' + getCPS().toFixed(2) : '' //获取CPS
         document.getElementById('GameScoreLayer-score').innerHTML = score_text;
         document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + scoreToString(best);
         l.style.display = 'block';
