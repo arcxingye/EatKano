@@ -189,6 +189,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
     }
+    //使重试按钮获得焦点
+    function foucusOnReplay(){
+        $('#replay').focus()
+    }
 
     function gameOver() {
         _gameOver = true;
@@ -198,6 +202,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         setTimeout(function () {
             GameLayerBG.className = '';
             showGameScoreLayer(cps);
+            foucusOnReplay();
         }, 1500);
     }
 
