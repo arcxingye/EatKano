@@ -484,7 +484,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
         if (cookie('gameTime')) {
             document.getElementById('gameTime').value = cookie('gameTime');
-            _gameSettingNum = cookie('gameTime')
+            _gameSettingNum = parseInt(cookie('gameTime'));
             gameRestart();
         }
     }
