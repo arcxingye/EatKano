@@ -24,7 +24,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         GameTimeLayer;
     let transform, transitionDuration, welcomeLayerClosed;
 
-    let mode = MODE_NORMAL;
+    let mode = getMode();
 
     w.init = function() {
         showWelcomeLayer();
@@ -49,12 +49,18 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         window.addEventListener('resize', refreshSize, false);
     }
 
+    function getMode() {
+        //有cookie优先返回cookie记录的，没有再返回normal
+        return cookie('gameMode') ? cookie('gameMode') : MODE_NORMAL;
+    }
+
     function modeToString(m) {
         return m === MODE_NORMAL ? "普通模式" : (m === MODE_ENDLESS ? "无尽模式" : "练习模式");
     }
 
     w.changeMode = function(m) {
         mode = m;
+        cookie('gameMode',m)
         $('#mode').text(modeToString(m));
     }
 
@@ -368,6 +374,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function showWelcomeLayer() {
         welcomeLayerClosed = false;
+        $('#mode').text(modeToString(mode))
         $('#welcome').css('display', 'block');
     }
 
