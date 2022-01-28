@@ -188,7 +188,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function updatePanel() {
         if (mode === MODE_NORMAL) {
-            GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
+            if (!_gameOver) {
+                GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
+            }
         } else if (mode === MODE_ENDLESS) {
             let cps = getCPS();
             let text = (cps === 0 ? '计算中' : cps.toFixed(2));
