@@ -184,7 +184,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (mode === MODE_NORMAL) {
             GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
         } else if (mode === MODE_ENDLESS) {
-            GameTimeLayer.innerHTML = `CPS:${getCPS().toFixed(2)}`;
+            let cps = getCPS();
+            let text = (cps === 0 ? '计算中' : cps.toFixed(2));
+            GameTimeLayer.innerHTML = `CPS:${text}`;
         } else {
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
