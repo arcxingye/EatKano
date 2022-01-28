@@ -146,7 +146,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameStart = false;
         _gameTimeNum = _gameSettingNum;
         _gameStartTime = 0;
-        _gameStartDatetime = new Date().getTime();
         countBlockSize();
         refreshGameLayer(GameLayer[0]);
         refreshGameLayer(GameLayer[1], 1);
@@ -155,6 +154,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function gameStart() {
         _date1 = new Date();
+        _gameStartDatetime = _date1.getTime();
         _gameStart = true;
 
         _gameTime = setInterval(timer, 1000);
@@ -184,7 +184,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (mode === MODE_NORMAL) {
             GameTimeLayer.innerHTML = createTimeText(_gameTimeNum);
         } else if (mode === MODE_ENDLESS) {
-            GameTimeLayer.innerHTML = `CPS:${getCPS().toFixed(2)}`;
+            let cps = getCPS();
+            let text = (cps === 0 ? '计算中' : cps.toFixed(2));
+            GameTimeLayer.innerHTML = `CPS:${text}`;
         } else {
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
@@ -474,7 +476,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $("title").text(cookie("title") ? cookie("title") : "吃掉小鹿乃");
         let keyboard = cookie('keyboard');
         if (keyboard) {
-            keyboard = keyboard.toLowerCase();
+            keyboard = keyboard.toString().toLowerCase();
             $("#keyboard").val(keyboard);
             map = {}
             map[keyboard.charAt(0)] = 1;
@@ -502,7 +504,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.save_cookie = function() {
         const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
-            cookie(s, $(`#${s}`).val(), 100);
+            cookie(s, $(`#${s}`).val().toString(), 100);
         }
         initSetting();
     }
