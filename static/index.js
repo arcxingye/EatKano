@@ -60,7 +60,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.changeMode = function(m) {
         mode = m;
-        cookie('gameMode',m)
+        cookie('gameMode', m);
         $('#mode').text(modeToString(m));
     }
 
@@ -374,7 +374,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function showWelcomeLayer() {
         welcomeLayerClosed = false;
-        $('#mode').text(modeToString(mode))
+        $('#mode').text(modeToString(mode));
         $('#welcome').css('display', 'block');
     }
 
