@@ -51,7 +51,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function getMode() {
         //有cookie优先返回cookie记录的，没有再返回normal
-        return cookie('gameMode') ? cookie('gameMode') : MODE_NORMAL;
+        return cookie('gameMode') ? parseInt(cookie('gameMode')) : MODE_NORMAL;
     }
 
     function modeToString(m) {
