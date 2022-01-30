@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <title>吃掉小鹿乃-排行榜</title>
   <meta item="description" content="来看神仙" />
-  <meta itemprop="image" content="https://www.thac.cc/kano/res/logo.jpg" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -36,8 +35,7 @@
   ?>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="./index.html">返回</a></li>
-      <li class="breadcrumb-item"><a href="https://www.thac.cc/game/index.php">更多游戏</a></li>
+      <li class="breadcrumb-item"><a href="./">返回</a></li>
     </ol>
   </nav>
   <div class="page-header text-center">
