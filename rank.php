@@ -2,7 +2,7 @@
 <html lang="zh">
 
 <head>
-  <title>吃掉小鹿乃-排行榜</title>
+  <title>吃掉喵碗-排行榜</title>
   <meta item="description" content="来看神仙" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
