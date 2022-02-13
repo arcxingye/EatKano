@@ -123,7 +123,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameBBListIndex = 0,
         _gameOver = false,
         _gameStart = false,
-        _gameSettingNum=50,
+        _gameSettingNum=20,
         _gameTime, _gameTimeNum, _gameScore, _date1, deviationTime;
 
     let _gameStartTime, _gameStartDatetime;
@@ -151,7 +151,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         _gameOver = false;
         _gameStart = false;
         _gameTimeNum = _gameSettingNum;
-        _gameStartTime = 0;
+        _gameStartTime = 10;
         countBlockSize();
         refreshGameLayer(GameLayer[0]);
         refreshGameLayer(GameLayer[1], 1);
