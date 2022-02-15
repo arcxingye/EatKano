@@ -2,8 +2,8 @@
 <html lang="zh">
 
 <head>
-    <title>吃掉小鹿乃</title>
-    <meta itemprop="name" content="吃掉小鹿乃" />
+    <title>吃掉小宝</title>
+    <meta itemprop="name" content="吃掉小宝" />
     <meta itemprop="description" content="新概念音游" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
@@ -32,7 +32,7 @@
             <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()">重来</button>
         <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload()">主页</button>
 			<button type="button" class="btn btn-secondary btn-lg" onclick="goRank();">排行</button>
-            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'">开源</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://qm.qq.com/cgi-bin/qm/qr?k=GVf6wv9STYGgw66IdYUL75TJiapu1_CT&noverify=0'">联系作者</button>
         </div>
     </div>
     </div>
@@ -73,7 +73,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">标题</span>
                         </div>
-                        <input type="text" id="title" class="form-control" placeholder="吃掉小鹿乃">
+                        <input type="text" id="title" class="form-control" placeholder="吃掉小宝">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
