@@ -441,11 +441,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             SubmitResults();
         }
 
-        if (cps <= 5) return '试着好好练一下？';
-        if (cps <= 8) return 'TCL';
-        if (cps <= 10)  return 'TQL';
-        if (cps <= 15) return '您';
-        return '人？';
+        if (cps <= 5) return '你比何畅都服务FW';
+        if (cps <= 8) return '你比何畅都万能福WNF';
+        if (cps <= 10)  return '你超过了废物的何畅';
+        if (cps <= 15) return '你比何畅都牛逼';
+        return '你可以去跟何畅妈妈切磋一下了!';
     }
 
     function toStr(obj) {
