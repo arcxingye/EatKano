@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://eat.orii.xyz"><img src="https://github.com/GentsunCheng/EatRurudo/tree/Orii-Patch-A/static/image/ClickBefore.png" width="100" height="100"></a>
+  <a href="https://eat.orii.xyz"><img src="https://github.com/GentsunCheng/EatRurudo/raw/Orii-Patch-A/static/image/ClickBefore.png" width="100" height="100"></a>
 </p>
 <div align="center">
 
