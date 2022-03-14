@@ -26,6 +26,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let mode = getMode();
 
+    let soundMode = getSoundMode();
+
     w.init = function() {
         showWelcomeLayer();
         body = document.getElementById('gameBody') || document.body;
@@ -52,6 +54,22 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function getMode() {
         //有cookie优先返回cookie记录的，没有再返回normal
         return cookie('gameMode') ? parseInt(cookie('gameMode')) : MODE_NORMAL;
+    }
+
+    function getSoundMode() {
+        // 默认为 on
+        return cookie('soundMode') ? cookie('soundMode') : 'on';
+    }
+
+    w.changeSoundMode = function() {
+        if (soundMode === 'on') {
+            soundMode = 'off';
+            $('#sound').val('音效: 关闭');
+        } else {
+            soundMode = 'on';
+            $('#sound').val('音效: 开启');
+        }
+        cookie('soundMode', soundMode);
     }
 
     function modeToString(m) {
@@ -181,7 +199,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
             gameOver();
             GameLayerBG.className += ' flash';
-            createjs.Sound.play("end");
+            if (soundMode === 'on') {
+                createjs.Sound.play("end");
+            }
         }
         updatePanel();
     }
@@ -329,7 +349,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             if (!_gameStart) {
                 gameStart();
             }
-            createjs.Sound.play("tap");
+            if (soundMode === 'on') {
+                createjs.Sound.play("tap");
+            }
             tar = document.getElementById(p.id);
             tar.className = tar.className.replace(_ttreg, ' tt$1');
             _gameBBListIndex++;
@@ -339,7 +361,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
             gameLayerMoveNextRow();
         } else if (_gameStart && !tar.notEmpty) {
-            createjs.Sound.play("err");
+            if (soundMode === 'on') {
+                createjs.Sound.play("err");
+            }
             tar.classList.add('bad');
             if (mode === MODE_PRACTICE) {
                 setTimeout(() => {
@@ -510,6 +534,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.show_setting = function() {
         $('#btn_group,#desc').css('display', 'none')
         $('#setting').css('display', 'block')
+        $('#sound').val(soundMode === 'on' ? '音效: 开启' : '音效: 关闭');
     }
 
     w.save_cookie = function() {
