@@ -12,6 +12,7 @@ _🦌 Web Game 🥛_
 
 
 ## Introduction
+A web game: EatKano
 
 [Kano's Twitter](https://twitter.com/kano_2525)
 |
