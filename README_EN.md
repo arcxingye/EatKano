@@ -26,11 +26,13 @@ A simple ranking list(day/week/month) is provided.
 
 You can delete all the sql/php files if you don't need them.
 
-## Required
+## Requirements
 + MySQL 5+
 + PHP 5+
 
 ## Usage
+
+**Note: If you don't need the ranking list, just run it in the GitHub Pages. Configurations below are not required.**
 
 Follow these few steps to configure the database for ranking list.
 
