@@ -28,6 +28,35 @@ _🦌 网页小游戏 🥛_
 
 不需要排行榜把php/sql文件都删掉即可
 
+## 版本需求
++ MySQL 5+
++ PHP 5+
+
+## 使用方法
+
+按照这些步骤来配置排行榜的数据库
+
+1. 创建数据库并且执行提供的脚本(这里用`kano`作为数据库名)
+   ```sql
+   CREATE DATABASE kano DEFAULT CHARSET=utf8;
+   USE kano;
+   SOURCE kano.sql;
+   ```
+
+2. 更改有数据库信息的`conn.php`为你的数据库配置
+
+   ```php
+   <?php
+   // 把这里改为你的配置
+   $link = new mysqli('localhost','NAME','PASSWORD','kano');
+   mysqli_set_charset($link, 'utf8');
+   if ($link->connect_error) {
+       die("Failed to connect: " . $conn->connect_error);
+   }
+   $ranking = "kano_rank";
+   ```
+
+
 ## 其它事项
 
 点下star吧~ 欢迎pr代码
