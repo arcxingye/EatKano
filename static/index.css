@@ -258,6 +258,24 @@ body {
     max-width: 200px;
 }
 
+@media (max-width: 450px) {
+    #btn_group {
+        max-width: 110px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #btn_group {
+        max-width: 125px;
+    }
+}
+
+@media (max-width: 800px) {
+    #btn_group {
+        max-width: 150px;
+    }
+}
+
 #setting {
     width: 50%;
 }
