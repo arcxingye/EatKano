@@ -246,9 +246,28 @@ body {
 #share-wx {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 10000;
     display: none;
+}
+
+#btn_group {
+    width: 37.5%;
+    max-width: 200px;
+}
+
+#setting {
+    width: 50%;
+}
+
+@media (max-width: 1200px) {
+    #setting {
+        width: 80%;
+    }
+}
+
+#GameScoreLayer .col-3, #GameScoreLayer .col-2 {
+    max-width: 144px;
 }
