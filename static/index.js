@@ -468,7 +468,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function showGameScoreLayer(cps) {
         let l = $('#GameScoreLayer');
         let c = $(`#${_gameBBList[_gameBBListIndex - 1].id}`).attr('class').match(_ttreg)[1];
-        let score = (mode === MODE_ENDLESS ? cps.toFixed(2) : _gameScore);
+        let score = (mode === MODE_ENDLESS ? cps : _gameScore);
         let best = getBestScore(score);
         l.attr('class', l.attr('class').replace(/bgc\d/, 'bgc' + c));
         $('#GameScoreLayer-text').html(shareText(cps));
@@ -476,7 +476,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         l.css('color', normalCond ? '': 'red');
 
         $('#cps').text(cps.toFixed(2));
-        $('#score').text(score);
+        $('#score').text(scoreToString(score));
         $('#GameScoreLayer-score').css('display', mode === MODE_ENDLESS ? 'none' : '');
         $('#best').text(scoreToString(best));
 
