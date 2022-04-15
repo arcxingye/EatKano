@@ -1,9 +1,9 @@
 <?php
-  $lang=substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2);
-  // non-existent default en
-  $lang_file=file_exists('static/i18n/'.$lang.'.json')?"static/i18n/".$lang.".json":"static/i18n/en.json";
-  $lang_data = file_get_contents($lang_file);
-  $i18n = json_decode($lang_data, true);
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+// non-existent default en
+$lang_file = file_exists('static/i18n/' . $lang . '.json') ? "static/i18n/" . $lang . ".json" : "static/i18n/en.json";
+$lang_data = file_get_contents($lang_file);
+$i18n = json_decode($lang_data, true);
 ?>
 <!DOCTYPE html>
 <html lang=<?php echo $i18n['lang']; ?>>
@@ -61,7 +61,7 @@
   ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"><?php echo $i18n['navbar-brand'] ;?></a>
+      <a class="navbar-brand" href="./"><?php echo $i18n['navbar-brand']; ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -130,7 +130,7 @@
             <small>" . ($message ? $message : "No message") . "</small></a>";
           }
         } else {
-          echo "<br/><br/><p class='text-center'>".$i18n['no-data']."<p>";
+          echo "<br/><br/><p class='text-center'>" . $i18n['no-data'] . "<p>";
         }
         $data_stmt->close();
       }
@@ -172,9 +172,9 @@
             $score_stmt->bind_result($score, $time, $attempts);
             $score_stmt->execute();
             if ($score_stmt->fetch()) {
-              echo strtr($i18n["self-record"],array("{name}"=>$_SESSION['name'],"{attempts}"=>$attempts,"{score}"=>$score,"{time}"=>$time));
+              echo strtr($i18n["self-record"], array("{name}" => $_SESSION['name'], "{attempts}" => $attempts, "{score}" => $score, "{time}" => $time));
             } else {
-              echo strtr($i18n["no-self-record"],array("{name}"=>$_SESSION['name']));
+              echo strtr($i18n["no-self-record"], array("{name}" => $_SESSION['name']));
             }
             $score_stmt->close();
           } else {
