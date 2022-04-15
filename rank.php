@@ -60,7 +60,7 @@ $i18n = json_decode($lang_data, true);
   }
   ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="./"><?php echo $i18n['navbar-brand']; ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -83,7 +83,7 @@ $i18n = json_decode($lang_data, true);
             <a class="nav-link" href="https://github.com/arcxingye/EatKano/"><?php echo $i18n['source-code']; ?></a>
           </li>
         </ul>
-        <form class="d-flex" action="" onsubmit="return func()">
+        <form class="d-flex text-nowrap" action="" onsubmit="return func()">
           <input class="form-control me-2" id="search" placeholder="<?php echo $i18n['query-input']; ?>">
           <button class="btn btn-outline-success" onclick="local()"><?php echo $i18n['search-btn']; ?></button>
         </form>
