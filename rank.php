@@ -28,28 +28,28 @@
   if ($RankingType == 'query') {
     $queryname = isset($_GET['query']) ? $_GET['query'] : '';
     $title = "Query Record";
-    $cond1 = "where name=?;";
-    $cond2 = $cond1;
+    $cond1 = "where name=?";
+    $cond2 = $cond1.";";
   }
   if ($RankingType == 'day') {
     $title = "Ranking[day]";
-    $cond2 = "where to_days(time) = to_days(now())";
-    $cond1 = $cond2 . " ORDER BY score DESC limit ?,?;";
+    $cond1 = "where to_days(time) = to_days(now())";
+    $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
   }
   if ($RankingType == 'week') {
     $title = "Ranking[week]";
-    $cond2 = "where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
-    $cond1 = $cond2 . " ORDER BY score DESC limit ?,?;";
+    $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
+    $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
   }
   if ($RankingType == 'month') {
     $title = "Ranking[month]";
-    $cond2 = "where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
-    $cond1 = $cond2 . " ORDER BY score DESC limit ?,?;";
+    $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
+    $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
   }
   if ($RankingType == 'all') {
     $title = "Ranking[all]";
-    $cond1 = "ORDER BY score DESC limit ?,?;";
-    $cond2 = ";";
+    $cond1 = "";
+    $cond2 = "ORDER BY score DESC limit ?,?;";
   }
   ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,16 +61,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="?type=day">Daily ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'day'?"active":""; ?>" href="?type=day">Daily ranking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?type=week">Weekly ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'week'?"active":""; ?>" href="?type=week">Weekly ranking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?type=month">Monthly ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'month'?"active":""; ?>" href="?type=month">Monthly ranking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?type=all">All ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'all'?"active":""; ?>" href="?type=all">All ranking</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/arcxingye/EatKano/">Source code</a>
@@ -104,7 +104,7 @@
     <div class="list-group">
       <?php
       $rank = $offset;
-      $data_sql = "SELECT * FROM " . $ranking . " " . $cond1 . ";";
+      $data_sql = "SELECT * FROM " . $ranking . " " . $cond2 . ";";
       if ($data_stmt = $link->prepare($data_sql)) {
         if ($RankingType == "query") {
           $data_stmt->bind_param("s", $queryname);
@@ -132,7 +132,7 @@
         <ul class="pagination">
           <?php
           if ($RankingType != "query") {
-            $rows_sql = "SELECT count(*) FROM " . $ranking . " " . $cond2;
+            $rows_sql = "SELECT count(*) FROM " . $ranking . " " . $cond1;
             $rows_data = mysqli_query($link, $rows_sql);
             $rows = mysqli_fetch_row($rows_data)[0];
             $rows = $rows > $num * $max_pages ? $num * $max_pages : $rows;
