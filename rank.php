@@ -22,7 +22,7 @@
   $num = 10;
   $CurrentPage = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
   if (isset($_GET['name'])) {
-    $_SESSION['views'] = $_GET['name'];
+    $_SESSION['name'] = $_GET['name'];
   }
   $offset = ($CurrentPage - 1) * $num;
   if ($RankingType == 'query') {
@@ -157,17 +157,17 @@
       <div class='row shadow rounded bg-light'>
         <div style='padding:0.2em 1em;'>
           <?php
-          if (isset($_SESSION['views'])) {
+          if (isset($_SESSION['name'])) {
             //Query current user history
             $score_sql = "SELECT `score`,`time`,`attempts` FROM " . $ranking . " where name=?";
             $score_stmt = $link->prepare($score_sql);
-            $score_stmt->bind_param("s", $_SESSION['views']);
+            $score_stmt->bind_param("s", $_SESSION['name']);
             $score_stmt->bind_result($score, $time, $attempts);
             $score_stmt->execute();
             if ($score_stmt->fetch()) {
-              echo $_SESSION['views'] . " highest record. Uploaded" . $attempts . "times<br/>" . "SCORE:" . $score . " " . $time;
+              echo $_SESSION['name'] . " highest record. Uploaded " . $attempts . " times<br/>" . "SCORE:" . $score . " " . $time;
             } else {
-              echo "No record of " . $_SESSION['views'] . " (Or filtered)";
+              echo "No record of " . $_SESSION['name'] . " (Or filtered)";
             }
             $score_stmt->close();
           } else {
