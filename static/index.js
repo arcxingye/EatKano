@@ -42,6 +42,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $(this).attr('placeholder', I18N[this.dataset.placeholderI18n]);
     });
 
+    $('html').attr('lang', I18N['lang']);
+
     let isDesktop = !navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i);
     let fontunit = isDesktop ? 20 : ((window.innerWidth > window.innerHeight ? window.innerHeight : window.innerWidth) / 320) * 10;
     document.write('<style type="text/css">' +
