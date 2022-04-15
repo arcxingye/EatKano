@@ -1,14 +1,21 @@
+<?php
+  $lang=substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2);
+  // non-existent default en
+  $lang_file=file_exists('static/i18n/'.$lang.'.json')?"static/i18n/".$lang.".json":"static/i18n/en.json";
+  $lang_data = file_get_contents($lang_file);
+  $i18n = json_decode($lang_data, true);
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang=<?php echo $i18n['lang']; ?>>
 
 <head>
-  <title>EatKano-Ranking</title>
+  <title><?php echo $i18n['rank-title']; ?></title>
   <meta item="description" content="EatKano" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
-  <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,58 +34,58 @@
   $offset = ($CurrentPage - 1) * $num;
   if ($RankingType == 'query') {
     $queryname = isset($_GET['query']) ? $_GET['query'] : '';
-    $title = "Query Record";
+    $title = $i18n['query-record'];
     $cond1 = "where name=?";
-    $cond2 = $cond1.";";
+    $cond2 = $cond1 . ";";
   }
   if ($RankingType == 'day') {
-    $title = "Ranking[day]";
+    $title = $i18n['day-rank'];
     $cond1 = "where to_days(time) = to_days(now())";
     $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
   }
   if ($RankingType == 'week') {
-    $title = "Ranking[week]";
+    $title = $i18n['week-rank'];
     $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
     $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
   }
   if ($RankingType == 'month') {
-    $title = "Ranking[month]";
+    $title = $i18n['month-rank'];
     $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
     $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
   }
   if ($RankingType == 'all') {
-    $title = "Ranking[all]";
+    $title = $i18n['all-rank'];
     $cond1 = "";
     $cond2 = "ORDER BY score DESC limit ?,?;";
   }
   ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">EatKano</a>
+      <a class="navbar-brand" href="/"><?php echo $i18n['navbar-brand'] ;?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'day'?"active":""; ?>" href="?type=day">Daily ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'day' ? "active" : ""; ?>" href="?type=day"><?php echo $i18n['daily-ranking']; ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'week'?"active":""; ?>" href="?type=week">Weekly ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'week' ? "active" : ""; ?>" href="?type=week"><?php echo $i18n['weekly-ranking']; ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'month'?"active":""; ?>" href="?type=month">Monthly ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'month' ? "active" : ""; ?>" href="?type=month"><?php echo $i18n['monthly-ranking']; ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo $RankingType == 'all'?"active":""; ?>" href="?type=all">All ranking</a>
+            <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all"><?php echo $i18n['all-ranking']; ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/arcxingye/EatKano/">Source code</a>
+            <a class="nav-link" href="https://github.com/arcxingye/EatKano/"><?php echo $i18n['source-code']; ?></a>
           </li>
         </ul>
         <form class="d-flex" action="" onsubmit="return func()">
-          <input class="form-control me-2" id="search" placeholder="Name to query">
-          <button class="btn btn-outline-success" onclick="local()">Search</button>
+          <input class="form-control me-2" id="search" placeholder="<?php echo $i18n['query-input']; ?>">
+          <button class="btn btn-outline-success" onclick="local()"><?php echo $i18n['search-btn']; ?></button>
         </form>
         <script>
           function func() {
@@ -104,7 +111,7 @@
     <div class="list-group">
       <?php
       $rank = $offset;
-      $data_sql = "SELECT * FROM " . $ranking . " " . $cond2 . ";";
+      $data_sql = "SELECT * FROM " . $ranking . " " . $cond2;
       if ($data_stmt = $link->prepare($data_sql)) {
         if ($RankingType == "query") {
           $data_stmt->bind_param("s", $queryname);
@@ -123,7 +130,7 @@
             <small>" . ($message ? $message : "No message") . "</small></a>";
           }
         } else {
-          echo "<br/><br/><p class='text-center'>There is no data yet<p>";
+          echo "<br/><br/><p class='text-center'>".$i18n['no-data']."<p>";
         }
         $data_stmt->close();
       }
@@ -132,7 +139,7 @@
         <ul class="pagination">
           <?php
           if ($RankingType != "query") {
-            $rows_sql = "SELECT count(*) FROM " . $ranking . " " . $cond1;
+            $rows_sql = "SELECT count(*) FROM " . $ranking . " " . $cond1 . ";";
             $rows_data = mysqli_query($link, $rows_sql);
             $rows = mysqli_fetch_row($rows_data)[0];
             $rows = $rows > $num * $max_pages ? $num * $max_pages : $rows;
@@ -165,13 +172,13 @@
             $score_stmt->bind_result($score, $time, $attempts);
             $score_stmt->execute();
             if ($score_stmt->fetch()) {
-              echo $_SESSION['name'] . " highest record. Uploaded " . $attempts . " times<br/>" . "SCORE:" . $score . " " . $time;
+              echo strtr($i18n["self-record"],array("{name}"=>$_SESSION['name'],"{attempts}"=>$attempts,"{score}"=>$score,"{time}"=>$time));
             } else {
-              echo "No record of " . $_SESSION['name'] . " (Or filtered)";
+              echo strtr($i18n["no-self-record"],array("{name}"=>$_SESSION['name']));
             }
             $score_stmt->close();
           } else {
-            echo "Tip: you didn't fill in your name before playing";
+            echo $i18n["no-name-tip"];
           }
           $link->close();
           ?>
