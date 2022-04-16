@@ -71,8 +71,6 @@ Follow these steps to change the text displayed to what you want.
 
 ## Deploying to Server
 
-**Note: If you don't need the ranking list, just run it in the GitHub Pages. Configurations below are not required.**
-
 Follow these few steps to configure the database for ranking list on your server.
 
 1. Create your own database and execute the script provided(e.g. use `kano` as database name).
