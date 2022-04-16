@@ -63,7 +63,7 @@ Follow these steps to change the text displayed to what you want.
 
    **The file type must be `png`**
 
-4. Go to directory `static/music`. The sound played when tapping is `tap.mp3`, when ending without errors is `end.mp3`, while ending with errors is `error.mp3`.
+4. Go to directory `static/music`. The sound played when tapping is `tap.mp3`, when ending without errors is `end.mp3`, while ending with errors is `err.mp3`.
 
    **The file type must be `mp3`**
 
