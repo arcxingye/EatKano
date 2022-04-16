@@ -289,3 +289,7 @@ body {
 #GameScoreLayer .col-3, #GameScoreLayer .col-2 {
     max-width: 144px;
 }
+
+.dropdown-item {
+    cursor: pointer;
+}
