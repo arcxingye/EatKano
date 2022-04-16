@@ -1,37 +1,31 @@
 const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
 (function(w) {
-    const LANG_RESOURCES = [
-        [/zh*/, "zh"],
-        [/en*/, "en"],
-        [/.*/, "en"]  // default
-    ];
+    const DEFAULT_I18N_RESOURCE = 'en';
 
-    /**
-     *
-     * @param{string} name
-     * @returns
-     */
-    function getResourceJSON(name) {
-        $.ajax({
-            url: `./static/i18n/${name}.json`,
-            dataType: 'json',
-            method: 'GET',
-            async: false,
-            success: data => {
-                I18N = data;
-            }
-        });
-    }
+    function getJsonI18N() {
+        let res;
+        let lang = navigator.language.substring(0, 2);
 
-    let I18N;
-    for (const [reg, name] of LANG_RESOURCES) {
-        // noinspection JSCheckFunctionSignatures
-        if (navigator.language.match(reg)) {
-            getResourceJSON(name);
-            break;
+        function ajax(name, error) {
+            $.ajax({
+                url: `./static/i18n/${name}.json`,
+                dataType: 'json',
+                method: 'GET',
+                async: false,
+                success: data => res = data,
+                error: error
+            });
         }
+
+        ajax(lang, () => {
+            ajax(DEFAULT_I18N_RESOURCE, () => {});
+        })
+
+        return res;
     }
+
+    const I18N = getJsonI18N()
 
     $('[data-i18n]').each(function() {
         const content = I18N[this.dataset.i18n];
