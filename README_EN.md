@@ -34,7 +34,7 @@ You can delete all the sql/php files if you don't need them.
 
 Note: if you just want to play it, go to [online version](https://xingye.me/game/eatkano/index.php). Here is how to create your own version.
 
-## Github Pages
+### Github Pages
 
 You can run it on Github Pages if you don't need the ranking list.
 
@@ -69,7 +69,7 @@ Follow these steps to change the text displayed to what you want.
 
 5. After changing all resources to your own, go to repository `Settings` -> `Pages` -> `Source`, choose `main` branch and click `Save`.
 
-## Deploying to Server
+### Deploying to Server
 
 Follow these few steps to configure the database for ranking list on your server.
 
