@@ -1,5 +1,4 @@
 <?php
-@require 'conn.php';
 @session_start();
 define('TIME_LIMIT', 5);
 $time = time();
@@ -28,7 +27,8 @@ $area = preg_replace($str, "", $arr[4]);
 $message = preg_replace($str, "", $arr[5]);
 
 if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300) && ($t == $_SESSION['t'])) {
-    $score_sql = "SELECT `score`,`attempts` FROM " . $ranking . " WHERE `name`=?";
+    @require 'conn.php';
+	$score_sql = "SELECT `score`,`attempts` FROM " . $ranking . " WHERE `name`=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $name);
     $score_stmt->bind_result($highest, $attempts);
