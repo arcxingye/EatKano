@@ -1,9 +1,47 @@
 <?php
+@require 'conn.php';
+@session_start();
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 // non-existent default en
 $lang_file = file_exists('static/i18n/' . $lang . '.json') ? "static/i18n/" . $lang . ".json" : "static/i18n/en.json";
 $lang_data = file_get_contents($lang_file);
 $i18n = json_decode($lang_data, true);
+//Maximum number of pages that can be displayed
+$max_pages = 9;
+$RankingType = isset($_GET['type']) ? $_GET['type'] : 'day';
+//Number of items that can be displayed on each page
+$num = 10;
+$CurrentPage = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+if (isset($_GET['name'])) {
+  $_SESSION['name'] = $_GET['name'];
+}
+$offset = ($CurrentPage - 1) * $num;
+if ($RankingType == 'query') {
+  $queryname = isset($_GET['query']) ? $_GET['query'] : '';
+  $title = $i18n['query-record'];
+  $cond1 = "where name=?";
+  $cond2 = $cond1 . ";";
+}
+if ($RankingType == 'day') {
+  $title = $i18n['day-rank'];
+  $cond1 = "where to_days(time) = to_days(now())";
+  $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
+}
+if ($RankingType == 'week') {
+  $title = $i18n['week-rank'];
+  $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
+  $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
+}
+if ($RankingType == 'month') {
+  $title = $i18n['month-rank'];
+  $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
+  $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
+}
+if ($RankingType == 'all') {
+  $title = $i18n['all-rank'];
+  $cond1 = "";
+  $cond2 = "ORDER BY score DESC limit ?,?;";
+}
 ?>
 <!DOCTYPE html>
 <html lang=<?php echo $i18n['lang']; ?>>
@@ -19,46 +57,6 @@ $i18n = json_decode($lang_data, true);
 </head>
 
 <body>
-  <?php
-  @require 'conn.php';
-  session_start();
-  //Maximum number of pages that can be displayed
-  $max_pages = 9;
-  $RankingType = isset($_GET['type']) ? $_GET['type'] : 'day';
-  //Number of items that can be displayed on each page
-  $num = 10;
-  $CurrentPage = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
-  if (isset($_GET['name'])) {
-    $_SESSION['name'] = $_GET['name'];
-  }
-  $offset = ($CurrentPage - 1) * $num;
-  if ($RankingType == 'query') {
-    $queryname = isset($_GET['query']) ? $_GET['query'] : '';
-    $title = $i18n['query-record'];
-    $cond1 = "where name=?";
-    $cond2 = $cond1 . ";";
-  }
-  if ($RankingType == 'day') {
-    $title = $i18n['day-rank'];
-    $cond1 = "where to_days(time) = to_days(now())";
-    $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
-  }
-  if ($RankingType == 'week') {
-    $title = $i18n['week-rank'];
-    $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
-    $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
-  }
-  if ($RankingType == 'month') {
-    $title = $i18n['month-rank'];
-    $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
-    $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
-  }
-  if ($RankingType == 'all') {
-    $title = $i18n['all-rank'];
-    $cond1 = "";
-    $cond2 = "ORDER BY score DESC limit ?,?;";
-  }
-  ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="./"><?php echo $i18n['navbar-brand']; ?></a>
