@@ -127,7 +127,7 @@ $i18n = json_decode($lang_data, true);
             echo "<a href='#' class='list-group-item list-group-item-action'><div class='d-flex w-100 justify-content-between'>
             <h5 class='mb-1'>" . (($rank == 1 || $rank % 10 == 1) ? ($rank . "st ") : (($rank == 2 || $rank % 10 == 2) ? ($rank . "rd ") : ($rank . "th "))) . $name . "</h5><small>" . $time . "</small></div>
             <p class='mb-1'>SCORE: " . $score . " TRY: " . $attempts . " -" . $system . " -" . $area . "</p>
-            <small>" . ($message ? $message : "No message") . "</small></a>";
+            <small>" . ($message ? $message : $i18n['no-message']) . "</small></a>";
           }
         } else {
           echo "<br/><br/><p class='text-center'>" . $i18n['no-data'] . "<p>";

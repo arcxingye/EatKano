@@ -52,6 +52,7 @@
   "query-input": "Name to query",
   "search-btn": "Search",
   "no-data": "There is no data yet",
+  "no-message": "No message",
   "self-record": "{name} highest record. Uploaded {attempts} times<br/>SCORE:{score} {time}",
   "no-self-record": "No record of {name} (Or filtered)",
   "no-name-tip": "Tip: you won't fill in your name before playing"

@@ -52,6 +52,7 @@
   "query-input": "要查询的名字",
   "search-btn": "查询",
   "no-data": "现在还没有数据",
+  "no-message": "这个人很懒什么也没留下",
   "self-record": "{name} 最高记录. 已上传 {attempts} 次<br/>SCORE:{score} {time}",
   "no-self-record": "没有找到记录 {name} (或被过滤)",
   "no-name-tip": "提示：你玩之前还没有填名字"
