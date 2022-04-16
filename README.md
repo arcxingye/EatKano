@@ -38,6 +38,8 @@ _🦌 网页小游戏 🥛_
 
 ### Github Pages
 
+点 [这里](https://www.bilibili.com/video/BV1r94y1d765) 看视频步骤
+
 如果你不需要排行榜, 那么部署到Github Pages即可.
 
 按照如下方法更改你想要显示的文字
@@ -101,5 +103,3 @@ _🦌 网页小游戏 🥛_
 点下star吧~ 欢迎pr代码
 
 可修改和续写，需保留跳转此仓库的开源按钮
-
-不会请参考[视频教程](https://www.bilibili.com/video/BV1jT4y1y7kA)
