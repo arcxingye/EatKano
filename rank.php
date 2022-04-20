@@ -19,23 +19,23 @@ $offset = ($CurrentPage - 1) * $num;
 if ($RankingType == 'query') {
   $queryname = isset($_GET['query']) ? $_GET['query'] : '';
   $title = $i18n['query-record'];
-  $cond1 = "where name=?";
+  $cond1 = "WHERE `name` LIKE ?";
   $cond2 = $cond1 . ";";
 }
 if ($RankingType == 'day') {
   $title = $i18n['day-rank'];
-  $cond1 = "where to_days(time) = to_days(now())";
-  $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
+  $cond1 = "WHERE to_days(time) = to_days(now())";
+  $cond2 = $cond1 . " ORDER BY `score` DESC limit ?,?;";
 }
 if ($RankingType == 'week') {
   $title = $i18n['week-rank'];
-  $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
-  $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
+  $cond1 = "WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time)";
+  $cond2 = $cond1 . " ORDER BY `score` DESC limit ?,?;";
 }
 if ($RankingType == 'month') {
   $title = $i18n['month-rank'];
-  $cond1 = "where DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
-  $cond2 = $cond1 . " ORDER BY score DESC limit ?,?;";
+  $cond1 = "WHERE DATE_SUB(CURDATE(), INTERVAL 30 DAY) <= date(time)";
+  $cond2 = $cond1 . " ORDER BY `score` DESC limit ?,?;";
 }
 if ($RankingType == 'all') {
   $title = $i18n['all-rank'];
@@ -112,6 +112,7 @@ if ($RankingType == 'all') {
       $data_sql = "SELECT * FROM " . $ranking . " " . $cond2;
       if ($data_stmt = $link->prepare($data_sql)) {
         if ($RankingType == "query") {
+          $queryname = '%'.$queryname.'%';
           $data_stmt->bind_param("s", $queryname);
         } else {
           $data_stmt->bind_param("ii", $offset, $num);

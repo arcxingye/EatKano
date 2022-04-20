@@ -3,8 +3,7 @@
 define('TIME_LIMIT', 5);
 $time = time();
 if (isset($_SESSION['time'])) {
-    if ($time - $_SESSION['time'] <= TIME_LIMIT)
-    {
+    if ($time - $_SESSION['time'] <= TIME_LIMIT) {
         echo 'Only 1 upload in 5 seconds';
         exit();
     }
@@ -28,7 +27,7 @@ $message = preg_replace($str, "", $arr[5]);
 
 if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300) && ($t == $_SESSION['t'])) {
     @require 'conn.php';
-	$score_sql = "SELECT `score`,`attempts` FROM " . $ranking . " WHERE `name`=?";
+    $score_sql = "SELECT `score`,`attempts` FROM " . $ranking . " WHERE `name`=?";
     $score_stmt = $link->prepare($score_sql);
     $score_stmt->bind_param("s", $name);
     $score_stmt->bind_result($highest, $attempts);
