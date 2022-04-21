@@ -545,6 +545,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $("#message").val(cookie("message") ? cookie("message") : "");
         if (cookie("title")) {
             $('title').text(cookie('title'));
+            $('#title').val(cookie('title'));
         }
         let keyboard = cookie('keyboard');
         if (keyboard) {
@@ -557,7 +558,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             map[keyboard.charAt(3)] = 4;
         }
         if (cookie('gameTime')) {
-            document.getElementById('gameTime').value = cookie('gameTime');
+            $('#gameTime').val(cookie('gameTime'));
             _gameSettingNum = parseInt(cookie('gameTime'));
             gameRestart();
         }
@@ -577,7 +578,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.save_cookie = function() {
         const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
-            cookie(s, $(`#${s}`).val().toString(), 100);
+            let value=$(`#${s}`).val();
+            if(value){
+                cookie(s, value.toString(), 100);
+            }
         }
         initSetting();
     }
