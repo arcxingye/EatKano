@@ -56,4 +56,5 @@
   "self-record": "{name} 的最高记录. 已上传 {attempts} 次<br/>SCORE:{score} {time}",
   "no-self-record": "没有找到 {name} 的记录(或被过滤)",
   "no-name-tip": "提示：你玩之前还没有填名字"
+  "pay": "赞助我！"
 }
