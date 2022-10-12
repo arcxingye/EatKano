@@ -9,17 +9,17 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             { regex: /^ja\b/, lang: 'ja' },
             { regex: /.*/, lang: 'en'}
         ]
+
         const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
-        let res
-        $.ajax({
+        
+        return $.ajax({
             url: `./static/i18n/${lang}.json`,
             dataType: 'json',
             method: 'GET',
             async: false,
             success: data => res = data,
             error: () => alert('找不到语言文件: ' + lang)
-        })
-        return res
+        }).responseJSON
     }
 
     const I18N = getJsonI18N()
