@@ -278,35 +278,14 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function SubmitResults() {
-        let system = "其他操作系统";
-        let area = "异世界";
         if ($("#username").val() && _gameSettingNum === 20) {
-            const systems = [
-                ['Win', 'Windows'],
-                ['like Mac', 'iOS'],
-                ['Mac', 'Macintosh'],
-                ['Android', 'Android'],
-                ['Linux', 'Linux'],
-            ];
-
-            for (let sys of systems) {
-                if (navigator.appVersion.indexOf(sys[0]) !== -1) {
-                    system = sys[1];
-                    break;
-                }
-            }
-
-            if (returnCitySN && returnCitySN['cname']) {
-                area = returnCitySN['cname']
-            }
-
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
             let name = $("#username").val();
             let message = $("#message").val();
             let test = "|_|";
-            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + system + test + area + test + message));
+            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + message));
         }
     }
 
