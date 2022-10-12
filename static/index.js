@@ -1,28 +1,25 @@
 const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
 (function(w) {
-    const DEFAULT_I18N_RESOURCE = 'en';
-
     function getJsonI18N() {
-        let res;
-        let lang = navigator.language.substring(0, 2);
-
-        function ajax(name, error) {
-            $.ajax({
-                url: `./static/i18n/${name}.json`,
-                dataType: 'json',
-                method: 'GET',
-                async: false,
-                success: data => res = data,
-                error: error
-            });
-        }
-
-        ajax(lang, () => {
-            ajax(DEFAULT_I18N_RESOURCE, () => {});
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
+        
+        const LANGUAGES = [
+            { regex: /^zh\b/, lang: 'zh' },
+            { regex: /^ja\b/, lang: 'ja' },
+            { regex: /.*/, lang: 'en'}
+        ]
+        const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
+        let res
+        $.ajax({
+            url: `./static/i18n/${lang}.json`,
+            dataType: 'json',
+            method: 'GET',
+            async: false,
+            success: data => res = data,
+            error: () => alert('找不到语言文件: ' + lang)
         })
-
-        return res;
+        return res
     }
 
     const I18N = getJsonI18N()
