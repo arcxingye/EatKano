@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://chengtx809.github.io/UBgame/"><img src="https://github.com/chengtx809/UBgame/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
 </p>
 <div align="center">
 
-# EatKano
+# UBgame
 
 _🦌 网页小游戏 🥛_
 
