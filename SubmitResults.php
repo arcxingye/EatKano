@@ -21,11 +21,47 @@ $str = "/\ |\/|\~|\!|\@|\#|\\$|\%|\^|\&|\*|\(|\)|\_|\+|\{|\}|\:|\<|\>|\?|\[|\]|\
 $score = preg_replace($str, "", $arr[0]);
 $name = preg_replace($str, "", $arr[1]);
 $t = preg_replace($str, "", $arr[2]);
-$system = preg_replace($str, "", $arr[3]);
-$area = preg_replace($str, "", $arr[4]);
-$message = preg_replace($str, "", $arr[5]);
+$message = preg_replace($str, "", $arr[3]);
 
-if ((!empty($name)) && (strlen($name) <= 30) && (strlen($system) <= 30) && (strlen($area) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300) && ($t == $_SESSION['t'])) {
+if ((!empty($name)) && (strlen($name) <= 30) && (strlen($message) <= 150) && (is_numeric($score)) && ($score < 300) && ($t == $_SESSION['t'])) {
+
+    if(getenv('HTTP_CLIENT_IP')){
+      $onlineip = getenv('HTTP_CLIENT_IP');
+    }
+    elseif(getenv('HTTP_X_FORWARDED_FOR')){
+      $onlineip = getenv('HTTP_X_FORWARDED_FOR');
+    }
+    elseif(getenv('REMOTE_ADDR')){
+      $onlineip = getenv('REMOTE_ADDR');
+    }
+    else{
+      $onlineip = $HTTP_SERVER_VARS['REMOTE_ADDR'];
+    }
+    $url = file_get_contents("http://ip.taobao.com/outGetIpInfo?ip=".$onlineip."&accessKey=alibaba-inc");
+	$ipdata = json_decode($url,true);
+	$area=$ipdata['data']['country']?$ipdata['data']['country']:'Unknown';
+
+    $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+    if(strpos($agent, 'windows nt')) {
+        $system = 'Windows';
+    } elseif(strpos($agent, 'macintosh')) {
+        $system = 'Mac';
+    } elseif(strpos($agent, 'ipod')) {
+        $system = 'iPod';
+    } elseif(strpos($agent, 'ipad')) {
+        $system = 'iPad';
+    } elseif(strpos($agent, 'iphone')) {
+        $system = 'iPhone';
+    } elseif (strpos($agent, 'android')) {
+        $system = 'Android';
+    } elseif(strpos($agent, 'unix')) {
+        $system = 'Unix';
+    } elseif(strpos($agent, 'linux')) {
+        $system = 'Linux';
+    } else {
+        $system = 'Other';
+    }
+
     @require 'conn.php';
     $score_sql = "SELECT `score`,`attempts` FROM " . $ranking . " WHERE `name`=?";
     $score_stmt = $link->prepare($score_sql);

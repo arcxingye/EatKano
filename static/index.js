@@ -1,28 +1,25 @@
 const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
 (function(w) {
-    const DEFAULT_I18N_RESOURCE = 'en';
-
     function getJsonI18N() {
-        let res;
-        let lang = navigator.language.substring(0, 2);
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
+        
+        const LANGUAGES = [
+            { regex: /^zh\b/, lang: 'zh' },
+            { regex: /^ja\b/, lang: 'ja' },
+            { regex: /.*/, lang: 'en'}
+        ]
 
-        function ajax(name, error) {
-            $.ajax({
-                url: `./static/i18n/${name}.json`,
-                dataType: 'json',
-                method: 'GET',
-                async: false,
-                success: data => res = data,
-                error: error
-            });
-        }
-
-        ajax(lang, () => {
-            ajax(DEFAULT_I18N_RESOURCE, () => {});
-        })
-
-        return res;
+        const lang = LANGUAGES.find(l => l.regex.test(navigator.language)).lang
+        
+        return $.ajax({
+            url: `./static/i18n/${lang}.json`,
+            dataType: 'json',
+            method: 'GET',
+            async: false,
+            success: data => res = data,
+            error: () => alert('找不到语言文件: ' + lang)
+        }).responseJSON
     }
 
     const I18N = getJsonI18N()
@@ -281,35 +278,14 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function SubmitResults() {
-        let system = "其他操作系统";
-        let area = "异世界";
         if ($("#username").val() && _gameSettingNum === 20) {
-            const systems = [
-                ['Win', 'Windows'],
-                ['like Mac', 'iOS'],
-                ['Mac', 'Macintosh'],
-                ['Android', 'Android'],
-                ['Linux', 'Linux'],
-            ];
-
-            for (let sys of systems) {
-                if (navigator.appVersion.indexOf(sys[0]) !== -1) {
-                    system = sys[1];
-                    break;
-                }
-            }
-
-            if (returnCitySN && returnCitySN['cname']) {
-                area = returnCitySN['cname']
-            }
-
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
             let name = $("#username").val();
             let message = $("#message").val();
             let test = "|_|";
-            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + system + test + area + test + message));
+            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + message));
         }
     }
 
