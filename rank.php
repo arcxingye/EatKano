@@ -51,9 +51,9 @@ if ($RankingType == 'all') {
   <meta item="description" content="EatKano" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+  <link href="./files/css/bootstrap.min.css" rel="stylesheet">
+  <script src="./files/js/bootstrap.bundle.min.js"></script>
+  <script src="./files/js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -76,6 +76,9 @@ if ($RankingType == 'all') {
           </li>
           <li class="nav-item">
             <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all"><?php echo $i18n['all-ranking']; ?></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/fgfobdpqjs/EatKano/"><?php echo $i18n['source-code']; ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/arcxingye/EatKano/"><?php echo $i18n['source-code']; ?></a>

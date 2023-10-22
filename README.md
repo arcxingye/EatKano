@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://fgfobdpqjs.github.io/CHICXK/index.html"><img src="https://github.com/fgfobdpqjs/fgfobdpqjs.github.io/blob/main/CHICXK/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="吃掉蔡徐坤"></a>
 </p>
 <div align="center">
 
-# EatKano
+# 吃掉蔡徐坤
 
 _🦌 网页小游戏 🥛_
 
@@ -12,15 +12,15 @@ _🦌 网页小游戏 🥛_
 
 ## 简介
 
-小游戏：吃掉小鹿乃
+小游戏：吃掉蔡徐坤
 
 [English](README_EN.md)
 |
 [鹿乃b站](https://space.bilibili.com/316381099)
 |
-[线上版本](https://xingye.me/game/eatkano/index.php)
+[线上版本](https://fgfobdpqjs.github.io/CHICXK/index.html)
 |
-[Github Pages](https://arcxingye.github.io/EatKano/index.html)
+[Github Pages](https://fgfobdpqjs.github.io/CHICXK/index.html)
 
 ## 可选功能
 
@@ -51,13 +51,13 @@ _🦌 网页小游戏 🥛_
    ```json
    {
      "game-title": "新概念音游",
-     "game-intro1": "从最底下的开始",
-     "game-intro2": "看你能得多少分",
-     "text-level-1": "试着好好练一下?",
-     "text-level-2": "TCL",
-     "text-level-3": "TQL",
-     "text-level-4": "您",
-     "text-level-5": "人?"
+     "game-intro1": "从最底下的开始 看你能得多少分",
+     "game-intro2": "OK! 蔡徐坤一个不留！",
+     "text-level-1": "试着好好练个两年半?",
+     "text-level-2": "还没到KUN的程度那!",
+     "text-level-3": "马上就要超过KUN的程度那!",
+     "text-level-4": "你应该已经练了2.5年了吧!",
+     "text-level-5": "坤坤:又有一位IKUN加入我们的荔枝集团了!"
    }
    ```
 

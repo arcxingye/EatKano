@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://xingye.me/game/eatkano"><img src="https://github.com/arcxingye/EatKano/blob/main/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKano"></a>
+  <a href="https://fgfobdpqjs.github.io/CHICXK/index.html"><img src="https://github.com/fgfobdpqjs/fgfobdpqjs.github.io/blob/main/CHICXK/static/image/ClickBefore.png?raw=true" width="100" height="100" alt="EatKun"></a>
 </p>
 
 <div align="center">
 
-# EatKano
+# EatKun
 
 _🦌 Web Game 🥛_
 
@@ -12,13 +12,13 @@ _🦌 Web Game 🥛_
 
 
 ## Introduction
-A web game: EatKano
+A web game: EatKun
 
-[Kano's Twitter](https://twitter.com/kano_2525)
+[Kun's Twitter](about:blank)
 |
-[Online Version](https://xingye.me/game/eatkano/index.php)
+[Online Version](https://fgfobdpqjs.github.io/CHICXK/index.html)
 |
-[Github Pages](https://arcxingye.github.io/EatKano/index.html)
+[Github Pages](https://fgfobdpqjs.github.io/CHICXK/index.html)
 
 ## Features
 
@@ -32,7 +32,7 @@ You can delete all the sql/php files if you don't need them.
 
 ## Usage
 
-Note: if you just want to play it, go to [online version](https://xingye.me/game/eatkano/index.php). Here is how to create your own version.
+Note: if you just want to play it, go to [online version](https://fgfobdpqjs.github.io/CHICXK/index.html). Here is how to create your own version.
 
 ### Github Pages
 
@@ -46,14 +46,14 @@ Follow these steps to change the text displayed to what you want.
 
    ```json
    {
-     "game-title": "Eat Kano",
-     "game-intro1": "Start from the bottom",
-     "game-intro2": "Can you tap 150 times?",
-     "text-level-1": "Try again?",
-     "text-level-2": "Not bad",
-     "text-level-3": "Nice",
-     "text-level-4": "Awesome",
-     "text-level-5": "R U kidding?"
+     "game-title": "New concept audio game",
+     "game-intro1": "Start at the bottom and see how many points you can get",
+     "game-intro2": "OK! Cai Xukun does not leave one! ",
+     "text-level-1": "Try to practice well for two and a half years?",
+     "text-level-2": "Not yet to the level of KUN!",
+     "text-level-3": "Soon to surpass KUN!",
+     "text-level-4": "You should have been practicing for 2.5 years!",
+     "text-level-5": "Kunkun: Another IKUN has joined our Litchi Group!"
    }
    ```
 
