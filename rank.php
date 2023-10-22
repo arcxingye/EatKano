@@ -48,7 +48,7 @@ if ($RankingType == 'all') {
 
 <head>
   <title><?php echo $i18n['rank-title']; ?></title>
-  <meta item="description" content="EatKano" />
+  <meta item="description" content="EatKun" />
   <meta charset="utf-8" />
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
   <link href="./files/css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@ if ($RankingType == 'all') {
             <a class="nav-link <?php echo $RankingType == 'all' ? "active" : ""; ?>" href="?type=all"><?php echo $i18n['all-ranking']; ?></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/fgfobdpqjs/EatKano/"><?php echo $i18n['source-code']; ?></a>
+            <a class="nav-link" href="https://github.com/fgfobdpqjs/EatKun/"><?php echo $i18n['source-code']; ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://github.com/arcxingye/EatKano/"><?php echo $i18n['source-code']; ?></a>

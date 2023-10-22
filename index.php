@@ -40,7 +40,7 @@
                 <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()" data-i18n="again">AGAIN-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload()" data-i18n="home">HOME-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/fgfobdpqjs/EatKano'" data-i18n="repog">REPOG-I18N</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/fgfobdpqjs/EatKun'" data-i18n="repog">REPOG-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'" data-i18n="repo">REPO-I18N</button>
             </div>
     </div>
