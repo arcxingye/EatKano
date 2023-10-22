@@ -16,6 +16,8 @@ A web game: EatKun
 
 [Kun's Twitter](about:blank)
 |
+[Kun's GitHub](https://github.com/fgfobdpqjs)
+|
 [Online Version](https://fgfobdpqjs.github.io/CHICXK/index.html)
 |
 [Github Pages](https://fgfobdpqjs.github.io/CHICXK/index.html)
