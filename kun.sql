@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS `kun_rank`;
-CREATE TABLE `kano_rank` (
+CREATE TABLE `kun_rank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `score` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
