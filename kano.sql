@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `kano_rank`;
+DROP TABLE IF EXISTS `kun_rank`;
 CREATE TABLE `kano_rank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `score` int(11) NOT NULL,

@@ -1,0 +1,1 @@
+var returnCitySN = {"cip": "127.0.0.1", "cid": "00", "cname": "未知"};
