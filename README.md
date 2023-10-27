@@ -81,10 +81,10 @@ _🦌 网页小游戏 🥛_
 
 按照这些步骤来在你的服务器上配置排行榜的数据库
 
-1. 创建数据库并且执行提供的脚本(这里用`kano`作为数据库名)
+1. 创建数据库并且执行提供的脚本(这里用`kun`作为数据库名)
    ```sql
    CREATE DATABASE kano DEFAULT CHARSET=utf8;
-   USE kano;
+   USE kun;
    SOURCE kano.sql;
    ```
 
@@ -98,7 +98,7 @@ _🦌 网页小游戏 🥛_
    if ($link->connect_error) {
        die("Failed to connect: " . $conn->connect_error);
    }
-   $ranking = "kano_rank";
+   $ranking = "kun_rank";
    ```
 
 

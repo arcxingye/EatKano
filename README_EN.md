@@ -75,12 +75,12 @@ Follow these steps to change the text displayed to what you want.
 
 Follow these few steps to configure the database for ranking list on your server.
 
-1. Create your own database and execute the script provided(e.g. use `kano` as database name).
+1. Create your own database and execute the script provided(e.g. use `kun` as database name).
    
    ```sql
    CREATE DATABASE kano DEFAULT CHARSET=utf8;
    USE kano;
-   SOURCE kano.sql;
+   SOURCE kun.sql;
    ```
    
 2. Change the code in `conn.php`, which contains your database info, and its content is here.
@@ -93,7 +93,7 @@ Follow these few steps to configure the database for ranking list on your server
    if ($link->connect_error) {
        die("Failed to connect: " . $conn->connect_error);
    }
-   $ranking = "kano_rank";
+   $ranking = "kun_rank";
    ```
 
    
