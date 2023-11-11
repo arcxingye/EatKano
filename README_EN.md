@@ -63,11 +63,11 @@ Follow these steps to change the text displayed to what you want.
 
 3. Go to directory `static/image`. The image shown before clicking is `ClickBefore.png`, and after is `ClickAfter.png`.
 
-   **The file type must be `png`**
+   **The file type must be png**
 
 4. Go to directory `static/music`. The sound played when tapping is `tap.mp3`, when ending without errors is `end.mp3`, while ending with errors is `err.mp3`.
 
-   **The file type must be `mp3`**
+   **The file type must be mp3**
 
 5. After changing all resources to your own, go to repository `Settings` -> `Pages` -> `Source`, choose `main` branch and click `Save`.
 
@@ -78,8 +78,8 @@ Follow these few steps to configure the database for ranking list on your server
 1. Create your own database and execute the script provided(e.g. use `kun` as database name).
    
    ```sql
-   CREATE DATABASE kano DEFAULT CHARSET=utf8;
-   USE kano;
+   CREATE DATABASE kun DEFAULT CHARSET=utf8;
+   USE kun;
    SOURCE kun.sql;
    ```
    
@@ -88,7 +88,7 @@ Follow these few steps to configure the database for ranking list on your server
    ```php
    <?php
    // Change this to your own configuration
-   $link = new mysqli('localhost','NAME','PASSWORD','kano');
+   $link = new mysqli('localhost','NAME','PASSWORD','kun');
    mysqli_set_charset($link, 'utf8');
    if ($link->connect_error) {
        die("Failed to connect: " . $conn->connect_error);

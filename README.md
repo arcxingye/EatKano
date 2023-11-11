@@ -83,9 +83,9 @@ _🦌 网页小游戏 🥛_
 
 1. 创建数据库并且执行提供的脚本(这里用`kun`作为数据库名)
    ```sql
-   CREATE DATABASE kano DEFAULT CHARSET=utf8;
+   CREATE DATABASE kun DEFAULT CHARSET=utf8;
    USE kun;
-   SOURCE kano.sql;
+   SOURCE kun.sql;
    ```
 
 2. 更改有数据库信息的`conn.php`为你的数据库配置
@@ -93,7 +93,7 @@ _🦌 网页小游戏 🥛_
    ```php
    <?php
    // 把这里改为你的配置
-   $link = new mysqli('localhost','NAME','PASSWORD','kano');
+   $link = new mysqli('localhost','NAME','PASSWORD','kun');
    mysqli_set_charset($link, 'utf8');
    if ($link->connect_error) {
        die("Failed to connect: " . $conn->connect_error);
