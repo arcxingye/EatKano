@@ -54,7 +54,7 @@
   "search-btn": "query",
   "no-data": "No data yet",
   "no-message": "This KUN is lazy and leaves nothing",
-  "self-record": "{then} Heigstrekard. Already {Atempz} sub-Skoll<br/>: {Skol}{Timo}",
+  "self-record": "{then} Heigstrekard. Already {Atempz} sub-Skoll<br/>: {Skol}{Time}",
   "no-self-record": "No record found for {name} (or filtered)",
   "no-name-tip": "Hint: You haven't filled in your name before playing"
 }

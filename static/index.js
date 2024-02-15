@@ -5,7 +5,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         // https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/language
         
         const LANGUAGES = [
-            { regex: /^zh\b/, lang: 'zh' },
+            { regex: /^zh-CN\b/, lang: 'zh' },
+            { regex: /^zh-TW\b/, lang: 'zht' },
+            { regex: /^zh-HK\b/, lang: 'zht' },
+            { regex: /^zh-cn\b/, lang: 'zh' },
+            { regex: /^zh-tw\b/, lang: 'zht' },
+            { regex: /^zh-hk\b/, lang: 'zht' },
             { regex: /^ja\b/, lang: 'ja' },
             { regex: /.*/, lang: 'en'}
         ]
