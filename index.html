@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 
 <head>
     <title data-i18n="eat-kun"></title>
