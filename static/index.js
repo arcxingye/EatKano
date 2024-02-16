@@ -8,9 +8,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             { regex: /^zh-CN\b/, lang: 'zh' },
             { regex: /^zh-TW\b/, lang: 'zht' },
             { regex: /^zh-HK\b/, lang: 'zht' },
+            { regex: /^zh-OM\b/, lang: 'zht' },
             { regex: /^zh-cn\b/, lang: 'zh' },
             { regex: /^zh-tw\b/, lang: 'zht' },
             { regex: /^zh-hk\b/, lang: 'zht' },
+            { regex: /^zh-om\b/, lang: 'zht' },
             { regex: /^ja\b/, lang: 'ja' },
             { regex: /.*/, lang: 'en'}
         ]
@@ -522,8 +524,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     document.write(createGameLayer());
 
     function initSetting() {
-        $("#username").val(cookie("username") ? cookie("username") : "");
-        $("#message").val(cookie("message") ? cookie("message") : "");
+        $("#username0").val(cookie("username0") ? cookie("username0") : "");
+        $("#message0").val(cookie("message0") ? cookie("message0") : "");
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
@@ -557,7 +559,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
+        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value=$(`#${s}`).val();
             if(value){
