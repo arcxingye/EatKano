@@ -100,7 +100,7 @@ _🦌 网页小游戏 🥛_
    }
    $ranking = "kun_rank";
    ```
-
+注意：如果要排行榜，请将`index.js`的username0中的0去掉，message0中的0去掉，`index.php`中的username0中的0去掉，message0中的0去掉，最后把<button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>这个元素覆盖到`index.php`中的<button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://xingye.me/game/eatkano/rank.php'" data-i18n="rank">RANK-I18N</button>上
 
 ## 其它事项
 
