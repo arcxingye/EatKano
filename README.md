@@ -55,8 +55,10 @@ _🦌 网页小游戏 🥛_
    ```json
    {
      "game-title": "新概念音游",
-     "game-intro1": "从最底下的开始<br />看你能得多少分",
-     "game-intro2": "OK!<br />蔡徐坤一个不留！",
+     "game-intro1": "从最底下的开始",
+     "game-intro2": "看你能得多少分",
+     "game-intro3": "OK!",
+     "game-intro4": "蔡徐坤一个不留！",
      "text-level-1": "试着好好练个两年半?",
      "text-level-2": "还没到KUN的程度那!",
      "text-level-3": "马上就要超过KUN的程度那!",
