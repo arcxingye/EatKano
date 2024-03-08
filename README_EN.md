@@ -49,8 +49,8 @@ Follow these steps to change the text displayed to what you want.
    ```json
    {
      "game-title": "New concept audio game",
-     "game-intro1": "Start at the bottom and see how many points you can get",
-     "game-intro2": "OK! Cai Xukun does not leave one! ",
+     "game-intro1": "Start at the bottom and<br />see how many points you can get",
+     "game-intro2": "OK!<br />Cai Xukun does not leave one! ",
      "text-level-1": "Try to practice well for two and a half years?",
      "text-level-2": "Not yet to the level of KUN!",
      "text-level-3": "Soon to surpass KUN!",

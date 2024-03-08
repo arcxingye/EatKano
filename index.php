@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title data-i18n="eat-kun"></title>
+    <title data-i18n="eat-kun">EAT-KUN-I18N</title>
     <meta itemprop="name" content="吃掉蔡徐坤" />
     <meta itemprop="description" content="新概念音游" />
     <meta charset="utf-8" />
@@ -83,7 +83,7 @@
                         <div class="input-group-prepend col-2">
                             <span class="input-group-text" data-i18n="title">TITLE-I18N</span>
                         </div>
-                        <input data-placeholder-i18n="eat-kano" type="text" id="title" class="form-control" placeholder="EAT-KANO-I18N">
+                        <input data-placeholder-i18n="eat-kun" type="text" id="title" class="form-control" placeholder="EAT-KUN-I18N">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-2">
