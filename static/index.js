@@ -8,11 +8,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             { regex: /^zh-CN\b/, lang: 'zh' },
             { regex: /^zh-TW\b/, lang: 'zht' },
             { regex: /^zh-HK\b/, lang: 'zht' },
-            { regex: /^zh-OM\b/, lang: 'zht' },
+            { regex: /^zh-MO\b/, lang: 'zht' },
             { regex: /^zh-cn\b/, lang: 'zh' },
             { regex: /^zh-tw\b/, lang: 'zht' },
             { regex: /^zh-hk\b/, lang: 'zht' },
-            { regex: /^zh-om\b/, lang: 'zht' },
+            { regex: /^zh-mo\b/, lang: 'zht' },
             { regex: /^ja\b/, lang: 'ja' },
             { regex: /.*/, lang: 'en'}
         ]
