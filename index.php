@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title data-i18n="eat-kun">吃掉蔡徐坤</title>
+    <title data-i18n="eat-kun">EAT-KUN-I18N</title>
     <meta itemprop="name" content="吃掉蔡徐坤" />
     <meta itemprop="description" content="新概念音游" />
     <meta charset="utf-8" />
