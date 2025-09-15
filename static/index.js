@@ -289,10 +289,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
-            let name = $("#username0").val();
-            let message = $("#message0").val();
+            let name = $("#username").val();
+            let message = $("#message").val();
             let test = "|_|";
-            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + message0));
+            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + message));
         }
     }
 
@@ -524,8 +524,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     document.write(createGameLayer());
 
     function initSetting() {
-        $("#username").val(cookie("username") ? cookie("username") : "");
-        $("#message").val(cookie("message") ? cookie("message") : "");
+        $("#username0").val(cookie("username0") ? cookie("username0") : "");
+        $("#message0").val(cookie("message0") ? cookie("message0") : "");
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
@@ -559,7 +559,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
+        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value=$(`#${s}`).val();
             if(value){
@@ -575,7 +575,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.goRank = function() {
-        let name = $("#username0").val();
+        let name = $("#username").val();
         let link = './rank.php';
         if (!isnull(name)) {
             link += "?name=" + name;
