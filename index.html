@@ -2,11 +2,12 @@
 <html>
 
 <head>
-    <title data-i18n="eat-kun">EAT-KUN-I18N</title>
+    <title data-i18n="eat-kun">吃掉蔡徐坤</title>
     <meta itemprop="name" content="吃掉蔡徐坤" />
     <meta itemprop="description" content="新概念音游" />
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi" />
+    <link rel="icon" href="./static/image/ClickBefore.png" type="image/x-icon" />
     <link href="./static/index.css" rel="stylesheet" type="text/css">
     <script src="./files/js/createjs.min.js"></script>
     <script src="./files/js/jsencrypt.min.js"></script>
