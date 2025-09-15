@@ -77,9 +77,9 @@ _🦌 网页小游戏 🥛_
 
 按照这些步骤来在你的服务器上配置排行榜的数据库
 
-0.1.将`index.js`的username0中的0去掉，message0中的0去掉，`index.php`中的username0中的0去掉，message0中的0去掉
+1.将`index.js`的username0中的0去掉，message0中的0去掉，`index.php`中的username0中的0去掉，message0中的0去掉
 
-0.2.把
+2.把
    ```html
 <button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>
    ```
@@ -89,14 +89,14 @@ _🦌 网页小游戏 🥛_
    ```
 上
 
-1. 创建数据库并且执行提供的脚本(这里用`kun`作为数据库名)
+3. 创建数据库并且执行提供的脚本(这里用`kun`作为数据库名)
    ```sql
    CREATE DATABASE kun DEFAULT CHARSET=utf8;
    USE kun;
    SOURCE kun.sql;
    ```
 
-2. 更改有数据库信息的`conn.php`为你的数据库配置
+4. 更改有数据库信息的`conn.php`为你的数据库配置
 
    ```php
    <?php
@@ -109,10 +109,18 @@ _🦌 网页小游戏 🥛_
    $ranking = "kun_rank";
    ```
 
+## 使用的项目及其许可证
 
+1. EatKano ([GitHub](https://github.com/arcxingye/EatKano) [License: MIT license](https://github.com/arcxingye/EatKano/raw/refs/heads/main/LICENSE))
 
+2. Bootstrap v5.3.8 ([Websize](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap) [License: MIT license](https://raw.githubusercontent.com/twbs/bootstrap/refs/heads/main/LICENSE))
 
+3. CREATEJS v1.0.0 ([Websize](http://createjs.com/) [GitHub](https://github.com/CreateJS/CreateJS) [License: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
+
+4. jQuery 3.6.0 ([Websize](https://jquery.com/) [GitHub](https://github.com/jquery/jquery) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
+
+5. JSEncrypt ([Websize](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
 
 ## 其它事项
 
-点下star吧~ 欢迎pr代码
+此项目使用[BSD 3-Clause License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE)，在使用本项目时，请标注原作者，且不能以原作者的名义进行发布。
