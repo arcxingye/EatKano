@@ -289,10 +289,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             let httpRequest = new XMLHttpRequest();
             httpRequest.open('POST', './SubmitResults.php', true);
             httpRequest.setRequestHeader("Content-type", "application/json");
-            let name = $("#username").val();
-            let message = $("#message").val();
+            let name = $("#username0").val();
+            let message = $("#message0").val();
             let test = "|_|";
-            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + message));
+            httpRequest.send(encrypt(_gameScore + test + name + test + tj + test + message0));
         }
     }
 
@@ -524,8 +524,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     document.write(createGameLayer());
 
     function initSetting() {
-        $("#username").val(cookie("username0") ? cookie("username0") : "");
-        $("#message").val(cookie("message0") ? cookie("message0") : "");
+        $("#username").val(cookie("username") ? cookie("username") : "");
+        $("#message").val(cookie("message") ? cookie("message") : "");
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
@@ -575,7 +575,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.goRank = function() {
-        let name = $("#username").val();
+        let name = $("#username0").val();
         let link = './rank.php';
         if (!isnull(name)) {
             link += "?name=" + name;
