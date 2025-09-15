@@ -115,11 +115,11 @@ _🦌 网页小游戏 🥛_
 
 2. Bootstrap v5.3.8 ([Websize](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap) [License: MIT license](https://raw.githubusercontent.com/twbs/bootstrap/refs/heads/main/LICENSE))
 
-3. CREATEJS v1.0.0 ([Websize](http://createjs.com/) [GitHub](https://github.com/CreateJS/CreateJS) [License: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
+3. CREATEJS v1.0.1 ([Websize](http://createjs.com/) [GitHub](https://github.com/CreateJS/CreateJS) [License: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
 
-4. jQuery 3.6.0 ([Websize](https://jquery.com/) [GitHub](https://github.com/jquery/jquery) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
+4. jQuery 3.7.1 ([Websize](https://jquery.com/) [GitHub](https://github.com/jquery/jquery) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
 
-5. JSEncrypt ([Websize](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
+5. JSEncrypt 3.5.4 ([Websize](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
 
 ## 其它事项
 
