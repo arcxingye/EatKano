@@ -524,8 +524,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     document.write(createGameLayer());
 
     function initSetting() {
-        $("#username0").val(cookie("username0") ? cookie("username0") : "");
-        $("#message0").val(cookie("message0") ? cookie("message0") : "");
+        $("#username").val(cookie("username0") ? cookie("username0") : "");
+        $("#message").val(cookie("message0") ? cookie("message0") : "");
         if (cookie("title")) {
             $('title').text(cookie('title'));
             $('#title').val(cookie('title'));
@@ -559,7 +559,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
+        const settings = ['username', 'message', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value=$(`#${s}`).val();
             if(value){
