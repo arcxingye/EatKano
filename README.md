@@ -77,26 +77,16 @@ _🦌 网页小游戏 🥛_
 
 按照这些步骤来在你的服务器上配置排行榜的数据库
 
-1.将`index.js`的username0中的0去掉，message0中的0去掉，`index.php`中的username0中的0去掉，message0中的0去掉
+1. 将`index.js`的username0中的0去掉，message0中的0去掉，`index.php`中的username0中的0去掉，message0中的0去掉
 
-2.把
-   ```html
-<button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>
-   ```
-这个元素覆盖到`index.php`中的
-   ```html
-<button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://xingye.me/game/eatkano/rank.php'" data-i18n="rank">RANK-I18N</button>
-   ```
-上
-
-3. 创建数据库并且执行提供的脚本(这里用`kun`作为数据库名)
+2. 创建数据库并且执行提供的脚本(这里用`kun`作为数据库名)
    ```sql
    CREATE DATABASE kun DEFAULT CHARSET=utf8;
    USE kun;
    SOURCE kun.sql;
    ```
 
-4. 更改有数据库信息的`conn.php`为你的数据库配置
+3. 更改有数据库信息的`conn.php`为你的数据库配置
 
    ```php
    <?php
