@@ -75,19 +75,9 @@ Follow these steps to change the text displayed to what you want.
 
 Follow these few steps to configure the database for ranking list on your server.
 
-0.1.Remove the 0 in username0 in `index.js`, remove the 0 in message0, remove the 0 in username0 in `index.php`, and remove the 0 in message0
+1. Remove the 0 in username0 in `index.js`, remove the 0 in message0, remove the 0 in username0 in `index.php`, and remove the 0 in message0
 
-0.2.Bundle
-   ```html
-<button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>
-   ```
-This element is overwritten into `index.php`
-   ```html
-<button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://xingye.me/game/eatkano/rank.php'" data-i18n="rank">RANK-I18N</button>
-   ```
-superior
-
-1. Create your own database and execute the script provided(e.g. use `kun` as database name).
+2. Create your own database and execute the script provided(e.g. use `kun` as database name).
    
    ```sql
    CREATE DATABASE kun DEFAULT CHARSET=utf8;
@@ -95,7 +85,7 @@ superior
    SOURCE kun.sql;
    ```
    
-2. Change the code in `conn.php`, which contains your database info, and its content is here.
+3. Change the code in `conn.php`, which contains your database info, and its content is here.
 
    ```php
    <?php
