@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://chicxk.pages.dev/"><img src="./static/image/ClickBefore.png" width="100" height="100" alt="EatKun"></a>
+  <a href="https://chicxk.pages.dev/"><img src="https://chicxk.pages.dev/static/image/ClickBefore.png" width="100" height="100" alt="EatKun"></a>
 </p>
 <div align="center">
 
