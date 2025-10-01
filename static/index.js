@@ -69,7 +69,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let soundMode = getSoundMode();
 
-    let disclaimer = getDisclaimer();
+    let disclaimer-show = getDisclaimerShow();
 
     w.init = function() {
         showWelcomeLayer();
@@ -104,9 +104,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return cookie('soundMode') ? cookie('soundMode') : 'on';
     }
 
-    function getDisclaimer() {
+    function getDisclaimerShow() {
         // 默认为 off
-        return cookie('disclaimer') ? cookie('disclaimer') : 'off';
+        return cookie('disclaimer-show') ? cookie('disclaimer-show') : 'off';
     }
 
     w.changeSoundMode = function() {
@@ -120,15 +120,15 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         cookie('soundMode', soundMode);
     }
 
-    w.changeDisclaimer = function() {
-        if (disclaimer === 'on') {
-            disclaimer = 'off';
-            $('#disclaimer').text(I18N['disclaimer-off']);
+    w.changeDisclaimerShow = function() {
+        if (disclaimer-show === 'on') {
+            disclaimer-show = 'off';
+            $('#disclaimer-show').text(I18N['disclaimer-off']);
         } else {
-            disclaimer = 'on';
-            $('#disclaimer').text(I18N['disclaimer-on']);
+            disclaimer-show = 'on';
+            $('#disclaimer-show').text(I18N['disclaimer-on']);
         }
-        cookie('disclaimer', disclaimer);
+        cookie('disclaimer-show', disclaimer-show);
     }
 
     function modeToString(m) {
@@ -568,6 +568,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.show_btn = function() {
         $("#btn_group,#desc").css('display', 'block')
         $('#setting').css('display', 'none')
+        $('#setting').css('display', 'none')
     }
 
     w.show_setting = function() {
@@ -578,7 +579,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.show_disclaimer = function() {
         $('#btn_group,#desc').css('display', 'none')
-        $('#disclaimer').text(disclaimer === 'off' ? I18N['disclaimer-off'] : I18N['disclaimer-on']);
+        $('#disclaimer-show').text(disclaimer === 'off' ? I18N['disclaimer-off'] : I18N['disclaimer-on']);
     }
 
     w.save_cookie = function() {
@@ -600,6 +601,15 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.goRank = function() {
         let name = $("#username").val();
         let link = './rank.php';
+        if (!isnull(name)) {
+            link += "?name=" + name;
+        }
+        window.location.href = link;
+    }
+
+    w.goRankTwo = function() {
+        let name = $("#username0").val();
+        let link = './rank.html';
         if (!isnull(name)) {
             link += "?name=" + name;
         }
