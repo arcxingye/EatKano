@@ -72,7 +72,7 @@
                             </ul>
                         </div>
                         <a class="btn btn-secondary btn-lg mb-3" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
-                        <a class="btn btn-secondary btn-lg" onclick="show_disclaimer()" data-i18n="disclaimer">DISCLAIMER-I18N</a>
+                        <!--<a class="btn btn-secondary btn-lg" onclick="show_disclaimer()" data-i18n="disclaimer">DISCLAIMER-I18N</a>-->
                     </div>
                 </div>
                 <div id="setting" class="container" style="display: none;">
