@@ -69,8 +69,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     let soundMode = getSoundMode();
 
-    let disclaimer = getDisclaimer();
-
     w.init = function() {
         showWelcomeLayer();
         body = document.getElementById('gameBody') || document.body;
@@ -104,11 +102,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         return cookie('soundMode') ? cookie('soundMode') : 'on';
     }
 
-    function getDisclaimer() {
-        // 默认为 off
-        return cookie('disclaimer') ? cookie('disclaimer') : 'off';
-    }
-
     w.changeSoundMode = function() {
         if (soundMode === 'on') {
             soundMode = 'off';
@@ -118,17 +111,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             $('#sound').text(I18N['sound-on']);
         }
         cookie('soundMode', soundMode);
-    }
-
-    w.changeDisclaimer = function() {
-        if (disclaimer === 'on') {
-            disclaimer = 'off';
-            $('#disclaimer').text(I18N['disclaimer-off']);
-        } else {
-            disclaimer = 'on';
-            $('#disclaimer').text(I18N['disclaimer-on']);
-        }
-        cookie('disclaimer', disclaimer);
     }
 
     function modeToString(m) {
@@ -574,11 +556,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         $('#btn_group,#desc').css('display', 'none')
         $('#setting').css('display', 'block')
         $('#sound').text(soundMode === 'on' ? I18N['sound-on'] : I18N['sound-off']);
-    }
-
-    w.show_disclaimer = function() {
-        $('#btn_group,#desc').css('display', 'none')
-        $('#disclaimer').text(disclaimer === 'off' ? I18N['disclaimer-off'] : I18N['disclaimer-on']);
     }
 
     w.save_cookie = function() {
