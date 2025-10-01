@@ -16,9 +16,11 @@ _🦌 网页小游戏 🥛_
 
 [English](README_EN.md)
 |
-[GitHub](https://github.com/fgfobdpqjs)
+[Github](https://github.com/fgfobdpqjs)
 |
 [游玩](https://chicxk.pages.dev/)
+|
+[Github Pages](https://fgfobdpqjs.github.io/EatKun/)
 
 ## 可选功能
 

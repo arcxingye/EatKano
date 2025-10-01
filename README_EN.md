@@ -16,9 +16,11 @@ A web game: EatKun
 
 [Chinese](README.md)
 |
-[GitHub](https://github.com/fgfobdpqjs)
+[Github](https://github.com/fgfobdpqjs)
 |
 [Play](https://chicxk.pages.dev/)
+|
+[Github Pages](https://fgfobdpqjs.github.io/EatKun/)
 
 ## Features
 
