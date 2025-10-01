@@ -125,7 +125,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             disclaimer = 'off';
             $('#disclaimer').text(I18N['disclaimer-off']);
         } else {
-            soundMode = 'on';
+            disclaimer = 'on';
             $('#disclaimer').text(I18N['disclaimer-on']);
         }
         cookie('disclaimer', disclaimer);
