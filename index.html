@@ -65,8 +65,8 @@
                             <li><a class="dropdown-item" onclick="changeMode(MODE_PRACTICE)" data-i18n="practice">PRACTICE-I18N</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-secondary btn-lg" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
-                </div>
+                    <a class="btn btn-secondary btn-lg mb-3" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
+                    <a class="btn btn-secondary btn-lg" onclick="show_disclaimer()" data-i18n="disclaimer">DISCLAIMER-I18N</a>
             </div>
             <div id="setting" class="container" style="display: none;">
                 <div class="container mb-3 btn-group">
@@ -106,6 +106,16 @@
                         </div>
                         <input data-placeholder-i18n="no-ad-bad-lang" type="text" id="message0" class="form-control" maxlength=50 placeholder="NO-AD-BAD-LANG-I18N">
                 </div>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
+            </div>
+			<div id="disclaimer" class="container" style="display: none;">
+                <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
+                    <span data-i18n="disclaimer-intro1">GAME-INTRO1-I18N</span><br />
+                    <span data-i18n="game-intro2">GAME-INTRO2-I18N</span><br />
+                    <span data-i18n="game-intro3">GAME-INTRO3-I18N</span><br />
+                    <span data-i18n="game-intro4">GAME-INTRO4-I18N</span><br />
+                </div>
+                    <a id="disclaimer" type="button" class="btn text-nowrap btn-secondary" onclick="changeDisclaimer()"></a>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
             </div>
         </div>
