@@ -117,8 +117,8 @@
                 </div>
 		    	<div id="disclaimer" class="container" style="display: none;">
                     <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
-                        <span data-i18n="disclaimer-intro1">DISCLAIMER-INTRO1-I18N</span><br />
-                        <span data-i18n="disclaimer-intro2">DISCLAIMER-INTRO2-I18N</span><br />
+                    <span data-i18n="disclaimer-intro1">DISCLAIMER-INTRO1-I18N</span><br />
+                    <span data-i18n="disclaimer-intro2">DISCLAIMER-INTRO2-I18N</span><br />
                     </div>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
                 </div>
