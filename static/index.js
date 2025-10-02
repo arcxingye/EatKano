@@ -580,10 +580,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function foreach() {
-        var strCookie = document.cookie;
-        var arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
-        for (var i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
-            var arr = arrCookie[i].split("=");
+        let strCookie = document.cookie;
+        let arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
+        for (let i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
+            let arr = arrCookie[i].split("=");
             if (arr.length > 0)
                 DelCookie(arr[0]);
         }
@@ -600,7 +600,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (!isnull(name)) {
             link += "?name=" + name;
         }
-        window.location.href = link;
+        openSourceCode(link);
     }
 
     w.goRankTwo = function() {
@@ -609,11 +609,11 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         if (!isnull(name)) {
             link += "?name=" + name;
         }
-        window.location.href = link;
+        openSourceCode(link);
     }
 
     function openSourceCode(url) {
-        var confirmation = confirm("您确定要跳转到其他网站吗？"); // Display the confirmation prompt
+        let confirmation = confirm("您确定要跳转到其他网站吗？"); // Display the confirmation prompt
         if (confirmation) {
             window.location.href = url; // If the user confirms, proceed with the URL redirection
         }
