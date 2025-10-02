@@ -612,10 +612,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         openSourceCode(link);
     }
 
-    function openSourceCode(url) {
+    function openSourceCode(link) {
         let confirmation = confirm("您确定要跳转到其他网站吗？"); // Display the confirmation prompt
         if (confirmation) {
-            window.location.href = url; // If the user confirms, proceed with the URL redirection
+            window.location.href = link; // If the user confirms, proceed with the URL redirection
         }
     }
 
