@@ -475,6 +475,16 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         showWelcomeLayer();
     }
 
+function closeWelcomeLayer() {
+    let l = document.getElementById('welcome');
+    l.style.display = 'none';
+}
+
+function showWelcomeLayer() {
+    let l = document.getElementById('welcome');
+    l.style.display = 'block';
+}
+
     function shareText(cps) {
         if (mode === MODE_NORMAL) {
             let date2 = new Date();
@@ -577,6 +587,24 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.goRank = function() {
         let name = $("#username").val();
         let link = './rank.php';
+        if (!isnull(name)) {
+            link += "?name=" + name;
+        }
+        window.location.href = link;
+    }
+
+    w.goRankTwo = function() {
+        let name = $("#username").val();
+        let link = './rank.html';
+        if (!isnull(name)) {
+            link += "?name=" + name;
+        }
+        window.location.href = link;
+    }
+
+    w.goRankTwo = function() {
+        let name = $("#username").val();
+        let link = './rank.html';
         if (!isnull(name)) {
             link += "?name=" + name;
         }

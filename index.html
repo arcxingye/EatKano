@@ -34,7 +34,7 @@
             <div class="col-2" id="best"></div>
         </div>
         <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()" data-i18n="again">AGAIN-I18N</button>
-        <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload()" data-i18n="home">HOME-I18N</button>
+        <button type="button" class="btn btn-secondary btn-lg" onclick="backBtn()" data-i18n="home">HOME-I18N</button>
         <button type="button" class="btn btn-secondary btn-lg" onclick="goRankTwo()" data-i18n="rank">RANK-I18N</button>
         <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/fgfobdpqjs/EatKun'" data-i18n="repog">REPOG-I18N</button>
         <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'" data-i18n="repo">REPO-I18N</button>
@@ -65,8 +65,8 @@
                             <li><a class="dropdown-item" onclick="changeMode(MODE_PRACTICE)" data-i18n="practice">PRACTICE-I18N</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-secondary btn-lg mb-3" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
-                    <!--<a class="btn btn-secondary btn-lg" onclick="show_disclaimer()" data-i18n="disclaimer">DISCLAIMER-I18N</a>-->
+                    <a class="btn btn-secondary btn-lg" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
+                </div>
             </div>
             <div id="setting" class="container" style="display: none;">
                 <div class="container mb-3 btn-group">
@@ -108,14 +108,6 @@
                 </div>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
             </div>
-			<!--<div id="disclaimer" class="container" style="display: none;">
-                <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
-                    <span data-i18n="disclaimer-intro1">DISCLAIMER-INTRO1-I18N</span><br />
-                    <span data-i18n="disclaimer-intro2">DISCLAIMER-INTRO2-I18N</span><br />
-                </div>
-                <a id="disclaimer" type="button" class="btn text-nowrap btn-secondary" onclick="changeDisclaimerShow()"></a>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
-            </div>-->
         </div>
     </div>
 </div>
