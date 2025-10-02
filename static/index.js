@@ -612,17 +612,17 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         window.location.href = link;
     }
 
-    w.goRepo = function() {
+    function goRepo() {
         let link = 'https://github.com/fgfobdpqjs/EatKun';
         window.location.href = link;
     }
 
-    w.seeLicense = function() {
+    function seeLicense() {
         let link = './LICENSE';
         window.location.href = link;
     }
 
-    w.useProject = function() {
+    function useProject() {
         let link = 'https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#used-items-and-their-licenses';
         window.location.href = link;
     }
