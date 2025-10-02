@@ -5,7 +5,7 @@
   "endless": "無限モード - 2年半練習し、非常に安定している人向け",
   "practice": "練習モード - 個々の研修生のために",
   "settings": "設定 - クンクンに人生を疑わせる",
-  "debug": "If a bug appears (the bug released by KUN), click this button to refresh the interface"
+  "debug": "バグが表示された場合（KUNによってリリースされたバグ）、このボタンをクリックしてインターフェースを更新してください。"
   "img-before": "クリック前",
   "img-after": "クリック後",
   "sound-on": "効果音:オン - くんくんの悲鳴を聞く",
@@ -40,7 +40,8 @@
   "home": "ホーム",
   "rank": "ランク",
   "repo": "GitHub",
-  "repog": "GitHub(変更)",
+  "license": "許可証",
+  "use-project": "プロジェクトを使用する",
   "text-level-1": "2年半よく練習してみませんか?",
   "text-level-2": "まだKUNのレベルに達していません!",
   "text-level-3": "まもなくKUNを超える!",

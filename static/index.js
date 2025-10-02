@@ -475,15 +475,15 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         showWelcomeLayer();
     }
 
-function closeWelcomeLayer() {
-    let l = document.getElementById('welcome');
-    l.style.display = 'none';
-}
+    function closeWelcomeLayer() {
+        let l = document.getElementById('welcome');
+        l.style.display = 'none';
+    }
 
-function showWelcomeLayer() {
-    let l = document.getElementById('welcome');
-    l.style.display = 'block';
-}
+    function showWelcomeLayer() {
+        let l = document.getElementById('welcome');
+        l.style.display = 'block';
+    }
 
     function shareText(cps) {
         if (mode === MODE_NORMAL) {
@@ -613,12 +613,17 @@ function showWelcomeLayer() {
     }
 
     w.goRepo = function() {
-        let link = 'https://github.com/arcxingye/EatKano';
+        let link = 'https://github.com/fgfobdpqjs/EatKun';
         window.location.href = link;
     }
 
-    w.goRepoG = function() {
-        let link = 'https://github.com/fgfobdpqjs/EatKun';
+    w.seeLicense = function() {
+        let link = './LICENSE';
+        window.location.href = link;
+    }
+
+    w.useProject = function() {
+        let link = 'https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#used-items-and-their-licenses';
         window.location.href = link;
     }
 
