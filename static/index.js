@@ -612,19 +612,19 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         window.location.href = link;
     }
 
-    function goRepo() {
-        let linka = 'https://github.com/fgfobdpqjs/EatKun';
-        window.location.href = linka;
+    function goRepo(link) {
+        let link = 'https://github.com/fgfobdpqjs/EatKun';
+        window.location.href = link;
     }
 
-    function seeLicense() {
-        let linkb = './LICENSE';
-        window.location.href = linkb;
+    function seeLicense(link) {
+        let link = './LICENSE';
+        window.location.href = link;
     }
 
-    function useProject() {
-        let linkc = 'https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#used-items-and-their-licenses';
-        window.location.href = linkc;
+    function useProject(link) {
+        let link = 'https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#used-items-and-their-licenses';
+        window.location.href = link;
     }
 
     function click(index) {
