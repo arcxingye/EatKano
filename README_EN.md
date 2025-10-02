@@ -102,7 +102,7 @@ Follow these few steps to configure the database for ranking list on your server
 
 ## Used items and their licenses
 
-1. EatKano ([Website](https://xingye.me/game/eatkano) [GitHub](https://github.com/arcxingye/EatKano) [License: MIT license](https://github.com/arcxingye/EatKano/raw/refs/heads/main/LICENSE))
+1. EatKano ([Website](https://xingye.me/game/eatkano) [GitHub](https://github.com/arcxingye/EatKano) [License: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))
 
 2. EatCat ([GitHub](https://github.com/122440367/eatcat) License: Not)
 
