@@ -28,7 +28,7 @@
         <div style="padding:5%;margin-top: 200px;background-color: rgba(125, 181, 216, 0.3);">
                 <div id="GameScoreLayer-text"></div>
                 <div id="GameScoreLayer-CPS" class="mb-2 d-flex flex-row justify-content-center text-start">
-                    <div class="col-3">CPS</div>
+                    <div class="col-3" data-i18n="cps"></div>
                     <div class="col-2" id="cps"></div>
                 </div>
                 <div id="GameScoreLayer-score" class="mb-2 d-flex flex-row justify-content-center text-start">
@@ -42,8 +42,8 @@
                 <button type="button" class="btn btn-secondary btn-lg" id="replay" onclick="replayBtn()" data-i18n="again">AGAIN-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="backBtn()" data-i18n="home">HOME-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="goRank()" data-i18n="rank">RANK-I18N</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/fgfobdpqjs/EatKun'" data-i18n="repog">REPOG-I18N</button>
-                <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='https://github.com/arcxingye/EatKano'" data-i18n="repo">REPO-I18N</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="goRepoG()" data-i18n="repog">REPOG-I18N</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="goRepo()'" data-i18n="repo">REPO-I18N</button>
             </div>
     </div>
     </div>
@@ -72,7 +72,7 @@
                             </ul>
                         </div>
                         <a class="btn btn-secondary btn-lg mb-3" onclick="show_setting()" data-i18n="settings">SETTINGS-I18N</a>
-                        <!--<a class="btn btn-secondary btn-lg" onclick="show_disclaimer()" data-i18n="disclaimer">DISCLAIMER-I18N</a>-->
+                        <a class="btn btn-secondary btn-lg" onclick="foreach()" data-i18n="debug">若出现了bug(坤坤放的BUG)点击此按钮后刷新界面</a>
                     </div>
                 </div>
                 <div id="setting" class="container" style="display: none;">
@@ -115,14 +115,6 @@
                     </div>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
                 </div>
-		    	<!--<div id="disclaimer" class="container" style="display: none;">
-                    <div id="desc" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
-                        <span data-i18n="disclaimer-intro1">DISCLAIMER-INTRO1-I18N</span><br />
-                        <span data-i18n="disclaimer-intro2">DISCLAIMER-INTRO2-I18N</span><br />
-                    </div>
-                    <a id="disclaimer" type="button" class="btn text-nowrap btn-secondary" onclick="changeDisclaimerShow()"></a>
-                    <button type="button" class="btn btn-secondary btn-lg" onclick="show_btn();save_cookie();" data-i18n="ok">OK-I18N</button>
-                </div>-->
             </div>
         </div>
     </div>

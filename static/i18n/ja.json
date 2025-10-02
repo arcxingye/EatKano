@@ -5,6 +5,7 @@
   "endless": "無限モード - 2年半練習し、非常に安定している人向け",
   "practice": "練習モード - 個々の研修生のために",
   "settings": "設定 - クンクンに人生を疑わせる",
+  "debug": "If a bug appears (the bug released by KUN), click this button to refresh the interface"
   "img-before": "クリック前",
   "img-after": "クリック後",
   "sound-on": "効果音:オン - くんくんの悲鳴を聞く",
@@ -32,7 +33,8 @@
   "no-ad-bad-lang": "広告なし/冒とく/くんくんすびパンツ(この項目は省略できます)",
   "time-up": "It's time (Kun Kunが悪意を持ってあなたのためにそれを手に入れました)",
   "calculating": "計算中(クンクンが悪意を持ってあなたのためにそれを手に入れました)",
-  "score": "スコア+2.5-2.5",
+  "score": "スコア",
+  "cps": "CPS",
   "best": "ベスト",
   "again": "最初からやり直す",
   "home": "ホーム",

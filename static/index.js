@@ -579,6 +579,16 @@ function showWelcomeLayer() {
         initSetting();
     }
 
+    function foreach() {
+        var strCookie = document.cookie;
+        var arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
+        for (var i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
+            var arr = arrCookie[i].split("=");
+            if (arr.length > 0)
+                DelCookie(arr[0]);
+        }
+    }
+
     function isnull(val) {
         let str = val.replace(/(^\s*)|(\s*$)/g, '');
         return str === '' || str === undefined || str == null;
@@ -594,7 +604,7 @@ function showWelcomeLayer() {
     }
 
     w.goRankTwo = function() {
-        let name = $("#username").val();
+        let name = $("#username0").val();
         let link = './rank.html';
         if (!isnull(name)) {
             link += "?name=" + name;
@@ -602,12 +612,13 @@ function showWelcomeLayer() {
         window.location.href = link;
     }
 
-    w.goRankTwo = function() {
-        let name = $("#username").val();
-        let link = './rank.html';
-        if (!isnull(name)) {
-            link += "?name=" + name;
-        }
+    w.goRepo = function() {
+        let link = 'https://github.com/arcxingye/EatKano';
+        window.location.href = link;
+    }
+
+    w.goRepoG = function() {
+        let link = 'https://github.com/fgfobdpqjs/EatKun';
         window.location.href = link;
     }
 
