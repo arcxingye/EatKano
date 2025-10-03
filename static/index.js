@@ -467,6 +467,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.replayBtn = function() {
         gameRestart();
         hideGameScoreLayer();
+        closeWelcomeLayer();
     }
 
     w.backBtn = function() {
