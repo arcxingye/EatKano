@@ -20,7 +20,7 @@ A web game: EatKun
 |
 [Play](https://chicxk.pages.dev/)
 |
-[Github Pages](https://fgfobdpqjs.github.io/EatKun/)
+[Github Pages](https://fgfobdpqjs.github.io/EatKun/index.html)
 
 ## Features
 
@@ -34,7 +34,7 @@ You can delete all the sql/php files if you don't need them.
 
 ## Usage
 
-Note: if you just want to play it, go to [online version](https://fgfobdpqjs.github.io/CHICXK/index.html). Here is how to create your own version.
+Note: if you just want to play it, go to [online version](https://chicxk.pages.dev/). Here is how to create your own version.
 
 ### Github Pages
 
@@ -48,16 +48,16 @@ Follow these steps to change the text displayed to what you want.
 
    ```json
    {
-     "game-title": "New concept audio game",
+     "game-title": "New concept audio game (Let 蔡徐坤's English name be KUN.)",
      "game-intro1": "Start at the bottom and",
      "game-intro2": "see how many points you can get",
      "game-intro3": "OK!",
-     "game-intro4": "Cai Xukun does not leave one! ",
+     "game-intro4": "KUN does not leave one! ",
      "text-level-1": "Try to practice well for two and a half years?",
      "text-level-2": "Not yet to the level of KUN!",
      "text-level-3": "Soon to surpass KUN!",
      "text-level-4": "You should have been practicing for 2.5 years!",
-     "text-level-5": "Kunkun: Another IKUN has joined our Litchi Group!"
+     "text-level-5": "KUN: Another love KUN has joined our Litchi Group!",
    }
    ```
 

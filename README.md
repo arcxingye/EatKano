@@ -56,10 +56,10 @@ _🦌 网页小游戏 🥛_
      "game-intro3": "OK!",
      "game-intro4": "蔡徐坤一个不留！",
      "text-level-1": "试着好好练个两年半?",
-     "text-level-2": "还没到KUN的程度那!",
-     "text-level-3": "马上就要超过KUN的程度那!",
-     "text-level-4": "你应该已经练了2.5年了吧!",
-     "text-level-5": "坤坤:又有一位IKUN加入我们的荔枝集团了!"
+     "text-level-2": "还没到蔡徐坤的程度!",
+     "text-level-3": "马上就要超过蔡徐坤的程度!",
+     "text-level-4": "你应该已经练了两年半了吧!",
+     "text-level-5": "蔡徐坤:又有一位IKUN加入我们的荔枝集团了!"
    }
    ```
 
