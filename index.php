@@ -65,7 +65,7 @@
                     <div class="d-flex justify-content-center flex-column flex-fill">
                         <a class="btn btn-primary btn-lg mb-3" onclick="readyBtn()" data-i18n="start">START-I18N</a>
                         <div class="dropdown mb-3">
-                            <a class="w-100 btn btn-secondary btn-lg" href="javascript: void(0);" role="button" id="mode" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="normal">NORMAL-I18N</a>
+                            <a class="w-100 btn btn-secondary btn-lg" href="javascript: void(0);" role="button" id="mode" data-bs-toggle="dropdown" aria-expanded="false"data-i18n="mode">MODE-I18N</a>
                             <ul class="dropdown-menu" aria-labelledby="mode">
                                 <li><a class="dropdown-item" onclick="changeMode(MODE_NORMAL)" data-i18n="normal">NORMAL-I18N</a></li>
                                 <li><a class="dropdown-item" onclick="changeMode(MODE_ENDLESS)" data-i18n="endless">ENDLESS-I18N</a></li>
