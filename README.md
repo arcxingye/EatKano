@@ -117,6 +117,10 @@ _🦌 网页小游戏 🥛_
 
 7. JSEncrypt ([Website](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
 
+## 免责声明
+
+本游戏与蔡徐坤本人及其经纪团队无任何关联，仅供娱乐。
+
 ## 其它事项
 
 此项目使用[BSD 3-Clause License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE)，在使用本项目时，请标注原作者，且不能以原作者的名义进行发布。
