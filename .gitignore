@@ -3,6 +3,6 @@
 
 # 保留
 !/.gitignore
-!/LICENSE
+!/LICENSE-code
 !/LICENSE-text
 !/README.md
