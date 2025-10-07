@@ -153,6 +153,18 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 rstyle.bottom = Math.floor(j / 4) * blockSize + 'px';
                 rstyle.width = blockSize + 'px';
                 rstyle.height = blockSize + 'px';
+                r.className = r.className.replace(_clearttClsReg, '');
+                if (i === j) {
+                    _gameBBList.push({
+                        cell: i % 4,
+                        id: r.id
+                    });
+                    r.className += ' t' + (Math.floor(Math.random() * 1000) % 5 + 1);
+                    r.notEmpty = true;
+                    i = (Math.floor(j / 4) + 1) * 4 + Math.floor(Math.random() * 1000) % 4;
+                } else {
+                    r.notEmpty = false;
+                }
             }
         }
         let f, a;
@@ -570,15 +582,20 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
-        for (let s of settings) {
-            let value=$(`#${s}`).val();
-            if(value){
-                cookie(s, value.toString(), 100);
-            }
+    const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
+    for (let s of settings) {
+        let value = $(`#${s}`).val();
+        let valueStr = value ? value.toString().trim() : '';
+        if (valueStr === '') {
+            let date = new Date();
+            date.setTime(date.getTime() - 864e5);
+            document.cookie = s + "=; expires=" + date.toGMTString() + "; path=/";
+        } else {
+            cookie(s, valueStr, 36500);
         }
-        initSetting();
     }
+    initSetting();
+}
 
     function foreach() {
         let strCookie = document.cookie;
