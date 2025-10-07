@@ -422,8 +422,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function showWelcomeLayer() {
         welcomeLayerClosed = false;
+        $('#mode').text(modeToString(mode));
         $('#welcome').css('display', 'block');
-        updatePanel();
     }
 
     function getBestScore(score) {
@@ -467,7 +467,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.replayBtn = function() {
         gameRestart();
         hideGameScoreLayer();
-        closeWelcomeLayer();
     }
 
     w.backBtn = function() {
@@ -477,13 +476,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function closeWelcomeLayer() {
-        let l = document.getElementById('welcome');
-        l.style.display = 'none';
+        let z = document.getElementById('welcome');
+        z.style.display = 'none';
     }
 
     function showWelcomeLayer() {
-        let l = document.getElementById('welcome');
-        l.style.display = 'block';
+        let z = document.getElementById('welcome');
+        z.style.display = 'block';
     }
 
     function shareText(cps) {
