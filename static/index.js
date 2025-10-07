@@ -93,10 +93,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getMode() {
+        //有cookie优先返回cookie记录的，没有再返回normal
         return cookie('gameMode') ? parseInt(cookie('gameMode')) : MODE_NORMAL;
     }
 
     function getSoundMode() {
+        // 默认为 on
         return cookie('soundMode') ? cookie('soundMode') : 'on';
     }
 
@@ -151,6 +153,18 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 rstyle.bottom = Math.floor(j / 4) * blockSize + 'px';
                 rstyle.width = blockSize + 'px';
                 rstyle.height = blockSize + 'px';
+                r.className = r.className.replace(_clearttClsReg, '');
+                if (i === j) {
+                    _gameBBList.push({
+                        cell: i % 4,
+                        id: r.id
+                    });
+                    r.className += ' t' + (Math.floor(Math.random() * 1000) % 5 + 1);
+                    r.notEmpty = true;
+                    i = (Math.floor(j / 4) + 1) * 4 + Math.floor(Math.random() * 1000) % 4;
+                } else {
+                    r.notEmpty = false;
+                }
             }
         }
         let f, a;
@@ -258,7 +272,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
     }
-
+    //使重试按钮获得焦点
     function foucusOnReplay(){
         $('#replay').focus()
     }
@@ -425,6 +439,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getBestScore(score) {
+        // 练习模式不会进入算分界面
         let cookieName = (mode === MODE_NORMAL ? 'bast-score' : 'endless-best-score');
         let best = cookie(cookieName) ? Math.max(parseFloat(cookie(cookieName)), score) : score;
         cookie(cookieName, best.toFixed(2), 100);
@@ -525,7 +540,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
         let data = {};
         value = document.cookie.replace(/\s/g, "").split(";");
-        for (let i = 0; value.length > i; i++) name = value[i].split("="), name[1] && (data[name[0]] = unescape(name[1]));
+        for (let i = 0; i < value.length; i++) name = value[i].split("="), name[1] && (data[name[0]] = unescape(name[1]));
         return data;
     }
 
@@ -570,12 +585,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value = $(`#${s}`).val();
-            if (value === null || value === undefined || value === '') {
+            let valueStr = value ? value.toString().trim() : '';
+            if (valueStr === '') {
                 let date = new Date();
                 date.setTime(date.getTime() - 864e5);
                 document.cookie = s + "=; expires=" + date.toGMTString() + "; path=/";
             } else {
-                cookie(s, value.toString(), 100);
+                cookie(s, valueStr, 36500);
             }
         }
         initSetting();
@@ -583,8 +599,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function foreach() {
         let strCookie = document.cookie;
-        let arrCookie = strCookie.split("; ");
-        for (let i = 0; i < arrCookie.length; i++) {
+        let arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
+        for (let i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
             let arr = arrCookie[i].split("=");
             if (arr.length > 0)
                 DelCookie(arr[0]);
@@ -637,6 +653,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
         let fakeEvent = {
             clientX: ((index - 1) * blockSize + index * blockSize) / 2 + body.offsetLeft,
+            // Make sure that it is in the area
             clientY: (touchArea[0] + touchArea[1]) / 2,
             target: document.getElementById(id),
         };
