@@ -475,12 +475,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         showWelcomeLayer();
     }
 
-    function closeWelcomeLayer() {
+    function aCloseWelcomeLayer() {
         let z = document.getElementById('welcome');
         z.style.display = 'none';
     }
 
-    function showWelcomeLayer() {
+    function aShowWelcomeLayer() {
         let z = document.getElementById('welcome');
         z.style.display = 'block';
     }
