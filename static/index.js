@@ -52,13 +52,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     let map = {'d': 1, 'f': 2, 'j': 3, 'k': 4};
     if (isDesktop) {
         document.write('<div id="gameBody">');
-        document.addEventListener('keydown', function (e) {
+        document.onkeydown = function (e) {
             let key = e.key.toLowerCase();
             if (Object.keys(map).indexOf(key) !== -1) {
-                click(map[key]);
-                e.preventDefault();
+                click(map[key])
             }
-        });
+        }
     }
 
     let body, blockSize, GameLayer = [],
@@ -83,8 +82,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         GameLayer.push(document.getElementById('GameLayer2'));
         GameLayer[1].children = GameLayer[1].querySelectorAll('div');
         GameLayerBG = document.getElementById('GameLayerBG');
-        GameLayerBG.setAttribute('tabindex', '0');
-        GameLayerBG.focus();
         if (GameLayerBG.ontouchstart === null) {
             GameLayerBG.ontouchstart = gameTapEvent;
         } else {
@@ -96,12 +93,10 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getMode() {
-        //有cookie优先返回cookie记录的，没有再返回normal
         return cookie('gameMode') ? parseInt(cookie('gameMode')) : MODE_NORMAL;
     }
 
     function getSoundMode() {
-        // 默认为 on
         return cookie('soundMode') ? cookie('soundMode') : 'on';
     }
 
@@ -129,7 +124,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.readyBtn = function() {
         closeWelcomeLayer();
         updatePanel();
-        GameLayerBG.focus();
     }
 
     w.winOpen = function() {
@@ -157,18 +151,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 rstyle.bottom = Math.floor(j / 4) * blockSize + 'px';
                 rstyle.width = blockSize + 'px';
                 rstyle.height = blockSize + 'px';
-                r.className = r.className.replace(_clearttClsReg, '');
-                if (i === j) {
-                    _gameBBList.push({
-                        cell: i % 4,
-                        id: r.id
-                    });
-                    r.className += ' t' + (Math.floor(Math.random() * 1000) % 5 + 1);
-                    r.notEmpty = true;
-                    i = (Math.floor(j / 4) + 1) * 4 + Math.floor(Math.random() * 1000) % 4;
-                } else {
-                    r.notEmpty = false;
-                }
             }
         }
         let f, a;
@@ -231,7 +213,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         refreshGameLayer(GameLayer[0]);
         refreshGameLayer(GameLayer[1], 1);
         updatePanel();
-        GameLayerBG.focus();
     }
 
     function gameStart() {
@@ -277,7 +258,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             GameTimeLayer.innerHTML = `SCORE:${_gameScore}`;
         }
     }
-    //使重试按钮获得焦点
+
     function foucusOnReplay(){
         $('#replay').focus()
     }
@@ -414,7 +395,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function createGameLayer() {
-        let html = '<div id="GameLayerBG" tabindex="0">';
+        let html = '<div id="GameLayerBG">';
         for (let i = 1; i <= 2; i++) {
             let id = 'GameLayer' + i;
             html += '<div id="' + id + '" class="GameLayer">';
@@ -444,7 +425,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function getBestScore(score) {
-        // 练习模式不会进入算分界面
         let cookieName = (mode === MODE_NORMAL ? 'bast-score' : 'endless-best-score');
         let best = cookie(cookieName) ? Math.max(parseFloat(cookie(cookieName)), score) : score;
         cookie(cookieName, best.toFixed(2), 100);
@@ -590,13 +570,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
             let value = $(`#${s}`).val();
-            let valueStr = value ? value.toString().trim() : '';
-            if (valueStr === '') {
+            if (value === null || value === undefined || value === '') {
                 let date = new Date();
                 date.setTime(date.getTime() - 864e5);
                 document.cookie = s + "=; expires=" + date.toGMTString() + "; path=/";
             } else {
-                cookie(s, valueStr, 36500);
+                cookie(s, value.toString(), 100);
             }
         }
         initSetting();
@@ -604,8 +583,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function foreach() {
         let strCookie = document.cookie;
-        let arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
-        for (let i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
+        let arrCookie = strCookie.split("; ");
+        for (let i = 0; i < arrCookie.length; i++) {
             let arr = arrCookie[i].split("=");
             if (arr.length > 0)
                 DelCookie(arr[0]);
@@ -640,9 +619,9 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function openSourceCode(url) {
-        let confirmation = confirm("您确定要跳转到其他网页吗？"); // Display the confirmation prompt
+        let confirmation = confirm("您确定要跳转到其他网页吗？");
         if (confirmation) {
-            window.location.href = url; // If the user confirms, proceed with the URL redirection
+            window.location.href = url;
         }
     }
 
@@ -658,7 +637,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
         let fakeEvent = {
             clientX: ((index - 1) * blockSize + index * blockSize) / 2 + body.offsetLeft,
-            // Make sure that it is in the area
             clientY: (touchArea[0] + touchArea[1]) / 2,
             target: document.getElementById(id),
         };
@@ -711,6 +689,4 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }`);
         })
     }
-
-    w.init();
-})(window);
+}) (window);
