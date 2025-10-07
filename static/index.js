@@ -52,12 +52,13 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     let map = {'d': 1, 'f': 2, 'j': 3, 'k': 4};
     if (isDesktop) {
         document.write('<div id="gameBody">');
-        document.onkeydown = function (e) {
+        document.addEventListener('keydown', function (e) {
             let key = e.key.toLowerCase();
             if (Object.keys(map).indexOf(key) !== -1) {
-                click(map[key])
+                click(map[key]);
+                e.preventDefault();
             }
-        }
+        });
     }
 
     let body, blockSize, GameLayer = [],
@@ -82,6 +83,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         GameLayer.push(document.getElementById('GameLayer2'));
         GameLayer[1].children = GameLayer[1].querySelectorAll('div');
         GameLayerBG = document.getElementById('GameLayerBG');
+        GameLayerBG.setAttribute('tabindex', '0');
+        GameLayerBG.focus();
         if (GameLayerBG.ontouchstart === null) {
             GameLayerBG.ontouchstart = gameTapEvent;
         } else {
@@ -126,6 +129,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.readyBtn = function() {
         closeWelcomeLayer();
         updatePanel();
+        GameLayerBG.focus();
     }
 
     w.winOpen = function() {
@@ -227,6 +231,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         refreshGameLayer(GameLayer[0]);
         refreshGameLayer(GameLayer[1], 1);
         updatePanel();
+        GameLayerBG.focus();
     }
 
     function gameStart() {
@@ -409,7 +414,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     function createGameLayer() {
-        let html = '<div id="GameLayerBG">';
+        let html = '<div id="GameLayerBG" tabindex="0">';
         for (let i = 1; i <= 2; i++) {
             let id = 'GameLayer' + i;
             html += '<div id="' + id + '" class="GameLayer">';
@@ -582,20 +587,20 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-    const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
-    for (let s of settings) {
-        let value = $(`#${s}`).val();
-        let valueStr = value ? value.toString().trim() : '';
-        if (valueStr === '') {
-            let date = new Date();
-            date.setTime(date.getTime() - 864e5);
-            document.cookie = s + "=; expires=" + date.toGMTString() + "; path=/";
-        } else {
-            cookie(s, valueStr, 36500);
+        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
+        for (let s of settings) {
+            let value = $(`#${s}`).val();
+            let valueStr = value ? value.toString().trim() : '';
+            if (valueStr === '') {
+                let date = new Date();
+                date.setTime(date.getTime() - 864e5);
+                document.cookie = s + "=; expires=" + date.toGMTString() + "; path=/";
+            } else {
+                cookie(s, valueStr, 36500);
+            }
         }
+        initSetting();
     }
-    initSetting();
-}
 
     function foreach() {
         let strCookie = document.cookie;
@@ -706,4 +711,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }`);
         })
     }
-}) (window);
+
+    w.init();
+})(window);
