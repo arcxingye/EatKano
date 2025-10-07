@@ -422,8 +422,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function showWelcomeLayer() {
         welcomeLayerClosed = false;
-        $('#mode').text(modeToString(mode));
         $('#welcome').css('display', 'block');
+        updatePanel();
     }
 
     function getBestScore(score) {
@@ -578,6 +578,16 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
             }
         }
         initSetting();
+    }
+
+    function foreach() {
+        let strCookie = document.cookie;
+        let arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
+        for (let i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
+            let arr = arrCookie[i].split("=");
+            if (arr.length > 0)
+                DelCookie(arr[0]);
+        }
     }
 
     function isnull(val) {
