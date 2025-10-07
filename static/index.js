@@ -153,18 +153,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
                 rstyle.bottom = Math.floor(j / 4) * blockSize + 'px';
                 rstyle.width = blockSize + 'px';
                 rstyle.height = blockSize + 'px';
-                r.className = r.className.replace(_clearttClsReg, '');
-                if (i === j) {
-                    _gameBBList.push({
-                        cell: i % 4,
-                        id: r.id
-                    });
-                    r.className += ' t' + (Math.floor(Math.random() * 1000) % 5 + 1);
-                    r.notEmpty = true;
-                    i = (Math.floor(j / 4) + 1) * 4 + Math.floor(Math.random() * 1000) % 4;
-                } else {
-                    r.notEmpty = false;
-                }
             }
         }
         let f, a;
@@ -540,7 +528,7 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
         let data = {};
         value = document.cookie.replace(/\s/g, "").split(";");
-        for (let i = 0; i < value.length; i++) name = value[i].split("="), name[1] && (data[name[0]] = unescape(name[1]));
+        for (let i = 0; value.length > i; i++) name = value[i].split("="), name[1] && (data[name[0]] = unescape(name[1]));
         return data;
     }
 
@@ -584,27 +572,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.save_cookie = function() {
         const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
-            let value = $(`#${s}`).val();
-            let valueStr = value ? value.toString().trim() : '';
-            if (valueStr === '') {
-                let date = new Date();
-                date.setTime(date.getTime() - 864e5);
-                document.cookie = s + "=; expires=" + date.toGMTString() + "; path=/";
-            } else {
-                cookie(s, valueStr, 36500);
+            let value=$(`#${s}`).val();
+            if(value){
+                cookie(s, value.toString(), 100);
             }
         }
         initSetting();
-    }
-
-    function foreach() {
-        let strCookie = document.cookie;
-        let arrCookie = strCookie.split("; "); // 将多cookie切割为多个名/值对
-        for (let i = 0; i < arrCookie.length; i++) { // 遍历cookie数组，处理每个cookie对
-            let arr = arrCookie[i].split("=");
-            if (arr.length > 0)
-                DelCookie(arr[0]);
-        }
     }
 
     function isnull(val) {
