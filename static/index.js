@@ -306,7 +306,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     function refreshGameLayer(box, loop, offset) {
         let i = Math.floor(Math.random() * 1000) % 4 + (loop ? 0 : 4);
         for (let j = 0; j < box.children.length; j++) {
-            let r = box.children[j], rstyle = r.style;
+            let r = box.children[j],
+                rstyle = r.style;
             rstyle.left = (j % 4) * blockSize + 'px';
             rstyle.bottom = Math.floor(j / 4) * blockSize + 'px';
             rstyle.width = blockSize + 'px';
@@ -512,18 +513,20 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     function cookie(name, value, time) {
         if (name) {
-            if (value) {
+            if (value !== undefined) {
                 if (time) {
                     let date = new Date();
-                    date.setTime(date.getTime() + 864e5 * time), time = date.toGMTString();
+                    date.setTime(date.getTime() + 864e5 * time);
+                    time = date.toGMTString();
                 }
-                return document.cookie = name + "=" + escape(toStr(value)) + (time ? "; expires=" + time + (arguments[3] ?
-                    "; domain=" + arguments[3] + (arguments[4] ? "; path=" + arguments[4] + (arguments[5] ? "; secure" : "") : "") :
-                    "") : ""), !0;
+                if (value === "") {
+                    value = "";
+                    time = "Thu, 01 Jan 1970 00:00:00 GMT";
+                } // 如果值为空字符串，设置过期时间使其删除
+                return document.cookie = name + "=" + escape(toStr(value)) + (time ? "; expires=" + time + (arguments[3] ? "; domain=" + arguments[3] + (arguments[4] ? "; path=" + arguments[4] + (arguments[5] ? "; secure" : "") : "") : "") : ""), !0;
             }
             return value = document.cookie.match("(?:^|;)\\s*" + name.replace(/([-.*+?^${}()|[\]\/\\])/g, "\\$1") + "=([^;]*)"),
-                value = value && "string" == typeof value[1] ? unescape(value[1]) : !1, (/^(\{|\[).+\}|\]$/.test(value) ||
-                /^[0-9]+$/g.test(value)) && eval("value=" + value), value;
+                value = value && "string" == typeof value[1] ? unescape(value[1]) : !1, (/^(\{|\[).+\}|\]$/.test(value) || /^[0-9]+$/g.test(value)) && eval("value=" + value), value;
         }
         let data = {};
         value = document.cookie.replace(/\s/g, "").split(";");
@@ -571,10 +574,8 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     w.save_cookie = function() {
         const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
         for (let s of settings) {
-            let value=$(`#${s}`).val();
-            if(value){
-                cookie(s, value.toString(), 100);
-            }
+            let value = $(`#${s}`).val();
+            cookie(s, value.toString(), 36500);
         }
         initSetting();
     }
