@@ -124,4 +124,4 @@ _🦌 网页小游戏 🥛_
 
 ## 其它事项
 
-此项目使用[BSD 3-Clause License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE)，在使用本项目时，请标注原作者，且不能以原作者的名义进行发布。
+此项目使用[BSD 3-Clause License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-code)和[Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-text)，在使用本项目时，请标注原作者，且不能以原作者的名义进行发布。
