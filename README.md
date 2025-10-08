@@ -29,12 +29,17 @@ _🦌 网页小游戏 🥛_
 不需要排行榜把php/sql文件都删掉即可
 
 ## 版本需求
+
 + MySQL 5+
 + PHP 5+
 
+## 免责声明
+
+本游戏与蔡徐坤本人及其经纪团队无任何关联，仅供娱乐。
+
 ## 使用方法
 
-注: 如果你想玩的话直接去玩就可以, 这里是如何制造你的改版
+注: 如果你想玩的话直接[去玩](https://chicxk.pages.dev/)就可以, 这里是如何制造你的改版
 
 ### Github Pages
 
@@ -103,23 +108,19 @@ _🦌 网页小游戏 🥛_
 
 ## 使用的项目及其许可证
 
-1. EatKano ([Website](https://xingye.me/game/eatkano) [GitHub](https://github.com/arcxingye/EatKano) [License: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))
+1. EatKano ([网站](https://xingye.me/game/eatkano) [Github](https://github.com/arcxingye/EatKano) [许可证: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))
 
-2. EatCat ([GitHub](https://github.com/122440367/eatcat) License: Not)
+2. EatCat ([Github](https://github.com/122440367/eatcat) 许可证: 未知)
 
-3. EatCat ([GitHub](https://github.com/Webpage-gh/eatcat) License: Not)
+3. EatCat ([Github](https://github.com/Webpage-gh/eatcat) 许可证: 未知)
 
-4. Bootstrap v5.1.1 ([Website](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap/releases/tag/v5.1.1) [License: MIT license](https://raw.githubusercontent.com/twbs/bootstrap/refs/heads/main/LICENSE))
+4. Bootstrap v5.1.1 ([网站](https://getbootstrap.com/) [Github](https://github.com/twbs/bootstrap/releases/tag/v5.1.1) [许可证: MIT license](https://raw.githubusercontent.com/twbs/bootstrap/refs/heads/main/LICENSE))
 
-5. CREATEJS v1.0.0 ([Website](http://createjs.com/) [GitHub](https://github.com/CreateJS/CreateJS) [License: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
+5. CREATEJS v1.0.0 ([网站](http://createjs.com/) [Github](https://github.com/CreateJS/CreateJS) [许可证: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
 
-6. jQuery 3.6.0 ([Website](https://jquery.com/) [GitHub](https://github.com/jquery/jquery/releases/tag/3.6.0) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
+6. jQuery 3.6.0 ([网站](https://jquery.com/) [Github](https://github.com/jquery/jquery/releases/tag/3.6.0) [许可证](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
 
-7. JSEncrypt ([Website](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
-
-## 免责声明
-
-本游戏与蔡徐坤本人及其经纪团队无任何关联，仅供娱乐。
+7. JSEncrypt ([网站](https://travistidwell.com/jsencrypt) [Github](https://github.com/travist/jsencrypt) [许可证: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
 
 ## 其它事项
 

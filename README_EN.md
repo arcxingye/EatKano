@@ -29,8 +29,13 @@ A simple ranking list(day/week/month) is provided.
 You can delete all the sql/php files if you don't need them.
 
 ## Requirements
+
 + MySQL 5+
 + PHP 5+
+
+## Disclaimer
+
+This game has no association with 蔡徐坤 or his management team and is for entertainment purposes only.
 
 ## Usage
 
@@ -102,23 +107,19 @@ Follow these few steps to configure the database for ranking list on your server
 
 ## Used items and their licenses
 
-1. EatKano ([Website](https://xingye.me/game/eatkano) [GitHub](https://github.com/arcxingye/EatKano) [License: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))
+1. EatKano ([Website](https://xingye.me/game/eatkano) [Github](https://github.com/arcxingye/EatKano) [License: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))
 
-2. EatCat ([GitHub](https://github.com/122440367/eatcat) License: Not)
+2. EatCat ([Github](https://github.com/122440367/eatcat) License: Unknown)
 
-3. EatCat ([GitHub](https://github.com/Webpage-gh/eatcat) License: Not)
+3. EatCat ([Github](https://github.com/Webpage-gh/eatcat) License: Unknown)
 
-4. Bootstrap v5.1.1 ([Website](https://getbootstrap.com/) [GitHub](https://github.com/twbs/bootstrap/releases/tag/v5.1.1) [License: MIT license](https://raw.githubusercontent.com/twbs/bootstrap/refs/heads/main/LICENSE))
+4. Bootstrap v5.1.1 ([Website](https://getbootstrap.com/) [Github](https://github.com/twbs/bootstrap/releases/tag/v5.1.1) [License: MIT license](https://raw.githubusercontent.com/twbs/bootstrap/refs/heads/main/LICENSE))
 
-5. CREATEJS v1.0.0 ([Website](http://createjs.com/) [GitHub](https://github.com/CreateJS/CreateJS) [License: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
+5. CREATEJS v1.0.0 ([Website](http://createjs.com/) [Github](https://github.com/CreateJS/CreateJS) [License: MIT license](https://raw.githubusercontent.com/CreateJS/CreateJS/refs/heads/master/LICENSE))
 
-6. jQuery 3.6.0 ([Website](https://jquery.com/) [GitHub](https://github.com/jquery/jquery/releases/tag/3.6.0) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
+6. jQuery 3.6.0 ([Website](https://jquery.com/) [Github](https://github.com/jquery/jquery/releases/tag/3.6.0) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
 
-7. JSEncrypt ([Website](https://travistidwell.com/jsencrypt) [GitHub](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
-
-## Disclaimer
-
-This game has no association with 蔡徐坤 or his management team and is for entertainment purposes only.
+7. JSEncrypt ([Website](https://travistidwell.com/jsencrypt) [Github](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
 
 ## Others
 
