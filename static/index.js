@@ -572,13 +572,33 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
     }
 
     w.save_cookie = function() {
-        const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
-        for (let s of settings) {
-            let value = $(`#${s}`).val();
-            cookie(s, value.toString(), 36500);
+    const settings = ['username0', 'message0', 'keyboard', 'title', 'gameTime'];
+    let settingsChanged = false;
+    for (let s of settings) {
+        let value = $(`#${s}`).val();
+        let oldValue = cookie(s);
+        if (value === "") {
+            if (oldValue) {
+                cookie(s, "", -1);
+                settingsChanged = true;
+            }
+        } else {
+            if (value !== oldValue) {
+                cookie(s, value.toString(), 100);
+                settingsChanged = true;
+            }
         }
-        initSetting();
     }
+    if (settingsChanged) {
+        _gameSettingNum = 20;
+        mode = MODE_NORMAL;
+        $('#gameTime').val(_gameSettingNum);
+        $('#mode').text(modeToString(mode));
+        gameRestart();
+    }
+    initSetting();
+}
+
 
     function foreach() {
         let strCookie = document.cookie;
