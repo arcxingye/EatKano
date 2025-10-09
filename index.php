@@ -45,6 +45,7 @@
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openSourceCode('https://github.com/fgfobdpqjs/EatKun')" data-i18n="repo">REPO-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openSourceCode('https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#others')" data-i18n="license">LICENSE-I18N</button>
                 <button type="button" class="btn btn-secondary btn-lg" onclick="openSourceCode('https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#used-items-and-their-licenses')'" data-i18n="use-project">USE-PROJECT-I18N</button>
+                <button type="button" class="btn btn-secondary btn-lg" onclick="openSourceCode('https://github.com/fgfobdpqjs/EatKun/blob/main/README_EN.md#disclaimer')" data-i18n="disclaimer">DISCLAIMER-I18N</button>
             </div>
     </div>
     </div>
