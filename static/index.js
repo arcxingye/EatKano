@@ -640,13 +640,6 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
         }
     }
 
-    function openSourceCode(link) {
-        let confirmation = confirm("您确定要跳转到其他网页吗？"); // Display the confirmation prompt
-        if (confirmation) {
-            window.location.href = url; // If the user confirms, proceed with the URL redirection
-        }
-    }
-
     function click(index) {
         if (!welcomeLayerClosed) {
             return;
