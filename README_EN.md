@@ -37,6 +37,8 @@ You can delete all the sql/php files if you don't need them.
 
 This game has no association with 蔡徐坤 or his management team and is for entertainment purposes only.
 
+The content of `static/image` and `static/music` comes from the internet. If there is infringement, it can be found in [Issues](https://github.com/fgfobdpqjs/EatKun/issues) Contact to delete and attach the 'delete' tag.
+
 ## Usage
 
 Note: if you just want to play it, go to [online version](https://chicxk.pages.dev/). Here is how to create your own version.
