@@ -105,6 +105,10 @@ Follow these few steps to configure the database for ranking list on your server
    $ranking = "kun_rank";
    ```
 
+## Star Statistics
+
+[![Stargazers over time](https://starchart.cc/fgfobdpqjs/EatKun.svg?variant=adaptive)](https://starchart.cc/fgfobdpqjs/EatKun)
+
 ## Used items and their licenses
 
 1. EatKano ([Website](https://xingye.me/game/eatkano) [Github](https://github.com/arcxingye/EatKano) [License: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))

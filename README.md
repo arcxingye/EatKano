@@ -122,6 +122,10 @@ _🦌 网页小游戏 🥛_
 
 7. JSEncrypt ([网站](https://travistidwell.com/jsencrypt) [Github](https://github.com/travist/jsencrypt) [许可证: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
 
+## Star 统计
+
+[![Stargazers over time](https://starchart.cc/fgfobdpqjs/EatKun.svg?variant=adaptive)](https://starchart.cc/fgfobdpqjs/EatKun)
+
 ## 其它事项
 
 此项目使用[BSD 3-Clause License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-code)和[Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-text)，在使用本项目时，请标注原作者，且不能以原作者的名义进行发布。
