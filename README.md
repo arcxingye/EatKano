@@ -132,4 +132,4 @@ _🦌 网页小游戏 🥛_
 
 此项目使用[BSD 3-Clause License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-code)进行授权，在使用本项目时，请标注来源/原作者，且不能以原作者的名义进行发布。
 
-README.md和本项目Wiki（现在没有，未来可能会有）使用[Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-text)进行授权，在使用本项目时，请标注来源/原作者。
+`README.md`、`README_EN.md`和本项目[Wiki](https://github.com/fgfobdpqjs/EatKun/wiki)（现在没有，未来可能会有）使用[Creative Commons Attribution 4.0 International Public License](https://raw.githubusercontent.com/fgfobdpqjs/EatKun/refs/heads/main/LICENSE-text)进行授权，在使用本项目时，请标注来源/原作者。
