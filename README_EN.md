@@ -105,10 +105,6 @@ Follow these few steps to configure the database for ranking list on your server
    $ranking = "kun_rank";
    ```
 
-## Star statistics
-
-[![Stargazers over time](https://starchart.cc/fgfobdpqjs/EatKun.svg?variant=adaptive)](https://starchart.cc/fgfobdpqjs/EatKun)
-
 ## Used items and their licenses
 
 1. EatKano ([Website](https://xingye.me/game/eatkano) [Github](https://github.com/arcxingye/EatKano) [License: MIT license](https://raw.githubusercontent.com/arcxingye/EatKano/refs/heads/main/LICENSE))
@@ -124,6 +120,10 @@ Follow these few steps to configure the database for ranking list on your server
 6. jQuery 3.6.0 ([Website](https://jquery.com/) [Github](https://github.com/jquery/jquery/releases/tag/3.6.0) [License](https://raw.githubusercontent.com/jquery/jquery/refs/heads/main/LICENSE.txt))
 
 7. JSEncrypt ([Website](https://travistidwell.com/jsencrypt) [Github](https://github.com/travist/jsencrypt) [License: MIT license](https://raw.githubusercontent.com/travist/jsencrypt/refs/heads/master/LICENSE.txt))
+
+## Star statistics
+
+[![Stargazers over time](https://starchart.cc/fgfobdpqjs/EatKun.svg?variant=adaptive)](https://starchart.cc/fgfobdpqjs/EatKun)
 
 ## Others
 
