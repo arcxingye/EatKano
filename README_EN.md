@@ -105,7 +105,7 @@ Follow these few steps to configure the database for ranking list on your server
    $ranking = "kun_rank";
    ```
 
-## Star Statistics
+## Star statistics
 
 [![Stargazers over time](https://starchart.cc/fgfobdpqjs/EatKun.svg?variant=adaptive)](https://starchart.cc/fgfobdpqjs/EatKun)
 
