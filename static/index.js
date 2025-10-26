@@ -562,12 +562,12 @@ const MODE_NORMAL = 1, MODE_ENDLESS = 2, MODE_PRACTICE = 3;
 
     w.show_btn = function() {
         $("#btn_group,#desc").css('display', 'block')
-        $('#setting').css('display', 'none')
+        $('#setting,#version').css('display', 'none')
     }
 
     w.show_setting = function() {
         $('#btn_group,#desc').css('display', 'none')
-        $('#setting').css('display', 'block')
+        $('#setting,#version').css('display', 'block')
         $('#sound').text(soundMode === 'on' ? I18N['sound-on'] : I18N['sound-off']);
     }
 

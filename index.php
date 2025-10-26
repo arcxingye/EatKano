@@ -61,6 +61,9 @@
                         <span data-i18n="game-intro3">GAME-INTRO3-I18N</span><br />
                         <span data-i18n="game-intro4">GAME-INTRO4-I18N</span><br />
                     </div>
+                    <div id="version" style="display: block;font-size:2.2em; color:#fff; line-height:1.5em;">
+                        <span data-i18n="version">VERSION-I18N</span><span>0.0.0</span><br />
+                    </div>
                 </div>
                 <div id="btn_group" class="container text-nowrap">
                     <div class="d-flex justify-content-center flex-column flex-fill">
