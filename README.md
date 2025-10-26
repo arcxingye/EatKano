@@ -14,6 +14,8 @@ _🦌 网页小游戏 🥛_
 
 小游戏：吃掉蔡徐坤
 
+最新版本号：0.0.0
+
 [English](README_EN.md)
 |
 [Github](https://github.com/fgfobdpqjs)
@@ -21,6 +23,8 @@ _🦌 网页小游戏 🥛_
 [游玩](https://chicxk.pages.dev/)
 |
 [Github Pages](https://fgfobdpqjs.github.io/EatKun/)
+|
+[Releases](https://github.com/fgfobdpqjs/EatKunGai1/releases)
 
 ## 可选功能
 

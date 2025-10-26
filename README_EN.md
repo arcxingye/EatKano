@@ -14,6 +14,8 @@ _🦌 Web Game 🥛_
 
 A web game: EatKun
 
+Latest version: 0.0.0
+
 [Chinese](README.md)
 |
 [Github](https://github.com/fgfobdpqjs)
@@ -21,6 +23,8 @@ A web game: EatKun
 [Play](https://chicxk.pages.dev/)
 |
 [Github Pages](https://fgfobdpqjs.github.io/EatKun/index.html)
+|
+[Releases](https://github.com/fgfobdpqjs/EatKunGai1/releases)
 
 ## Features
 
