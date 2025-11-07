@@ -47,11 +47,11 @@ if ((!empty($name)) && (strlen($name) <= 30) && (strlen($message) <= 150) && (is
     } elseif(strpos($agent, 'macintosh')) {
         $system = 'Mac';
     } elseif(strpos($agent, 'ipod')) {
-        $system = 'iPod';
+        $system = 'Ipod';
     } elseif(strpos($agent, 'ipad')) {
-        $system = 'iPad';
+        $system = 'Ipad';
     } elseif(strpos($agent, 'iphone')) {
-        $system = 'iPhone';
+        $system = 'Iphone';
     } elseif (strpos($agent, 'android')) {
         $system = 'Android';
     } elseif(strpos($agent, 'unix')) {
